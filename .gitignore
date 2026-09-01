@@ -1,0 +1,112 @@
+# Credentials and local configuration
+.env
+
+# Keep this public software repository free of research and generated artifacts.
+/publication/
+/research/
+/manuscript/
+/tests/
+/**/tests/
+/**/test_*.py
+/projects/*/results/
+/projects/*/results_sanitized/
+/results/
+/experiments/
+*.pdf
+*.docx
+*.tex
+*.log
+.pytest_cache/
+__pycache__/
+.env.*
+!.env.example
+
+# Python environments, caches, and packaging
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.pytest*/
+.tmp*/
+build/
+dist/
+
+# Node and frontend build artifacts
+node_modules/
+.pnpm-store/
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+frontend/.cache/
+/frontend/AGENTS.md
+
+# Runtime state and generated outputs
+# The curated BPMN example library is versioned; locally uploaded models remain
+# ignored unless deliberately added to Git.
+/diagrams/*
+!/diagrams/README.md
+!/diagrams/*.bpmn
+/results/
+/scratch/
+/tmp/
+/_temp/
+/test_results/
+*.log
+*.aux
+*.fdb_latexmk
+*.fls
+*.out
+*.synctex.gz
+
+# Curated project gallery: ignore all other runtime projects
+/projects/*
+!/projects/README.md
+!/projects/Incident Management/
+!/projects/Incident Management/**
+!/projects/Leave Request/
+!/projects/Leave Request/**
+!/projects/RES_Sales_Process/
+!/projects/RES_Sales_Process/**
+
+# User-supplied parameter evidence stays local
+/local_evidence/candidate_packages/*
+!/local_evidence/candidate_packages/README.md
+/local_evidence/historical_tasks/*
+!/local_evidence/historical_tasks/README.md
+!/local_evidence/historical_tasks/example_historical_task_repository.json
+
+# Papers, experiments, reproducibility capsules, and research data
+/_paper/
+/archived_evaluation/
+/research_evaluation/
+/experiments/
+/processmining_data/
+/processmining_extractor/
+/code_ocean_capsule/
+/code_ocean_*_capsule/
+/conference_presentation/
+/sync_to_codeocean.sh
+/sync_reproducibility_capsule.sh
+/sync_reproducibility_capsule.bat
+/run_capsule.sh
+/capsule_update.zip
+/tmp_manuscript_jss.txt
+
+# Local development and editor state
+/_dev/
+/.vscode/
+.DS_Store
+Thumbs.db
+*.swp
+
+# Local recordings and archives
+/*.m4a
+/*.wav
+/*.zip
+/docs/assets/movie/
+/docs/REPRODUCIBILITY_RESEARCH.md
+/tests/generate_paper_plots.py
+/tests/test_experiment4_*.py
+/tests/test_repository_readiness.py

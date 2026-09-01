@@ -1,0 +1,127 @@
+{
+    "metadata": {
+        "methodology": "Capacity Planning and Stress Testing based on Erlang-C Queueing Model principles, focusing on resource utilization and wait times under varying demand.",
+        "sources": [
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEPA5S4-6UYRCzdEBhSynX1KKAl_aTx5F6v6InNbOWFuyHUQYp8iWcTaLbZrY2EnD7muD8UIeSXBH0O4f_ooxYaHACqaG6PxLOSBAqqx-8o0PK7oKt73vA7",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEhA5UqTTwhv8TKy5p-WnJqvK-ssjX3zPcnXX8QqkK5CE-3qV5gJFmSzfP2dkf8EUWUH3_0A9XKHuVKa8FTNzpW9cQv6nm9MY1A4HwXgYXKcFlVwdiHeMBAVzTeqQ7aYKugWttED_5zeqiNP4wuluAkE14wboSjGJnjzPphLw2yfkjflPX1GAI=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEQnO21axD1yDorv7sVXaGTJUCXlaZiyGLsNoiAq1qL4TQ-wClM06Z2mQRZkF3SOShKd23XdhnUoQHC0F-ZtDb1VuotWEW_U_koIFEpIeAtmqh7Vg0wpXS7ukoPYJEci_-QMmUi0qVCLrP-e7Op0W4RpRYoJ0tIEOTPN1G09DKJlBEcpdffT6xCqQFFh6U=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHJihwcT9kWM9DaZJsvFSOYVYyEK-5HopqDX0gQ05e4nLfaiYxVRKD64QDKOlkAkTRag5_mtDHMCx7dv_holTzwHpVlqgRbY8HaC-ymkJVJPWpEqTrjICntxJ6o7MOd61M_qAex4_Ktfznf6AsoJF8nt1Tm_TI9bV45",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGHKH9EKhTnCF-COxgg5rDJnxo1Ho-tvydhLsjC4DFnv3i7jKcb0QGI6mt2cSbG9QYnU0-HKRHDq6A0LRjdTCAgHqOmeIAi2-jegsiSvv-pjlBNstMPiSelkwNeyX-QDOc8hgy7QL0=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEELtjKFqFFcqlpqXv48enOnTd4gsSwOOyjTZLpVCs54uFX1sgeeRi_UqOhQx1BhQOWEtN3e3drvYNjmap5vEB6QbvV4foA9_rp1gGepfPooNqp4wUijJrtiKzH03M3Y6vOdqUsHryQE70RlMnumV9wI8MfDDcJpiHV0OQCKrc=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGYaxqZr6foLK-3tdNmpPV8vJdarMwEKf6cbQL9wNTtPh_1sPNBM1-ecVVyJhaT6eKQxB0ZMwWf6kpEIq53pZ7E4nkrNUf-BTvWONg4esPK5JighEOhvpr7GpZ4y9_xNfLut9BH3i-m72Fej4vTy-ofxkCBfhxEfR_PeIlM",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHqDMUwMTsrpoiYu0zFsHHa02ohUxGain87XJj0AoTLOuHJPba287_imoTCkM4EW3qp-diGeGaV4cgjZckFHFKgk-HotSBLHb3sqA5MSqvAc7w59WAY8GuodhDpIzEWOamCLTZKp02LdrSN6kQCm32pNpuFkvdrGg==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFzUe9uVucicx7-yooG72Ol5PtJ_2TUcTDVmmPEPMg5jZOFrnaF_7Qd7eTsPU2oASSsa6urFA8HEUkTSbgSMUCU4xl_JyDYCBcTHZUufCE-M4K-WRSlJ3ZYC-bdRlwC3Di8MmBpTWt5WpDLp7BLFE6vV3rJ3mrt8dBJ738roPeKCg==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGt2kGyMSZEC1Rs4bKOByEDi3eDkK43aUxLHq7VBxZvk1bcx1owuLMr1Dwfg1yKNXG6oPSSiB5sN8rb5dVhfJsHTZoPqIMLViYd8Fl4cRT7PsvBQ9a_1BuqkBZRrBB5lNh2E1IUterCdoKpw_x2KeFXRAjPQjnUB50=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEVt7XWO7ZC7UCfN8-EflumRWls6MeYFrvA6omCvjAO30z5Y0iwjYJesPr57xLiO-scpsk1R3BWu38hnqfT0QY_-IMLba6zl1G3k7WjSXPyUwgbK2GT0BUY6AE75KRIFA7SiTe6v_NHiOp5Kn98DyZlcBhHqtj_-TwNY1r0AgqSiEoM",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQElzpJaNMMQLmRLpEytIkKz3m0hPfgrPIorqGTn3N-yu_L5MkN24rOYIuKy1Hql3kiLxv_to7c_M-3Dw4ER3hiYpLQo_tL5i1g2FCpw5LjoA0ydLLPFBGUnB-WdGbVEeKOr-y7aR-BFTIWxmiPrRbFdky5LpNpyQFvhQNQy",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFVfcbBYqHi_zMf4lm7_R3VisiOtvnyWJZ66acZNO4I0ckwLJGQcj8ghmsXYzFrVDzYCy-RPDxKG9zWxd2A55sTmBGsSRE8BJxJzP3_VRfg6P3Jd-yl05jdf9yPu-FxHxKbfYxz3ygCKv1EQ1Klolp4nOqcqdHvkze9Iqnq",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHB_vaS0IKSf8FXiaMr7a-F_DVcTYwNbclI6OGk320hEiTKEElDrIKRej7w7OCU-82ejgSgnglSG7MBsI_6jOuueR8uQwRpoREFPqK0qtFq8ynFAQqEd0pbNuwZYAUBq7KPLMVPJCiKV3tf2HTYTUeL8hGy-OkvPPLAh65_",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFndhQ0NYZuYrZL0rkwQ4U7HOsOpHdqUf99Nf6Z4YyXTmDVP7eW4qu21i6SthxSsAcDeY9dxg659Ycqd5cm8xB35eLT5LJUv1rX8QPmN6NMoccq_jMNPdw9oxh8CPMh8gRRY61JTVzPPo8tfCItT897bn_58A7Uw-oYxqWWg1yA0G4I",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFawmFPoRpAQbguZtHD_kBG6GKim1aB21zg32buQDLUNxDYMexxYUNslC3zunxW8g_CBrrbmkCeLkZSwOFrNxWXM_0M9uj6VSdRaZT0ZZ4qKX83lns69-7hPPEI3pvs-wZU3DFSNx8wNlNC4XdJ_FKtAn5stXD_5w==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHsEzvIYr2vQ6yaSBG9gykcJrA_yupnMbXTVI-GRpjCejzIgwiSEwmg0zjHHdJrfH_IH0O8rKYV4v7lhZVBfdjgtNX8ET17VahmVNdtIKrHsEd6OA4QUxHfoGllffdWsVBHVXmuuM2nreA_VU7lx-OvZpyYYM0A36_jow2Tpw==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEegMH75waEC2JTRNxUF08BmYEKv1bGoyA-75ZLADX-4CZIChSlv-ZlYyO-HsxXDWns97Egom5MvaCM_XG-MWhcQT8AEoCWpbVXmEjXJWhRFKLOtnX5wZBGu_0hl2ZKFrgaqnfxmUR2BQQaA-zr0Q==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHuYF8EdhzvAJzS6NAzRYBoUKG6izgYvbkXdptUq-Hzm5mngTwp9uJU5xpzkeNQb5LAb9szN0aACn7OBI9gsCaz22XqJiPnkJSROeU3hhkyv3qu8Ww-o4JoZR_u07923MZQPKRSmjEp1Kx80sv-MdkPPCx2Eg==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFr_C6OS9MSssh8bo2ftRUoDXUHscjCwVnN9KJyjxlGDjFXj3e-EjdSdWjRaGDdFp5q_vJbo3uGlfp6P-Jv4p2GvF_uZkI44cRn244XTcv2pDKgBYUIdztlCgIkzylIJW8SxYqEwUpPKTmCkdudbUdRJ-D745KRo_h4WkkKCw==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFtNYVtHqbmDumZaoc7nud-vti708w-pTogCkeh4m5TAtqEyHok63SPS0LguFKjS7f3_LYnpQEEM5_F1bEgPNK8APzpXQ-zE2d4ukbZUtNuMi9kPdU0zcPuLVi3rvGjyvXf9oWy-AOAP0ezRE3hys7sxQ=="
+        ],
+        "source_urls": [
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEPA5S4-6UYRCzdEBhSynX1KKAl_aTx5F6v6InNbOWFuyHUQYp8iWcTaLbZrY2EnD7muD8UIeSXBH0O4f_ooxYaHACqaG6PxLOSBAqqx-8o0PK7oKt73vA7",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEhA5UqTTwhv8TKy5p-WnJqvK-ssjX3zPcnXX8QqkK5CE-3qV5gJFmSzfP2dkf8EUWUH3_0A9XKHuVKa8FTNzpW9cQv6nm9MY1A4HwXgYXKcFlVwdiHeMBAVzTeqQ7aYKugWttED_5zeqiNP4wuluAkE14wboSjGJnjzPphLw2yfkjflPX1GAI=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEQnO21axD1yDorv7sVXaGTJUCXlaZiyGLsNoiAq1qL4TQ-wClM06Z2mQRZkF3SOShKd23XdhnUoQHC0F-ZtDb1VuotWEW_U_koIFEpIeAtmqh7Vg0wpXS7ukoPYJEci_-QMmUi0qVCLrP-e7Op0W4RpRYoJ0tIEOTPN1G09DKJlBEcpdffT6xCqQFFh6U=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHJihwcT9kWM9DaZJsvFSOYVYyEK-5HopqDX0gQ05e4nLfaiYxVRKD64QDKOlkAkTRag5_mtDHMCx7dv_holTzwHpVlqgRbY8HaC-ymkJVJPWpEqTrjICntxJ6o7MOd61M_qAex4_Ktfznf6AsoJF8nt1Tm_TI9bV45",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGHKH9EKhTnCF-COxgg5rDJnxo1Ho-tvydhLsjC4DFnv3i7jKcb0QGI6mt2cSbG9QYnU0-HKRHDq6A0LRjdTCAgHqOmeIAi2-jegsiSvv-pjlBNstMPiSelkwNeyX-QDOc8hgy7QL0=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEELtjKFqFFcqlpqXv48enOnTd4gsSwOOyjTZLpVCs54uFX1sgeeRi_UqOhQx1BhQOWEtN3e3drvYNjmap5vEB6QbvV4foA9_rp1gGepfPooNqp4wUijJrtiKzH03M3Y6vOdqUsHryQE70RlMnumV9wI8MfDDcJpiHV0OQCKrc=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGYaxqZr6foLK-3tdNmpPV8vJdarMwEKf6cbQL9wNTtPh_1sPNBM1-ecVVyJhaT6eKQxB0ZMwWf6kpEIq53pZ7E4nkrNUf-BTvWONg4esPK5JighEOhvpr7GpZ4y9_xNfLut9BH3i-m72Fej4vTy-ofxkCBfhxEfR_PeIlM",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHqDMUwMTsrpoiYu0zFsHHa02ohUxGain87XJj0AoTLOuHJPba287_imoTCkM4EW3qp-diGeGaV4cgjZckFHFKgk-HotSBLHb3sqA5MSqvAc7w59WAY8GuodhDpIzEWOamCLTZKp02LdrSN6kQCm32pNpuFkvdrGg==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFzUe9uVucicx7-yooG72Ol5PtJ_2TUcTDVmmPEPMg5jZOFrnaF_7Qd7eTsPU2oASSsa6urFA8HEUkTSbgSMUCU4xl_JyDYCBcTHZUufCE-M4K-WRSlJ3ZYC-bdRlwC3Di8MmBpTWt5WpDLp7BLFE6vV3rJ3mrt8dBJ738roPeKCg==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGt2kGyMSZEC1Rs4bKOByEDi3eDkK43aUxLHq7VBxZvk1bcx1owuLMr1Dwfg1yKNXG6oPSSiB5sN8rb5dVhfJsHTZoPqIMLViYd8Fl4cRT7PsvBQ9a_1BuqkBZRrBB5lNh2E1IUterCdoKpw_x2KeFXRAjPQjnUB50=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEVt7XWO7ZC7UCfN8-EflumRWls6MeYFrvA6omCvjAO30z5Y0iwjYJesPr57xLiO-scpsk1R3BWu38hnqfT0QY_-IMLba6zl1G3k7WjSXPyUwgbK2GT0BUY6AE75KRIFA7SiTe6v_NHiOp5Kn98DyZlcBhHqtj_-TwNY1r0AgqSiEoM",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQElzpJaNMMQLmRLpEytIkKz3m0hPfgrPIorqGTn3N-yu_L5MkN24rOYIuKy1Hql3kiLxv_to7c_M-3Dw4ER3hiYpLQo_tL5i1g2FCpw5LjoA0ydLLPFBGUnB-WdGbVEeKOr-y7aR-BFTIWxmiPrRbFdky5LpNpyQFvhQNQy",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFVfcbBYqHi_zMf4lm7_R3VisiOtvnyWJZ66acZNO4I0ckwLJGQcj8ghmsXYzFrVDzYCy-RPDxKG9zWxd2A55sTmBGsSRE8BJxJzP3_VRfg6P3Jd-yl05jdf9yPu-FxHxKbfYxz3ygCKv1EQ1Klolp4nOqcqdHvkze9Iqnq",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHB_vaS0IKSf8FXiaMr7a-F_DVcTYwNbclI6OGk320hEiTKEElDrIKRej7w7OCU-82ejgSgnglSG7MBsI_6jOuueR8uQwRpoREFPqK0qtFq8ynFAQqEd0pbNuwZYAUBq7KPLMVPJCiKV3tf2HTYTUeL8hGy-OkvPPLAh65_",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFndhQ0NYZuYrZL0rkwQ4U7HOsOpHdqUf99Nf6Z4YyXTmDVP7eW4qu21i6SthxSsAcDeY9dxg659Ycqd5cm8xB35eLT5LJUv1rX8QPmN6NMoccq_jMNPdw9oxh8CPMh8gRRY61JTVzPPo8tfCItT897bn_58A7Uw-oYxqWWg1yA0G4I",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFawmFPoRpAQbguZtHD_kBG6GKim1aB21zg32buQDLUNxDYMexxYUNslC3zunxW8g_CBrrbmkCeLkZSwOFrNxWXM_0M9uj6VSdRaZT0ZZ4qKX83lns69-7hPPEI3pvs-wZU3DFSNx8wNlNC4XdJ_FKtAn5stXD_5w==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHsEzvIYr2vQ6yaSBG9gykcJrA_yupnMbXTVI-GRpjCejzIgwiSEwmg0zjHHdJrfH_IH0O8rKYV4v7lhZVBfdjgtNX8ET17VahmVNdtIKrHsEd6OA4QUxHfoGllffdWsVBHVXmuuM2nreA_VU7lx-OvZpyYYM0A36_jow2Tpw==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEegMH75waEC2JTRNxUF08BmYEKv1bGoyA-75ZLADX-4CZIChSlv-ZlYyO-HsxXDWns97Egom5MvaCM_XG-MWhcQT8AEoCWpbVXmEjXJWhRFKLOtnX5wZBGu_0hl2ZKFrgaqnfxmUR2BQQaA-zr0Q==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHuYF8EdhzvAJzS6NAzRYBoUKG6izgYvbkXdptUq-Hzm5mngTwp9uJU5xpzkeNQb5LAb9szN0aACn7OBI9gsCaz22XqJiPnkJSROeU3hhkyv3qu8Ww-o4JoZR_u07923MZQPKRSmjEp1Kx80sv-MdkPPCx2Eg==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFr_C6OS9MSssh8bo2ftRUoDXUHscjCwVnN9KJyjxlGDjFXj3e-EjdSdWjRaGDdFp5q_vJbo3uGlfp6P-Jv4p2GvF_uZkI44cRn244XTcv2pDKgBYUIdztlCgIkzylIJW8SxYqEwUpPKTmCkdudbUdRJ-D745KRo_h4WkkKCw==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFtNYVtHqbmDumZaoc7nud-vti708w-pTogCkeh4m5TAtqEyHok63SPS0LguFKjS7f3_LYnpQEEM5_F1bEgPNK8APzpXQ-zE2d4ukbZUtNuMi9kPdU0zcPuLVi3rvGjyvXf9oWy-AOAP0ezRE3hys7sxQ=="
+        ],
+        "rationale": "The goal of these 'What-If' scenarios is to understand the 'RES Sales Process' performance under different operational conditions, identify potential bottlenecks during peak demand, and evaluate the effectiveness of increased resource allocation on key performance indicators like wait times and overall throughput. This helps in strategic workforce planning and process optimization.",
+        "generated_at": "2026-04-26T10:15:52.989349"
+    },
+    "base_parameters": "AutoGenerated_Base_params.json",
+    "report_settings": {
+        "title": "RES Sales Process Simulation Experiment Report",
+        "description": "This report simulates the 'RES Sales Process' under varying demand levels and resource allocations to assess performance and identify bottlenecks.",
+        "kpis": {
+            "wait_times": [
+                "Coordinator_Role",
+                "eco_Advisor_Role",
+                "Customer_Role",
+                "System_Role",
+                "Key_Account_Manager_Role",
+                "Accountant_Role",
+                "Reviewer_Role",
+                "Auditor_Role"
+            ]
+        }
+    },
+    "scenarios": [
+        {
+            "name": "A_Baseline",
+            "description": "Establishes a baseline performance under normal operating conditions with current resource allocations and typical demand.",
+            "arrival_rate": 144000,
+            "cost_overrides": {
+                "Coordinator_Role": 11.08,
+                "eco_Advisor_Role": 14.39,
+                "Customer_Role": 18.39,
+                "System_Role": 21.46,
+                "Key_Account_Manager_Role": 23.58,
+                "Accountant_Role": 17.2,
+                "Reviewer_Role": 20.51,
+                "Auditor_Role": 18.86
+            }
+        },
+        {
+            "name": "B_Peak_Load",
+            "description": "Tests the system's resilience and identifies bottlenecks under a significant surge in incoming sales requests.",
+            "arrival_rate": 10000,
+            "cost_overrides": {
+                "Coordinator_Role": 11.08,
+                "eco_Advisor_Role": 14.39,
+                "Customer_Role": 18.39,
+                "System_Role": 21.46,
+                "Key_Account_Manager_Role": 23.58,
+                "Accountant_Role": 17.2,
+                "Reviewer_Role": 20.51,
+                "Auditor_Role": 18.86
+            }
+        },
+        {
+            "name": "C_Increased_Capacity",
+            "description": "Evaluates the impact of increasing key resource allocations to mitigate wait times and improve throughput under high demand.",
+            "arrival_rate": 10000,
+            "resource_allocations": {
+                "Coordinator_Role": 2,
+                "eco_Advisor_Role": 2,
+                "Customer_Role": 2,
+                "System_Role": 2,
+                "Key_Account_Manager_Role": 2,
+                "Accountant_Role": 2,
+                "Reviewer_Role": 2,
+                "Auditor_Role": 2
+            },
+            "cost_overrides": {
+                "Coordinator_Role": 11.08,
+                "eco_Advisor_Role": 14.39,
+                "Customer_Role": 18.39,
+                "System_Role": 21.46,
+                "Key_Account_Manager_Role": 23.58,
+                "Accountant_Role": 17.2,
+                "Reviewer_Role": 20.51,
+                "Auditor_Role": 18.86
+            }
+        }
+    ]
+}

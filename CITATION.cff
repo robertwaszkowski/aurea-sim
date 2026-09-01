@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "AureaSim: An AI-Assisted Framework for BPMN Process Simulation Preparation and Execution"
+version: 1.2.0
+date-released: 2026-08-17
+url: "https://github.com/robertwaszkowski/aurea-sim"
+repository-code: "https://github.com/robertwaszkowski/aurea-sim"
+license: GPL-3.0-only
+authors:
+  - family-names: "Waszkowski"
+    given-names: "Robert"
+    affiliation: "Military University of Technology, Warsaw, Poland"
+    email: "robert.waszkowski@wat.edu.pl"
+preferred-citation:
+  type: article
+  title: "AureaSim: An AI-Assisted Framework for BPMN Process Simulation Preparation and Execution"
+  authors:
+    - family-names: "Waszkowski"
+      given-names: "Robert"
+  journal: "SoftwareX"
+  year: 2026
+  note: "SoftwareX paper forthcoming"

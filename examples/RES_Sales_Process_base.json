@@ -1,0 +1,613 @@
+{
+    "metadata": {
+        "methodology": "The methodology involved extracting specific hourly cost data for various roles and processing time benchmarks for tasks from the provided empirical research. Where direct data was unavailable, conservative extrapolations were made based on similar roles or task complexities. All costs were converted to EUR using the provided exchange rate of 1 EUR = 4.24 PLN. Task durations were converted from minutes/hours to seconds for the simulation engine. Standard deviations for task durations were estimated as a fraction of the mean or half the range, ensuring a realistic distribution. Gateway probabilities were assigned based on common business assumptions, aiming for a plausible flow distribution.",
+        "sources": [
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGiyYLoIOfHBW7UwU486qbuNKFbPpMiEnRiA7_NanqZcsPUX43md4hlxmtec2OWmv8-VD9jpKm2Saa-xxPOmJPKaVeUClI74slVt-fw5UUChQAPhxFKpK4F",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGpKBGMISY5-9oYwvdz-2jt3ohOR23U_9BhYokqNBaWd_z62LumoVcPdJeAjFKqAiuCC7AhiWkuvAn-9REabmgoCT6IMvxYDv62839tZ7TzLy73kpY2rAyl2VwO4sHDZjfyeUVMnKGolzbhw9Ih1p1jaVO90Bb-FUBH",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG0cD9MZN0xV6hhyJBeEux6vvcxj_yQrPHsKJYjWtbKG9KXJstvG85iT8ikqB-PWeJz0wvr_m8AQhWnFX7jn1umhbnFjeetCjKcpbZ-SrEVLcoK0Lcn0icb1xTli5R8F_ICYaq5d6kYJ8oLWn7zeSeuuDIa5uWU2gZ561vLbbGQx3w=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFutVuixg7Ob4nqj-uhN363hLUutx5d9KgMwITYZVMOCYtIZlblArVMyZtuwTCTbi2bnkSQjzGnXGND9SoRy84eVnjGgiA2bS7BbyZIVx2gJ9_QWtiLXk0gQBciwqYSA1dSLuwz0BSlZfPFNWns9BMiwcp_fdGzfS5FbZTFJXfWeOHbNCvH2MTbE674UV4=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF_FZdpJUmL2S9-JVTERd2OKuUaK0bfhxIyW4MXpzKy2TG5O4nzUaCiY5EHk6At_ReKpnEi-dECKrVSvz-HJdrIkXXC6GGJPLYuAhhRa_skltd388RUUY83V-ULvzBkG6qjanJL82oBKQ==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEy6rrltVf98w8PTMSwnwTk95ziFDIN_fRma79XHhAuyDx55D09k27smNzRWWR86mftLDulAXFCaCFZh0NdHdswceq6txPPeJslzdG10FfTkk8HXUQyHljIMj880Sau9OzQ3v_BVEHYiQshhrcYTDhOqeeuZj3sklZ34f-f",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFuzxL8QKK7AGdlL9SXuBqZN-f_AkiwXLy1OSZdiZ_MtcAnvBTtAWrN7GM56Q3Lo3iMuHdfYeAsQU1U2fdPPJ8SS_g6lDjayHoOY2B1fC-tREAF6BDWfU8PvhtluO1ttakbVZCCI5qcBVlllgTZAKORz8dS-4v0Tg==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHtEHbdNSxIn8-ozinLItdpQCDtQcUNBcWZB5y_smbDHkxHD6-5ZMGsq4q-JEBNjBpUSph__9axq7j6bpbA125xQ2XE14In9fl-Jl3VrBT7FULc-lAb8Ija13KMaxBakGxUehne9eMvrXGNLXJi5bNZJOjV3BGNAKIoDmcc8Gc=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGvL-vlKmQ2CS5P5hJ12Uxsg9Mj-BGbU2XkjPtnAd-tVGpRDeDa5XEfTM2mrOrfRntsLbOXCw_Sx3oA0-8eHqghOMizd13ZwSfo-4rser7rKsZxg_kznNLAlF8U9fxA_aqjJR7I-ywpDwABRRlq925kjF6h21xECyZRjsJ2zfzX4ayauwI=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE0wc1PApDI50cXd1BSkQd9sKVvvgezCXoY2wLG3F64NkC2EF4hUej8pz1O54Q_-0sU7Ln2r-MQr71_CKjr6tbhP1FwCjQZSONh-WqJ2UaTJ4WBQpRPN8CYZpZNcwOJZh5ve5XDsrK1ZF0=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFIUF57UI1uqYaXgiGpwGcgCWQP9Gvwk0R7OhQ95kCks7BvoGVmP8wHBcmFi2_kMUFOs9-UKyLf_sGzUjeQ-cFewo-vrrrFx74x2mVu7svGFlykwCb_IA2vMEA9lihQzyi9pzZ1NH1xwF06Svo1CfOVdO4b7EE7gEfxUu4o",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHTScHwPmiK4pvGWK7yHB3ednNJMQ6MemmgXCuUGol7MhGl0FXhfRlMpatImSdqLyFGLnEydVQAGQjcrK-ihOGMAhnosaM4fgsdB4ZmcWp0AkJYJcnIosZwZdXigl4-m8RdwF7lwuHkvHihX22o98blAZDD0YIoP9tWy8k4kATgcuJ6",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEqQGOHlYIJ1l4_gxL132kj1Ppi0Ou0LY9dzXyqToy9hYtRqiQikmpD9ULRu3y7LuDX2Bj7PLzbuLk8dNR9DXtSeFWAtFfGaP-23VK1qh-OZvwOmGUj-4JEV0frXM-1KVsz90oEQHhTmRY1tm8w2zJJlvn5RlxRhoWS3psNzw==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFQ3WfjRa382iMSVua64JzDJBiFRCTZKjJzpFtcOKMYrQbNTB3LvNiqhGlRqIyppTwDgpB5qvMsxlMJFPgGDu6NnCbkwisZfekyu9psWM9aVTmzhvCe-E7mcRjDIfTL-tJZzv2IJ6SFgZKtsgJm0jvaeCbMZLu58g==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFYIi9QAnVfAiWJiYJTZeJxl7r5iIjmwDZpMdwgQGIMqS8B13p-GVpqaMkBJ3oJBeNPulycjkdeYyvSYrf_OZlNqbgCQKDn_99qjVx-NeHOJvOW779_Frq7Ly8iDmbbNAjdbCBDWpRJYx00AV3vOg==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGqNucebkO2gjmXjed-Wxtm-dvHCw5I2lCx3HHvg16T-kdxtHyJBU72dQx9LMb-f-MSHmvSR2pOgysXsa92UUd_gu-Gl8Tijq5yBW4bbQhupZnOncwW1z3jRmcRxB0AecfRNs2241qZIiGMrkU41zmxRXCb3g==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGdrwp1HxfVL0NvdWrTUKmlryFUoI0Wc1XQFmtMK4qXaUz5rreEHOrieBIpPxUpih6B8nAFo2Ek9WkSIqttdQUuEm6zkZFj6VeGVz0O-ZiF9kHV3YGat3GEsSRddmNKh2Z-sC7XsmkIwFCHGezh0Zo_htGnzq19VPHGVDqPtz_sJhE=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEGooJpltk_ZxdRkB8g6L362iwU5yuLfTITeFcC4ETZevGEGK8TY4RtZ87VVbRsUJKrhgIVI11_CAfMX1xBIhV3A5bz24pwlsbrF7ZFFOawFUHPQ2xq3zYi3568T_CfHg-eFF14bdKeASFshsc211yjpcrhgue68FKPnkxUrkDJ",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHkpReu7cqDJ3dZ3SWm_m89ctzOqNxh8IYaAEOuRiY4t39AT71nlEKV4PV44zC8rxT0Ve-emY64Eud37i_hGnWb_QeKK3E02qU9mWU0wF4c-vi67hRpwy_xvZxW5_mVw7vScPWrkEOawxrt1yuf6knbPw=="
+        ],
+        "source_urls": [
+            "https://currency.wiki/eur-pln",
+            "https://www.salaryexpert.com/salary/job/content-reviewer/poland/krakow",
+            "https://www.salaryexpert.com/salary/job/sales-reviewer/poland/krakow",
+            "https://www.erieri.com/salary/job/environmental-consultant/poland",
+            "https://www.salaryexpert.com/salary/job/key-account-manager/poland",
+            "https://www.erieri.com/salary/job/key-account-manager/poland",
+            "https://wise.com/us/currency-converter/pln-to-eur-rate/history",
+            "https://www.erieri.com/salary/job/quality-assurance-analyst/poland",
+            "https://currency.wiki/pln-eur",
+            "https://www.salaryexpert.com/salary/job/auditor/poland",
+            "https://www.erieri.com/salary/job/it-systems-administrator/poland",
+            "https://uk.investing.com/currencies/pln-eur",
+            "https://www.erieri.com/salary/job/guide/poland",
+            "https://www.salaryexpert.com/salary/job/coordinator-regional/poland",
+            "https://www.xe.com/en-us/currencyconverter/convert/?Amount=1&From=PLN&To=EUR",
+            "https://www.erieri.com/salary/job/accountant/poland",
+            "https://www.salaryexpert.com/salary/job/environmental-consultant/poland",
+            "https://www.erieri.com/salary/job/project-coordinator/poland",
+            "https://www.revolut.com/en-US/currency-converter/convert-pln-to-eur-exchange-rate/",
+            "https://www.salaryexpert.com/salary/job/accountant/poland",
+            "https://www.revolut.com/en-US/currency-converter/convert-eur-to-pln-exchange-rate/",
+            "https://wise.com/us/currency-converter/eur-to-pln-rate/history",
+            "https://www.salaryexpert.com/salary/job/economic-consultant/poland/krakow",
+            "https://www.erieri.com/salary/job/customer-service-advisor/poland",
+            "https://www.salaryexpert.com/salary/job/it-systems-administrator/poland",
+            "https://www.salaryexpert.com/salary/job/office-coordinator/poland",
+            "https://www.ofx.com/en-ie/exchange-rates/pln/",
+            "https://www.salaryexpert.com/salary/job/operations-coordinator/poland",
+            "https://www.erieri.com/salary/job/category-coordinator/poland",
+            "https://www.xe.com/currencyconverter/convert/?Amount=1&From=EUR&To=PLN"
+        ],
+        "rationale": "Hourly costs for Coordinator (EUR 13.45), System (EUR 21.46), Key Account Manager (EUR 23.58), Accountant (EUR 17.22), Reviewer (EUR 22.29), and Auditor (EUR 18.87) were derived directly from the provided empirical data by averaging ranges or using the stated average and converting from PLN to EUR. For 'eco-Advisor', an average of EUR 22.40 was chosen, leaning towards the higher end of the estimated range (EUR 18.87-25.94) given the specialized nature of the role, aligning it closer to a consultant. For 'Customer', a nominal cost of EUR 5.00/hour was assigned, as customers do not incur a direct salary cost to the business but their time can be valued in a simulation. Task durations were estimated based on the provided benchmarks, converting all to seconds. For tasks without direct benchmarks (e.g., 'Choose auditor and arrange the audit', 'Perform audit', 'Sign the agreement', 'Check customer credit-worthiness', 'Accept the advance payment', 'Start the logistics and installation process'), durations were conservatively extrapolated based on the complexity and nature of similar tasks for which benchmarks were available. Standard deviations were set to reflect typical variability, generally around 10-20% of the mean, or half the range for tasks with defined min/max estimates. Gateway probabilities were set to reflect common business scenarios, prioritizing the 'happy path' where applicable, but also accounting for alternative flows.",
+        "generated_at": "2026-04-26T10:10:46.536378"
+    },
+    "resource_profiles": [
+        {
+            "id": "Coordinator_Role",
+            "name": "Coordinator_Role",
+            "resource_list": [
+                {
+                    "id": "Coordinator_Role_1",
+                    "name": "Coordinator_Role_1",
+                    "cost_per_hour": 13.45,
+                    "amount": 1,
+                    "calendar": "Standard_Working_Hours"
+                }
+            ]
+        },
+        {
+            "id": "eco_Advisor_Role",
+            "name": "eco_Advisor_Role",
+            "resource_list": [
+                {
+                    "id": "eco_Advisor_Role_1",
+                    "name": "eco_Advisor_Role_1",
+                    "cost_per_hour": 22.4,
+                    "amount": 1,
+                    "calendar": "Standard_Working_Hours"
+                }
+            ]
+        },
+        {
+            "id": "Customer_Role",
+            "name": "Customer_Role",
+            "resource_list": [
+                {
+                    "id": "Customer_Role_1",
+                    "name": "Customer_Role_1",
+                    "cost_per_hour": 5.0,
+                    "amount": 1,
+                    "calendar": "24_7_Calendar"
+                }
+            ]
+        },
+        {
+            "id": "System_Role",
+            "name": "System_Role",
+            "resource_list": [
+                {
+                    "id": "System_Role_1",
+                    "name": "System_Role_1",
+                    "cost_per_hour": 21.46,
+                    "amount": 1,
+                    "calendar": "24_7_Calendar"
+                }
+            ]
+        },
+        {
+            "id": "Key_Account_Manager_Role",
+            "name": "Key_Account_Manager_Role",
+            "resource_list": [
+                {
+                    "id": "Key_Account_Manager_Role_1",
+                    "name": "Key_Account_Manager_Role_1",
+                    "cost_per_hour": 23.58,
+                    "amount": 1,
+                    "calendar": "Standard_Working_Hours"
+                }
+            ]
+        },
+        {
+            "id": "Accountant_Role",
+            "name": "Accountant_Role",
+            "resource_list": [
+                {
+                    "id": "Accountant_Role_1",
+                    "name": "Accountant_Role_1",
+                    "cost_per_hour": 17.22,
+                    "amount": 1,
+                    "calendar": "Standard_Working_Hours"
+                }
+            ]
+        },
+        {
+            "id": "Reviewer_Role",
+            "name": "Reviewer_Role",
+            "resource_list": [
+                {
+                    "id": "Reviewer_Role_1",
+                    "name": "Reviewer_Role_1",
+                    "cost_per_hour": 22.29,
+                    "amount": 1,
+                    "calendar": "Standard_Working_Hours"
+                }
+            ]
+        },
+        {
+            "id": "Auditor_Role",
+            "name": "Auditor_Role",
+            "resource_list": [
+                {
+                    "id": "Auditor_Role_1",
+                    "name": "Auditor_Role_1",
+                    "cost_per_hour": 18.87,
+                    "amount": 1,
+                    "calendar": "Standard_Working_Hours"
+                }
+            ]
+        }
+    ],
+    "task_resource_distribution": [
+        {
+            "task_id": "Task_AddProspect",
+            "resources": [
+                {
+                    "resource_id": "System_Role_1",
+                    "distribution_name": "norm",
+                    "distribution_params": [
+                        {
+                            "value": 30.0
+                        },
+                        {
+                            "value": 5.0
+                        },
+                        {
+                            "value": 0.0
+                        },
+                        {
+                            "value": 999999.0
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "task_id": "Task_AddContact",
+            "resources": [
+                {
+                    "resource_id": "Customer_Role_1",
+                    "distribution_name": "norm",
+                    "distribution_params": [
+                        {
+                            "value": 210.0
+                        },
+                        {
+                            "value": 30.0
+                        },
+                        {
+                            "value": 0.0
+                        },
+                        {
+                            "value": 999999.0
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "task_id": "Task_FirstAppt",
+            "resources": [
+                {
+                    "resource_id": "Key_Account_Manager_Role_1",
+                    "distribution_name": "norm",
+                    "distribution_params": [
+                        {
+                            "value": 3600.0
+                        },
+                        {
+                            "value": 300.0
+                        },
+                        {
+                            "value": 0.0
+                        },
+                        {
+                            "value": 999999.0
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "task_id": "Task_PrepareOffer",
+            "resources": [
+                {
+                    "resource_id": "eco_Advisor_Role_1",
+                    "distribution_name": "norm",
+                    "distribution_params": [
+                        {
+                            "value": 18000.0
+                        },
+                        {
+                            "value": 1800.0
+                        },
+                        {
+                            "value": 0.0
+                        },
+                        {
+                            "value": 999999.0
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "task_id": "Task_ReviewOffer",
+            "resources": [
+                {
+                    "resource_id": "Reviewer_Role_1",
+                    "distribution_name": "norm",
+                    "distribution_params": [
+                        {
+                            "value": 2700.0
+                        },
+                        {
+                            "value": 150.0
+                        },
+                        {
+                            "value": 0.0
+                        },
+                        {
+                            "value": 999999.0
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "task_id": "Task_ConfirmInterest",
+            "resources": [
+                {
+                    "resource_id": "eco_Advisor_Role_1",
+                    "distribution_name": "norm",
+                    "distribution_params": [
+                        {
+                            "value": 600.0
+                        },
+                        {
+                            "value": 90.0
+                        },
+                        {
+                            "value": 0.0
+                        },
+                        {
+                            "value": 999999.0
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "task_id": "Task_Payment",
+            "resources": [
+                {
+                    "resource_id": "Customer_Role_1",
+                    "distribution_name": "norm",
+                    "distribution_params": [
+                        {
+                            "value": 120.0
+                        },
+                        {
+                            "value": 20.0
+                        },
+                        {
+                            "value": 0.0
+                        },
+                        {
+                            "value": 999999.0
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "task_id": "Task_ChooseInstaller",
+            "resources": [
+                {
+                    "resource_id": "Reviewer_Role_1",
+                    "distribution_name": "norm",
+                    "distribution_params": [
+                        {
+                            "value": 1800.0
+                        },
+                        {
+                            "value": 180.0
+                        },
+                        {
+                            "value": 0.0
+                        },
+                        {
+                            "value": 999999.0
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "task_id": "Task_ChooseAuditor",
+            "resources": [
+                {
+                    "resource_id": "Coordinator_Role_1",
+                    "distribution_name": "norm",
+                    "distribution_params": [
+                        {
+                            "value": 1800.0
+                        },
+                        {
+                            "value": 180.0
+                        },
+                        {
+                            "value": 0.0
+                        },
+                        {
+                            "value": 999999.0
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "task_id": "Task_PerformAudit",
+            "resources": [
+                {
+                    "resource_id": "Auditor_Role_1",
+                    "distribution_name": "norm",
+                    "distribution_params": [
+                        {
+                            "value": 36000.0
+                        },
+                        {
+                            "value": 3600.0
+                        },
+                        {
+                            "value": 0.0
+                        },
+                        {
+                            "value": 999999.0
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "task_id": "Task_SignAgreement",
+            "resources": [
+                {
+                    "resource_id": "Auditor_Role_1",
+                    "distribution_name": "norm",
+                    "distribution_params": [
+                        {
+                            "value": 1350.0
+                        },
+                        {
+                            "value": 90.0
+                        },
+                        {
+                            "value": 0.0
+                        },
+                        {
+                            "value": 999999.0
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "task_id": "Task_CreditCheck",
+            "resources": [
+                {
+                    "resource_id": "Reviewer_Role_1",
+                    "distribution_name": "norm",
+                    "distribution_params": [
+                        {
+                            "value": 2700.0
+                        },
+                        {
+                            "value": 150.0
+                        },
+                        {
+                            "value": 0.0
+                        },
+                        {
+                            "value": 999999.0
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "task_id": "Task_AdvancePayment",
+            "resources": [
+                {
+                    "resource_id": "Accountant_Role_1",
+                    "distribution_name": "norm",
+                    "distribution_params": [
+                        {
+                            "value": 600.0
+                        },
+                        {
+                            "value": 90.0
+                        },
+                        {
+                            "value": 0.0
+                        },
+                        {
+                            "value": 999999.0
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "task_id": "Task_StartLogistics",
+            "resources": [
+                {
+                    "resource_id": "System_Role_1",
+                    "distribution_name": "norm",
+                    "distribution_params": [
+                        {
+                            "value": 30.0
+                        },
+                        {
+                            "value": 5.0
+                        },
+                        {
+                            "value": 0.0
+                        },
+                        {
+                            "value": 999999.0
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "gateway_branching_probabilities": [
+        {
+            "gateway_id": "Gateway_ManualStart",
+            "probabilities": [
+                {
+                    "path_id": "Flow_3",
+                    "value": 0.3
+                },
+                {
+                    "path_id": "Flow_4",
+                    "value": 0.7
+                }
+            ]
+        },
+        {
+            "gateway_id": "Gateway_CustomerInterest",
+            "probabilities": [
+                {
+                    "path_id": "Flow_9",
+                    "value": 0.2
+                },
+                {
+                    "path_id": "Flow_10",
+                    "value": 0.1
+                },
+                {
+                    "path_id": "Flow_12",
+                    "value": 0.7
+                }
+            ]
+        },
+        {
+            "gateway_id": "Gateway_OfferChanges",
+            "probabilities": [
+                {
+                    "path_id": "Flow_17",
+                    "value": 0.8
+                },
+                {
+                    "path_id": "Flow_0hk08wz",
+                    "value": 0.2
+                }
+            ]
+        },
+        {
+            "gateway_id": "Gateway_Financing",
+            "probabilities": [
+                {
+                    "path_id": "Flow_19",
+                    "value": 0.3
+                },
+                {
+                    "path_id": "Flow_20",
+                    "value": 0.7
+                }
+            ]
+        },
+        {
+            "gateway_id": "Gateway_LoanDecision",
+            "probabilities": [
+                {
+                    "path_id": "Flow_22",
+                    "value": 0.8
+                },
+                {
+                    "path_id": "Flow_23",
+                    "value": 0.2
+                }
+            ]
+        }
+    ],
+    "resource_calendars": [
+        {
+            "id": "Standard_Working_Hours",
+            "name": "Standard Working Hours",
+            "time_periods": [
+                {
+                    "beginTime": "08:00:00",
+                    "endTime": "16:00:00",
+                    "from": "MONDAY",
+                    "to": "FRIDAY"
+                }
+            ]
+        },
+        {
+            "id": "24_7_Calendar",
+            "name": "24/7 System Calendar",
+            "time_periods": [
+                {
+                    "beginTime": "00:00:00",
+                    "endTime": "23:59:59",
+                    "from": "MONDAY",
+                    "to": "SUNDAY"
+                }
+            ]
+        }
+    ],
+    "arrival_time_calendar": [
+        {
+            "beginTime": "08:00:00",
+            "endTime": "16:00:00",
+            "from": "MONDAY",
+            "to": "FRIDAY"
+        }
+    ],
+    "arrival_time_distribution": {
+        "distribution_name": "expon",
+        "distribution_params": [
+            {
+                "value": 0
+            },
+            {
+                "value": 144000
+            },
+            {
+                "value": 0
+            },
+            {
+                "value": 9999999
+            }
+        ]
+    },
+    "process_model": "RES_Sales_Process.bpmn"
+}

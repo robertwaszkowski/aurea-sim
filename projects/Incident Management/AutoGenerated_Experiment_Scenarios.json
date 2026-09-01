@@ -1,0 +1,98 @@
+{
+    "metadata": {
+        "methodology": "Queueing Theory and Stress Testing: This experiment utilizes principles of queueing theory to model the flow of incidents and stress testing to evaluate system performance under various demand and resource allocation conditions. Scenarios are designed to simulate different operational states and assess their impact on key performance indicators like wait times and resource utilization.",
+        "sources": [
+            "vertexaisearch.cloud.google.com",
+            "vertexaisearch.cloud.google.com",
+            "Job=customer Service Representative (csr) \u203a Hourly Rate \u2014 payscale.com",
+            "vertexaisearch.cloud.google.com",
+            "vertexaisearch.cloud.google.com",
+            "vertexaisearch.cloud.google.com",
+            "vertexaisearch.cloud.google.com",
+            "vertexaisearch.cloud.google.com",
+            "vertexaisearch.cloud.google.com",
+            "vertexaisearch.cloud.google.com",
+            "Skill=help Desk \u203a Desktop Support (tier 2) \u2014 payscale.com",
+            "vertexaisearch.cloud.google.com",
+            "vertexaisearch.cloud.google.com",
+            "vertexaisearch.cloud.google.com"
+        ],
+        "source_urls": [
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGz0VSJK2HuysB2cBccIufjs933bjfkwMWdiPfDXfhj7VTAA6-Qr5u_tLgoslaQARXIq7q_Vbob3sSTbJiIt6KBCK2RbVopXS6xBfGVAxYlFQW76R_U_XWoDyV3iy4-pj59gdcWpU5rmlJFw6EiC3LqSGfSU4UcJip2Oh6zz9ZLyhBrEKZuSEQYGVggPA==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFgz50P71nGtzQhNjqIMCVRUkdjOpI52ZXIKgXXrEDlRjWlPzOfu_Bv23XpA5bMIFBk2gRffbUUnpyPMeNeYExY02GAMqsS7EJOL5GPYsT9to7JB31fmcKBky0JZm2udukeubqeObwnn6ExCqYcNxEhaD4t4HU2U2AEAs14bpYCnT9DysP08RD_mmU0_5e4AQ==",
+            "https://www.payscale.com/research/US/Job=Customer_Service_Representative_(CSR)/Hourly_Rate",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFS_njqYNr6Z8_LfSi_vnbc3jEJCxFk68wPslFDn8skByCwUzRDSa3B41JDeeLX3VfpKLbQY2Sns0IJIlnyzlEhsNscgij9HqIr5MGxTNgEADY5DXuoqp4NGyNqqxrSUaEFbQERv6hmg17YVG2vt_tQT9KAmtDuTrqdrhF5yCMgze_0Xw2Vlpctamu4uMfTiF_5TwO8",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH-1SWOeq8ZDBbo4YqOEBbUBhu20dSkbWoLBIZdWkpW9yVjtK83RTGFfPE0xCywIvRCEb8uLcP6TCjUNN-XrTEYB-35bzaYrGP1meGtFqP-NcIMRUfrlB-_ypL-OAOyINbXOXwP4A6ZnfqKRQ_LD8pEEHL3c6gg4rH7oDbzkG-1SuJKcMpZB7_u0tR86_VS0Q==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGtgzsNU_4DFztEEPJX4UQokRDdbNgsDByK8mpIY9LUr-46KJYAsi4zP8FpxyiRSGmVyhaXgZrWQyPAye-pcxA2Zm77LF_yFLSo0wXkpGJnRW70RNxIGBuonzDHyjqICYN2p9g-sXZbsrmCVjqYYEw7y_oSdlV24lBW5FVXgH4nm55ZzKg1OZTSiHEdYmdozJNJvjY2pew=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGoY6buaNQxIvrZiTIKtdeRWipYfvwN_pRNHcVIrckV-yQ5a90E3Zlt-CGvQC-IUaZzNMgI3axGUcIsragfqsVzVRTvwlGCle_VzX1er81SL5dc3_HTjCIsNpUcAqmh8Geg8R6jT2uMf6FMFTUL2GDcEJB2tydhXRB36g==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHPWTQVnyDYBB4_DD23x5vs1GjdoIm5L9Ol03LWFGtxbj8JZbrNvrSbCykUxWImXuNMdqmx3Pt4yVH5aX76Hp6zURHFcAKTyKTcAZkMWFN50pB9yDwBSPsnRiOFU5ZmsGtSZhcgp1Ufsd9eJCa4IGaUKmM5ZccMY7ee226JlLu-ezIfs5faSJEl4BKh2nJRBqxvs4zzKg==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGsGpX-a52QckHDKfqvvSfsqWCdtfl79etrgoRevNyacwbfl2XVvwniH5_mipbaavo89sSNVev_XFj0GILtM0A0kfadUbF5SCu1G14fznuWlvzNBww7kS9VVMxNijpbT0u9sseeNxyz5AC5niULGVtOgeeGMjgw_gRU0UKXqoH8hrWbUfQIQNm8H90Pwk8=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEEBGR4XwywB6KscWuDYMOZXyiSp8zYHY0lf1rK6GZ5dgy0VtWflDhwqWhrPh0ycmCbrJ6k6RsnW3V-8lc3aYgdKDrl-LnBmbcipzzxhv8HKwhapzu_6g_HCHCztRmGZlmP4Vuubj0y48CFbLrmJ8yRi-sqIuajQRxgrqg=",
+            "https://www.payscale.com/research/DE/Skill=Help_Desk_%2F_Desktop_Support_(Tier_2)/Salary",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH-F5k1uwCsMgtBjpcw58Jkw2GUTNZH40ngw0R5orpBYv81GPo0XxmBZOF_umxafqIi21pcZctr-04LBAXup2kBuWOzFi-jeOXooH8rNoVmLPNHLDHW6zbHzs4KXfmDOgTBzETTdd5jyj0vsTeIR6vnChgKaVWSYKPwXgE=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFUFkWx919vODUxnlu3MFWeRYnfdRH6kZ3LqDLR3T4ufcYcMjxwMxISKoh-6WUJo6oqdcmUxAZcLnMWzxhA0cnRpkvt3sjHsglMpRjMmT7qRTtzSK9YgXwWIdb-jfmjXjAvUGkApELDOCvuOUURwYOEhJkf3r9VyfJ_vHu18mnukY-QGWCrWI7AtLL_BrC53HIAsaY5XrJ-cg==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFHTEZ06zZu993N6DUScG4WJr4XyUC9m4tfBIh_lrCZkHuIjg0eZm_-H3B-lKT54KMu2hssQFXQtZ3A5Ialv1xzC5tste5yIQcns-aj_zG_DUS-ckKHNie0iOeJAdr4IHPdU5dAukwDroQUqEnf9llIojwNFV78r3RAYTLSUFdnendzWxqtbQQh3R6BBk6Q9OeL"
+        ],
+        "rationale": "The 'A_Baseline' scenario establishes a reference point for current performance under normal operating conditions. The 'B_Peak_Load' scenario aims to identify bottlenecks and potential service degradation when demand significantly increases, simulating events like major system outages or high-volume periods. The 'C_Optimized_Recovery' scenario explores how strategic resource adjustments, specifically increasing Level 1 and Level 2 support, can mitigate the impact of high demand and improve service delivery efficiency and cost-effectiveness.",
+        "generated_at": "2026-04-28T23:23:00.867929"
+    },
+    "base_parameters": "AutoGenerated_Base_params.json",
+    "report_settings": {
+        "title": "Incident Management Process Simulation Experiment",
+        "description": "Simulating various demand and resource allocation scenarios for the Incident Management process to assess performance and identify bottlenecks.",
+        "kpis": {
+            "wait_times": [
+                "Customer_Service_Representative",
+                "Level_1_Help_Desk_Analyst",
+                "Level_2_Help_Desk_Analyst"
+            ]
+        }
+    },
+    "scenarios": [
+        {
+            "name": "A_Baseline",
+            "description": "Represents the current operational state with normal incoming demand and existing resource allocations.",
+            "arrival_rate": 144000,
+            "resource_allocations": {
+                "Customer_Service_Representative": 1,
+                "Level_1_Help_Desk_Analyst": 1,
+                "Level_2_Help_Desk_Analyst": 1
+            },
+            "cost_overrides": {
+                "Customer_Service_Representative": 30,
+                "Level_1_Help_Desk_Analyst": 30,
+                "Level_2_Help_Desk_Analyst": 30
+            }
+        },
+        {
+            "name": "B_Peak_Load",
+            "description": "Tests the system under significantly increased demand to identify breaking points and resource saturation.",
+            "arrival_rate": 10000,
+            "resource_allocations": {
+                "Customer_Service_Representative": 1,
+                "Level_1_Help_Desk_Analyst": 1,
+                "Level_2_Help_Desk_Analyst": 1
+            },
+            "cost_overrides": {
+                "Customer_Service_Representative": 30,
+                "Level_1_Help_Desk_Analyst": 30,
+                "Level_2_Help_Desk_Analyst": 30
+            }
+        },
+        {
+            "name": "C_Optimized_Recovery",
+            "description": "Evaluates the system's performance and cost-effectiveness with increased Level 1 and Level 2 support to handle higher demand efficiently.",
+            "arrival_rate": 20000,
+            "resource_allocations": {
+                "Customer_Service_Representative": 1,
+                "Level_1_Help_Desk_Analyst": 3,
+                "Level_2_Help_Desk_Analyst": 2
+            },
+            "cost_overrides": {
+                "Customer_Service_Representative": 80,
+                "Level_1_Help_Desk_Analyst": 62,
+                "Level_2_Help_Desk_Analyst": 92.25
+            }
+        }
+    ]
+}

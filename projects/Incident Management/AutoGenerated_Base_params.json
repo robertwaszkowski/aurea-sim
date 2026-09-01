@@ -1,0 +1,339 @@
+{
+    "metadata": {
+        "methodology": "The simulation parameters were derived from empirically grounded research data provided, focusing on average hourly costs for specific roles and standard processing time benchmarks for customer service and help desk interactions. Where direct data for a specific task was unavailable, conservative extrapolations were made based on related industry benchmarks and the task's complexity. Costs are based on European (EUR) averages.",
+        "sources": [
+            "Customer Service Representative Salary In Poland A 2025 Guide \u2014 ttecjobs.com",
+            "vertexaisearch.cloud.google.com",
+            "vertexaisearch.cloud.google.com",
+            "vertexaisearch.cloud.google.com",
+            "vertexaisearch.cloud.google.com",
+            "Research \u203a Job=customer Service Representative (csr) \u2014 payscale.com",
+            "Job Details \u203a Customer Service Representative \u2014 roberthalf.com",
+            "vertexaisearch.cloud.google.com",
+            "vertexaisearch.cloud.google.com",
+            "Research \u203a Job=service Desk Analyst \u203a Hourly Rate \u2014 payscale.com",
+            "vertexaisearch.cloud.google.com",
+            "vertexaisearch.cloud.google.com",
+            "vertexaisearch.cloud.google.com",
+            "vertexaisearch.cloud.google.com",
+            "Research \u203a Job=service Desk Analyst \u2014 payscale.com",
+            "Skill=help Desk \u203a Desktop Support (tier 2) \u2014 payscale.com",
+            "vertexaisearch.cloud.google.com",
+            "vertexaisearch.cloud.google.com",
+            "Technical Support Specialist Salary In Poland \u2014 itentio.com",
+            "vertexaisearch.cloud.google.com",
+            "vertexaisearch.cloud.google.com",
+            "vertexaisearch.cloud.google.com",
+            "vertexaisearch.cloud.google.com",
+            "vertexaisearch.cloud.google.com",
+            "Alternate \u203a Help Desk Tier 2 Specialist Salary \u2014 salary.com",
+            "Alternate \u203a Help Desk Technician Ii Salary \u2014 salary.com"
+        ],
+        "source_urls": [
+            "https://www.erieri.com/salary/job/customer-service-representative-general-calls/germany/dusseldorf",
+            "https://www.payscale.com/research/DE/Job=Customer_Service_Representative_(CSR)/Salary",
+            "https://www.indeed.com/cmp/Explore-Jobs-Search/salaries/Customer-Service-Representative/Ohio",
+            "https://www.reddit.com/r/ITCareerQuestions/comments/xl4l31/pay_range_for_level_1_help_desk/",
+            "https://www.salaryexpert.com/salary/job/customer-service-representative-utility/germany",
+            "https://www.salaryexpert.com/salary/job/customer-service-representative-financial/poland/warsaw",
+            "https://www.salary.com/research/de-salary/alternate/help-desk-technician-ii-salary/de",
+            "https://www.indeed.com/cmp/Eur%C3%B8-Style-1/salaries/Customer-Service-Representative",
+            "https://www.payscale.com/research/PL/Job=Service_Desk_Analyst/Hourly_Rate",
+            "https://www.payscale.com/research/DE/Job=Service_Desk_Analyst/Salary",
+            "https://www.indeed.com/cmp/Europe-Express/salaries/Customer-Service-Representative",
+            "https://www.erieri.com/salary/job/computer-technical-support-specialist/germany",
+            "https://www.ziprecruiter.com/Salaries/Help-Desk-Technician-Level-2-Salary--in-Minnesota",
+            "https://www.salaryexpert.com/salary/job/customer-service-representative-financial/germany",
+            "https://www.reddit.com/r/it/comments/1f87fqm/am_i_being_played_tier_ii_helpdesk_at_33hr_gross/",
+            "https://www.erieri.com/salary/job/help-desk-analyst/germany/mannheim",
+            "https://www.erieri.com/salary/job/technical-support-engineer/poland",
+            "https://www.ziprecruiter.com/Salaries/Customer-Service-Representative-Salary--in-Minnesota",
+            "https://www.salaryexpert.com/salary/job/help-desk-analyst/poland",
+            "https://www.salaryexpert.com/salary/job/help-desk-analyst/germany",
+            "https://www.ziprecruiter.com/Salaries/Customer-Service-Representative-Salary--in-Ohio",
+            "https://www.salary.com/research/de-salary/alternate/help-desk-tier-2-specialist-salary/de",
+            "https://www.salaryexpert.com/salary/job/technical-support-specialist/germany",
+            "https://www.erieri.com/salary/job/computer-technical-support-specialist/germany/berlin",
+            "https://www.roberthalf.com/nl/en/job-details/customer-service-representative",
+            "https://www.salaryexpert.com/salary/job/help-desk-analyst/poland/warsaw",
+            "https://www.ttecjobs.com/en/customer-service-representative-salary-in-poland-a-2025-guide",
+            "https://www.ziprecruiter.com/Salaries/Help-Desk-Analyst-Ii-Salary",
+            "https://www.salaryexpert.com/salary/job/it-technical-support-specialist/poland/warsaw",
+            "https://itentio.com/blog/technical-support-specialist-salary-in-poland/",
+            "https://www.erieri.com/salary/job/computer-technical-support-specialist/poland",
+            "https://www.payscale.com/research/DE/Skill=Help_Desk_%2F_Desktop_Support_(Tier_2)/Salary",
+            "https://www.erieri.com/salary/job/help-desk-representative/poland",
+            "https://www.salaryexpert.com/salary/job/help-desk-technician/poland",
+            "https://www.payscale.com/research/US/Job=Customer_Service_Representative_(CSR)/Hourly_Rate",
+            "https://www.salary.com/research/salary/alternate/help-desk-tier-1-specialist-salary",
+            "https://www.salaryexpert.com/salary/job/it-technical-support-specialist/germany/hamburg"
+        ],
+        "rationale": "Role assignments were made based on the nature of the tasks: 'handle question', 'Provide feedback', and 'Explain solution' were assigned to a Customer Service Representative, while 'Handle 1st level issue' and 'Handle 2nd level issue' were assigned to Level 1 and Level 2 Help Desk Analysts, respectively. Hourly costs were taken directly from the provided European (EUR) averages. Task durations were estimated using industry benchmarks for Average Handle Time (AHT) and resolution times for 1st and 2nd level support. For tasks like 'Provide feedback' and 'Explain solution', which lack specific standalone benchmarks, durations were conservatively estimated to be similar to general customer service inquiries, as they are often integrated into broader interaction times. Gateway probabilities reflect typical customer service and help desk escalation rates and first contact resolution targets.",
+        "generated_at": "2026-04-28T23:22:19.522039"
+    },
+    "arrival_time": {
+        "frequency": {
+            "events": 75.0,
+            "per_count": 1.0,
+            "per_unit": "day",
+            "rationale": "Based on typical daily inbound volume for a medium-sized customer service and help desk operation, balancing general inquiries with technical issues. This represents a moderate flow of customer interactions requiring resolution."
+        }
+    },
+    "resource_profiles": [
+        {
+            "id": "Customer_Service_Representative",
+            "name": "Customer_Service_Representative",
+            "resource_list": [
+                {
+                    "id": "Customer_Service_Representative_1",
+                    "name": "Customer_Service_Representative_1",
+                    "cost_per_hour": 21.81,
+                    "amount": 1,
+                    "calendar": "Standard_Working_Hours"
+                }
+            ]
+        },
+        {
+            "id": "Level_1_Help_Desk_Analyst",
+            "name": "Level_1_Help_Desk_Analyst",
+            "resource_list": [
+                {
+                    "id": "Level_1_Help_Desk_Analyst_1",
+                    "name": "Level_1_Help_Desk_Analyst_1",
+                    "cost_per_hour": 24.06,
+                    "amount": 1,
+                    "calendar": "Standard_Working_Hours"
+                }
+            ]
+        },
+        {
+            "id": "Level_2_Help_Desk_Analyst",
+            "name": "Level_2_Help_Desk_Analyst",
+            "resource_list": [
+                {
+                    "id": "Level_2_Help_Desk_Analyst_1",
+                    "name": "Level_2_Help_Desk_Analyst_1",
+                    "cost_per_hour": 29.81,
+                    "amount": 1,
+                    "calendar": "Standard_Working_Hours"
+                }
+            ]
+        }
+    ],
+    "task_resource_distribution": [
+        {
+            "task_id": "_6-94",
+            "resources": [
+                {
+                    "resource_id": "Customer_Service_Representative_1",
+                    "distribution_name": "norm",
+                    "distribution_params": [
+                        {
+                            "value": 240.0
+                        },
+                        {
+                            "value": 60.0
+                        },
+                        {
+                            "value": 0.0
+                        },
+                        {
+                            "value": 999999.0
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "task_id": "_6-333",
+            "resources": [
+                {
+                    "resource_id": "Level_1_Help_Desk_Analyst_1",
+                    "distribution_name": "norm",
+                    "distribution_params": [
+                        {
+                            "value": 1200.0
+                        },
+                        {
+                            "value": 300.0
+                        },
+                        {
+                            "value": 0.0
+                        },
+                        {
+                            "value": 999999.0
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "task_id": "_6-63",
+            "resources": [
+                {
+                    "resource_id": "Level_2_Help_Desk_Analyst_1",
+                    "distribution_name": "norm",
+                    "distribution_params": [
+                        {
+                            "value": 5400.0
+                        },
+                        {
+                            "value": 1800.0
+                        },
+                        {
+                            "value": 0.0
+                        },
+                        {
+                            "value": 999999.0
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "task_id": "_6-190",
+            "resources": [
+                {
+                    "resource_id": "Customer_Service_Representative_1",
+                    "distribution_name": "norm",
+                    "distribution_params": [
+                        {
+                            "value": 180.0
+                        },
+                        {
+                            "value": 45.0
+                        },
+                        {
+                            "value": 0.0
+                        },
+                        {
+                            "value": 999999.0
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "task_id": "_6-313",
+            "resources": [
+                {
+                    "resource_id": "Customer_Service_Representative_1",
+                    "distribution_name": "norm",
+                    "distribution_params": [
+                        {
+                            "value": 210.0
+                        },
+                        {
+                            "value": 50.0
+                        },
+                        {
+                            "value": 0.0
+                        },
+                        {
+                            "value": 999999.0
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "gateway_branching_probabilities": [
+        {
+            "gateway_id": "_6-196",
+            "probabilities": [
+                {
+                    "path_id": "_6-1033",
+                    "value": 0.75
+                },
+                {
+                    "path_id": "_6-1039",
+                    "value": 0.25
+                }
+            ]
+        },
+        {
+            "gateway_id": "_6-263",
+            "probabilities": [
+                {
+                    "path_id": "_6-285",
+                    "value": 0.25
+                },
+                {
+                    "path_id": "_6-415",
+                    "value": 0.75
+                }
+            ]
+        },
+        {
+            "gateway_id": "_6-289",
+            "probabilities": [
+                {
+                    "path_id": "_6-311",
+                    "value": 0.2
+                },
+                {
+                    "path_id": "_6-417",
+                    "value": 0.8
+                }
+            ]
+        }
+    ],
+    "resource_calendars": [
+        {
+            "id": "Standard_Working_Hours",
+            "name": "Standard Working Hours",
+            "time_periods": [
+                {
+                    "beginTime": "08:00:00",
+                    "endTime": "16:00:00",
+                    "from": "MONDAY",
+                    "to": "FRIDAY"
+                }
+            ]
+        },
+        {
+            "id": "24_7_Calendar",
+            "name": "24/7 System Calendar",
+            "time_periods": [
+                {
+                    "beginTime": "00:00:00",
+                    "endTime": "23:59:59",
+                    "from": "MONDAY",
+                    "to": "SUNDAY"
+                }
+            ]
+        }
+    ],
+    "arrival_time_calendar": [
+        {
+            "beginTime": "08:00:00",
+            "endTime": "16:00:00",
+            "from": "MONDAY",
+            "to": "FRIDAY"
+        }
+    ],
+    "arrival_time_distribution": {
+        "distribution_name": "expon",
+        "distribution_params": [
+            {
+                "value": 0
+            },
+            {
+                "value": 1152.0
+            },
+            {
+                "value": 0
+            },
+            {
+                "value": 9999999
+            }
+        ],
+        "frequency": {
+            "events": 75.0,
+            "per_count": 1.0,
+            "per_unit": "day",
+            "rationale": "Based on typical daily inbound volume for a medium-sized customer service and help desk operation, balancing general inquiries with technical issues. This represents a moderate flow of customer interactions requiring resolution."
+        }
+    },
+    "process_model": "Incident Management.bpmn"
+}

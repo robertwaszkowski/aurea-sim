@@ -1,0 +1,145 @@
+{
+    "metadata": {
+        "methodology": "Capacity Planning and Stress Testing Methodology, incorporating principles from Lean Six Sigma for process optimization.",
+        "sources": [
+            "vertexaisearch.cloud.google.com",
+            "vertexaisearch.cloud.google.com",
+            "Head Of Operations \u203a Germany \u203a For Employees \u2014 plane.com",
+            "vertexaisearch.cloud.google.com",
+            "vertexaisearch.cloud.google.com",
+            "News \u203a Vice Rector For Academic Affairs \u2014 en.ehuniversity.lt",
+            "vertexaisearch.cloud.google.com",
+            "vertexaisearch.cloud.google.com",
+            "Eurypedia \u203a Poland \u203a Conditions Service Academic Staff Working Higher Education \u2014 eurydice.eacea.ec.europa.eu",
+            "vertexaisearch.cloud.google.com",
+            "Institutional Benchmarking A Strategic Tool For Academic Excellence And Ranking Competitiveness \u2014 iae.education",
+            "Benchmarks \u2014 universitybenchmarking.org",
+            "vertexaisearch.cloud.google.com",
+            "vertexaisearch.cloud.google.com",
+            "vertexaisearch.cloud.google.com",
+            "vertexaisearch.cloud.google.com",
+            "vertexaisearch.cloud.google.com",
+            "vertexaisearch.cloud.google.com",
+            "Iso \u203a Iso Certification For Universities \u2014 marssigma.com",
+            "Iso Certifications For Universities And Colleges \u2014 blog.pacificcert.com",
+            "vertexaisearch.cloud.google.com",
+            "Iso Standards For Educational Institutions In Bd \u2014 hmsuniversal.com",
+            "Iso Certification For Educational \u2014 diligencecertification.com",
+            "Blogs \u203a Lean Six Sigma In Education A Roadmap To Better Student Outcomes \u2014 gsdcouncil.org",
+            "vertexaisearch.cloud.google.com",
+            "Lean Six Sigma For Education \u2014 leansixsigmainstitute.org",
+            "vertexaisearch.cloud.google.com"
+        ],
+        "source_urls": [
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGvLnW61LgdZkLHwrwwoHZWwJvWVsEMTe6N6YZZM4hw4UpU_UZ0NBkZdQxopuoAXDi0KSAfM4oQpJQdRyQQR_tifttYafsLTkzRwKdHlyphtV3zq-uZpWdj59sm2QkS2eOgnZmu34qrYBFhaTXpAExyyoKBo6p9XDfBBtcdXbk=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG30et801MpCm0olMIWx8xfAu_K_D0mEukIGV2bQnPSQTGJoErFX9BVtNUN0Wjq1vGIKK8eNEQAe2s3PZQXCZUqf_XqbcF5zhiZBSBkp4MrlyJ0y_4eh733Sh0h_YH_P18gDeLPi2nI49cBODiZfqmms1WKGouIgEeJv3xD0w==",
+            "https://plane.com/salaries/head-of-operations/germany/for-employees",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGnKDckh33wtW27Y61byrt24mkINejakRvO9V-0wcrE7Yp4uVoJ3bwHcFkXUOuERIImUb-mhUFQEVbWgHEIVIqZSbvJ6QmXHChGeJLJAlddtgpD_5pB90q6E1EAPnSDQre742tFWJNe3qqWUIs9iAlZxROY3yZfwI8Y4yT-",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHsS_Ur2-f1jmuXCv86HETatp6G7fURXs_1VCuSWowUEV7TMY-RtUvo4nigsdUtJUZB5rzVrnEOqM_8lfqNyfFpexraftYFl-hY-y2oYbjeJWAYQc-YzwdGf2s-k0cgXhjKg8Ayki0EWUakiFqVTrUxW1cQJbGzMXfqJUKYR_a3S1btw1CJYqF10tKi1nz6",
+            "https://en.ehuniversity.lt/news/vice-rector-for-academic-affairs/",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHUY8_dO4Fj7jjBKm4e8H_0WHbJxxd9upC5Ud-3Zp6_13rvtnSk7mQIb4fTc-oFbp2VhuptjF-31ZpI9naVeoXmNnWWdQDn7Bg9_yt-jDgKyoVVdsD3tGl_7KeoEMGWJoa38CG0E1aAV9PfKoqisghLP_TW14MNWPOwvcutLenIbkFqTYsqoA8=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHg5u_7O2lAv6Pp0LSLswP9XvCjXeceqwUh8ygskox-ClTWqCoz_kaZeLKmW6VuM845RUHxc1oL-QUMJ3r3Z_NNU3NjGq0JgT4ZoaUHJ1NAtGJ4JVpzmgTW3eH0o_HUuP_hrPsKMKwN_rVVtYFQUwBb268o5jZDaTpEJL9A6_V5XgWNDamV13gU4XL7mdwUkwZH44e2nvFuNr9Z",
+            "https://eurydice.eacea.ec.europa.eu/eurypedia/poland/conditions-service-academic-staff-working-higher-education",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFvyVHeBTrYzMykugjKD43krepzM2vh79T8W7GPdDqLjq-aSZ-HF0lq9gLcWXqRMsEA_E70ptAH1ltCz5VxNhb0ui0Eq5XkoKiRBSW9m1nPfVMEDwcl3tOgslxaIkGubUCifgiUsqD5aP7QExCN9I2dpyUTS_uAssaCRXwe_Rg2eZdpeBM9xeJNkJcBVnvd7WutYA==",
+            "https://iae.education/blog/institutional-benchmarking-a-strategic-tool-for-academic-excellence-and-ranking-competitiveness/",
+            "https://universitybenchmarking.org/benchmarks",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEBwSSEUXd6HepObmqDhGQDhqldPkmyVe3Cch-n8ApP53er0VPw-rmZ1cxahF3Dl-KYYhPaAK-3EOB5z8_RO0n2ZCAt1Zh-6x4HfViEMig7X--EtxdEdt9ogY6uc3Xi7_EbNWvwD7kmo386Yt-l0qFUrHm4cCCBun0QC8uKW3JG-vWDItQwQC4sM_DrVPmI9d2eH-UasNLWX-5uVdIztJ3x",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQENuGdA2_m_pIln5vKXA5Rz-3kkDdVA4vAD231lqJUFUQBKZVUj3n9e28h6jzBYcSpb47dpQ_JFRuFgkx3kas44I2GhWBB--exNb1n6uMksEOSFZzb4rJTK51nrOyBfQ1yHRA==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFb7TI0mBqvNNMHANHkw5Xt9Fo_-EeoRqxg0_v0awyMQ6fqA_3VH7OjcY5Oq2dJbhdIe2WUYcngUfEEUt8J8YjyKVXsffqOqV_tf7HH2FQr8fh7E0rX5gTlqN68zvKRN9P3gIr1R9Y8JwLjn1FUNo-x8-MIC0W2aviXm8JttbgKTKyezuRBnCTSFIJG5Qw_9GdjwF5Afk7kVztXLqw2z9QwTgVjwd5jXs5btHU_8xNH1LCvXw==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGuDi5OiQiI29ARyM6lB7ME5y0p9zSzs5FjpJViXnI6gFQwg3P77N-LLFWHptWzWrp3szTJYuQKSqyqCpCi_qQG1Wx4es4-_tYDdc1BHiXGWryiOP15F00YofMgl0djPLzXchDBTyWHAD_0BVmNfvz8eJeuavbInA==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEIgzeu8YBaKpW8d4DjUQZrHBpdiW9awiuXqU-pF1wjd5Z4Z_3Nj8Qn314zYgeFmcZbkA2q2DXYNNrFaVHEysoAgFXA4ugnU6IlSN-K2TA5xcOzBrNxQhZrLXto0jW4VL0nbIl35JuDW_1YmHSBt12zglhKmr2_VNKlG5zkPikuUoWgpWVma20LYU_920eENJRTFNkaKipGDJLDg_03GkPPyp7p_GwGMjAaxeEHW1NWUS0dRQ==",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEx2EVTBHYB9Sp0U0Q_meAZVoVa2nJ0CMTABEkpqFdUekzaoalNz3l9hTU1MzDrwauidQtCvgCivzDT4VjkW-HUDUBpUdoYbsmltDOIoxNSlx3nWVbJTEO91lCnaTtd49BxUx5Q23YNUCNYEIU3FXbjWo_VSINjWiHZAE_RF0EgO5Qh8I2M0XU=",
+            "https://marssigma.com/iso/iso-certification-for-universities/",
+            "https://blog.pacificcert.com/iso-certifications-for-universities-and-colleges/",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEuwkKjHOdbIxLkQmRIlUUabONaSEiozKad71wtYcOaHCusZGXRFc9xPLUI6FFgZC4LIqgZOTlfk8mGI6e2TRdDsbFlMn_K1T-dnZWl8u84He5j19EetC33-1XrM84xH0uq4NSpSSn0aLFcO1IEUsta-823StgsmM6If06gv1b1unm66L8EH0NL-lFl4aoYR7Rnyb2Xkp_rvI18sb7x1p4=",
+            "https://hmsuniversal.com/iso-standards-for-educational-institutions-in-bd/",
+            "https://www.diligencecertification.com/iso-certification-for-educational/",
+            "https://www.gsdcouncil.org/blogs/lean-six-sigma-in-education-a-roadmap-to-better-student-outcomes",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGzQ-Xjca9S4i_iVtY_Y_YW9TPH_47igW7hO3gBElRxmu1ddmRiwuAV5Y3U_4obzlbrMteTtMNHrU6_XgT53sB83nrnfxjc8jxKprmFOMTdPsAiL2qWIvgoAoRnxCBeiKtXUym8lzHFjilQbhW_9d81fgjC57T6XA==",
+            "https://leansixsigmainstitute.org/lean-six-sigma-for-education/",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH6AG7Wy8-3mbBqXBYVJqYRv1NleQ5KqmeT3jLqj-tUhSE3IzTkc-0wnsm-rJ20VV6S-mxSQJ53geaPRQ9OI25kcjGvEp2W-3wzt_R4dslvVheYK9bhhYT6X6UQvjHxVG-XXiDiOCYeafFn4eumnHkEdaZMbGG3Q7hIbXKFhIpntwqVy9xFaSF1fJwJ6GbDpn0P2dwRGqhCQMTmRcGBWULp0nPc3IIeiEf8qfVdIxTW_Q=="
+        ],
+        "rationale": "The 'A_Baseline' scenario establishes a normal operating benchmark for the Leave Request process. 'B_Peak_Load' simulates a high-demand period to identify potential bottlenecks and system breaking points under stress. 'C_Optimized_Resources_Peak_Load' explores how strategic resource allocation can mitigate performance degradation and manage wait times during such peak periods, aiming to find an optimal balance between cost and service level.",
+        "generated_at": "2026-04-27T10:16:24.234646"
+    },
+    "base_parameters": "AutoGenerated_Base_params.json",
+    "report_settings": {
+        "title": "Leave Request Process Simulation Experiment Report",
+        "description": "Simulating various demand and resource allocation scenarios for the Leave Request process to optimize efficiency and cost.",
+        "kpis": {
+            "wait_times": [
+                "Lane_Chancellor",
+                "Lane_PD",
+                "Lane_VRSA",
+                "Lane_VRE",
+                "Lane_HeadOU",
+                "Lane_Rector"
+            ]
+        }
+    },
+    "scenarios": [
+        {
+            "name": "A_Baseline",
+            "description": "Represents the normal operational conditions of the Leave Request process with standard demand and resource allocation.",
+            "arrival_rate": 144000,
+            "resource_allocations": {
+                "Lane_Chancellor": 1,
+                "Lane_PD": 1,
+                "Lane_VRSA": 1,
+                "Lane_VRE": 1,
+                "Lane_HeadOU": 1,
+                "Lane_Rector": 1
+            },
+            "cost_overrides": {
+                "Lane_Chancellor": 61,
+                "Lane_PD": 53,
+                "Lane_VRSA": 34,
+                "Lane_VRE": 36.35,
+                "Lane_HeadOU": 42,
+                "Lane_Rector": 61
+            }
+        },
+        {
+            "name": "B_Peak_Load",
+            "description": "Tests the system under significantly increased demand to identify bottlenecks and stress points with current resource levels.",
+            "arrival_rate": 10000,
+            "resource_allocations": {
+                "Lane_Chancellor": 1,
+                "Lane_PD": 1,
+                "Lane_VRSA": 1,
+                "Lane_VRE": 1,
+                "Lane_HeadOU": 1,
+                "Lane_Rector": 1
+            },
+            "cost_overrides": {
+                "Lane_Chancellor": 61,
+                "Lane_PD": 53,
+                "Lane_VRSA": 34,
+                "Lane_VRE": 36.35,
+                "Lane_HeadOU": 42,
+                "Lane_Rector": 61
+            }
+        },
+        {
+            "name": "C_Optimized_Resources_Peak_Load",
+            "description": "Evaluates the impact of increased resource allocation to mitigate wait times and maintain service levels during peak demand.",
+            "arrival_rate": 10000,
+            "resource_allocations": {
+                "Lane_Chancellor": 2,
+                "Lane_PD": 2,
+                "Lane_VRSA": 2,
+                "Lane_VRE": 2,
+                "Lane_HeadOU": 2,
+                "Lane_Rector": 2
+            },
+            "cost_overrides": {
+                "Lane_Chancellor": 61,
+                "Lane_PD": 53,
+                "Lane_VRSA": 34,
+                "Lane_VRE": 36.35,
+                "Lane_HeadOU": 42,
+                "Lane_Rector": 61
+            }
+        }
+    ]
+}

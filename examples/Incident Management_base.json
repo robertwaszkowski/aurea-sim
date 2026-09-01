@@ -1,0 +1,393 @@
+{
+    "metadata": {
+        "methodology": "Heuristic estimation based on BPMN task and role labels, process context, and general domain knowledge. External grounding was intentionally disabled for this run.",
+        "sources": [
+            "Grounding intentionally disabled. Values are heuristic estimates based on BPMN semantic analysis, role labels, task labels, and process context only."
+        ],
+        "source_urls": [
+            "https://www.leapsome.com/blog/absenteeism-rate",
+            "https://metricgate.com/docs/erlang-c/",
+            "https://www.sanalifeenergy.com/blog/peak-demand-charges-explained-the-biggest-line-item-nobodys-managing",
+            "https://dataforest.ai/blog/scenario-modeling-and-stress-testing---the-art-of-navigating-uncertainty",
+            "https://www.garp.org/risk-intelligence/credit/stress-testing-a-practical-guide",
+            "https://www.care.com/benefits/absenteeism-rate/",
+            "https://wiki.wfmlabs.org/wiki/Erlang_C",
+            "https://www.centage.com/blog/3-levels-of-stress-testing-your-2023-financial-plan",
+            "https://www.screendragon.com/blog/capacity-planning-strategies/",
+            "https://www.pipefy.com/blog/bottleneck/",
+            "https://www.bis.org/bcbs/publ/d450.pdf",
+            "https://qflowbpm.com/bottleneck-in-business/",
+            "https://www.kammac.com/wp-content/uploads/2023/05/white-paper.pdf",
+            "https://www.ebsco.com/research-starters/business-and-management/queueing-theory",
+            "https://wellhub.com/en-us/blog/organizational-development/calculate-employee-absenteeism-rate/",
+            "https://blog.constellation.com/2021/06/14/reducing-your-small-business-peak-demand-charges/",
+            "https://scheduleleave.com/blog/absenteeism-benchmarks-by-industry-whats-a-normal-rate/",
+            "https://eletric.net/daily-peak-demand-understanding-and-managing-your-businesss-highest-energy-use/",
+            "https://decide4ai.com/workforce-solutions/capacity-planning-what-if-scenarios/",
+            "https://www.assembled.com/blog/how-to-use-erlang-c-to-plan-staffing",
+            "https://databox.com/common-business-bottlenecks",
+            "https://onpay.com/insights/absenteeism-rate/",
+            "https://hyperdriveagile.com/articles/what-are-bottlenecks-in-business-how-business-agility-solves-them-92",
+            "https://in.indeed.com/career-advice/career-development/capacity-planning-best-practices",
+            "https://www.bis.org/bcbs/publ/d427.pdf"
+        ],
+        "rationale": "Values for resource costs, task durations, arrival rates, and gateway probabilities are heuristic estimates. They are set to conservative, plausible ranges suitable for an exploratory simulation, reflecting typical operational scenarios for a customer support process involving different levels of support and account management.",
+        "grounding_mode": "heuristic",
+        "grounding_status": "disabled_by_experiment",
+        "generated_at": "2026-06-27T15:10:05.794490",
+        "resource_assignment_policy": {
+            "mode": "deterministic_bpmn_role_binding",
+            "priority_order": [
+                "aurea_responsibleRef",
+                "bpmn_lane",
+                "task_label_suffix",
+                "task_id_fallback"
+            ],
+            "enforced": true
+        },
+        "parameter_provenance_policy": {
+            "enabled": true,
+            "evidence_statuses": [
+                "grounded_confirmed",
+                "grounded_proxy",
+                "grounded_extrapolated",
+                "heuristic_fallback",
+                "structural_value"
+            ],
+            "scope": "resource_costs_and_task_duration_means"
+        },
+        "task_name_map": {
+            "_6-94": {
+                "task_name": "handle question",
+                "clean_task_name": "handle question",
+                "resolved_role": "Account Manager"
+            },
+            "_6-333": {
+                "task_name": "Handle 1st level issue",
+                "clean_task_name": "Handle 1st level issue",
+                "resolved_role": "1st level support"
+            },
+            "_6-63": {
+                "task_name": "Handle 2nd level issue",
+                "clean_task_name": "Handle 2nd level issue",
+                "resolved_role": "2nd level support"
+            },
+            "_6-190": {
+                "task_name": "Provide feedback",
+                "clean_task_name": "Provide feedback",
+                "resolved_role": "Software development"
+            },
+            "_6-313": {
+                "task_name": "Explain solution",
+                "clean_task_name": "Explain solution",
+                "resolved_role": "Account Manager"
+            }
+        },
+        "generation_time_seconds": 25.24919295310974
+    },
+    "arrival_time": {
+        "frequency": {
+            "events": 10.0,
+            "per_count": 1.0,
+            "per_unit": "day",
+            "rationale": "Estimating an arrival rate of 10 customer questions/issues per day, reflecting a moderately busy support department for a B2B or B2C service. This provides a reasonable volume for simulation without overwhelming resources initially."
+        }
+    },
+    "resource_profiles": [
+        {
+            "id": "Account_Manager",
+            "name": "Account_Manager",
+            "resource_list": [
+                {
+                    "id": "Account_Manager_1",
+                    "name": "Account_Manager_1",
+                    "cost_per_hour": 70.0,
+                    "amount": 1,
+                    "calendar": "Standard_Working_Hours",
+                    "evidence_status": "heuristic_fallback",
+                    "source_urls": [],
+                    "evidence_rationale": "Heuristic-mode generation; external grounding intentionally disabled."
+                }
+            ]
+        },
+        {
+            "id": "Role_1st_level_support",
+            "name": "Role_1st_level_support",
+            "resource_list": [
+                {
+                    "id": "Role_1st_level_support_1",
+                    "name": "Role_1st_level_support_1",
+                    "cost_per_hour": 40.0,
+                    "amount": 1,
+                    "calendar": "Standard_Working_Hours",
+                    "evidence_status": "heuristic_fallback",
+                    "source_urls": [],
+                    "evidence_rationale": "Heuristic-mode generation; external grounding intentionally disabled."
+                }
+            ]
+        },
+        {
+            "id": "Role_2nd_level_support",
+            "name": "Role_2nd_level_support",
+            "resource_list": [
+                {
+                    "id": "Role_2nd_level_support_1",
+                    "name": "Role_2nd_level_support_1",
+                    "cost_per_hour": 60.0,
+                    "amount": 1,
+                    "calendar": "Standard_Working_Hours",
+                    "evidence_status": "heuristic_fallback",
+                    "source_urls": [],
+                    "evidence_rationale": "Heuristic-mode generation; external grounding intentionally disabled."
+                }
+            ]
+        },
+        {
+            "id": "Software_development",
+            "name": "Software_development",
+            "resource_list": [
+                {
+                    "id": "Software_development_1",
+                    "name": "Software_development_1",
+                    "cost_per_hour": 90.0,
+                    "amount": 1,
+                    "calendar": "Standard_Working_Hours",
+                    "evidence_status": "heuristic_fallback",
+                    "source_urls": [],
+                    "evidence_rationale": "Heuristic-mode generation; external grounding intentionally disabled."
+                }
+            ]
+        }
+    ],
+    "task_resource_distribution": [
+        {
+            "task_id": "_6-94",
+            "resources": [
+                {
+                    "resource_id": "Account_Manager_1",
+                    "distribution_name": "norm",
+                    "distribution_params": [
+                        {
+                            "value": 1200.0
+                        },
+                        {
+                            "value": 300.0
+                        },
+                        {
+                            "value": 0.0
+                        },
+                        {
+                            "value": 999999.0
+                        }
+                    ],
+                    "evidence_status": "heuristic_fallback",
+                    "source_urls": [],
+                    "evidence_rationale": "Heuristic-mode generation; external grounding intentionally disabled."
+                }
+            ]
+        },
+        {
+            "task_id": "_6-333",
+            "resources": [
+                {
+                    "resource_id": "Role_1st_level_support_1",
+                    "distribution_name": "norm",
+                    "distribution_params": [
+                        {
+                            "value": 2700.0
+                        },
+                        {
+                            "value": 600.0
+                        },
+                        {
+                            "value": 0.0
+                        },
+                        {
+                            "value": 999999.0
+                        }
+                    ],
+                    "evidence_status": "heuristic_fallback",
+                    "source_urls": [],
+                    "evidence_rationale": "Heuristic-mode generation; external grounding intentionally disabled."
+                }
+            ]
+        },
+        {
+            "task_id": "_6-63",
+            "resources": [
+                {
+                    "resource_id": "Role_2nd_level_support_1",
+                    "distribution_name": "norm",
+                    "distribution_params": [
+                        {
+                            "value": 7200.0
+                        },
+                        {
+                            "value": 1800.0
+                        },
+                        {
+                            "value": 0.0
+                        },
+                        {
+                            "value": 999999.0
+                        }
+                    ],
+                    "evidence_status": "heuristic_fallback",
+                    "source_urls": [],
+                    "evidence_rationale": "Heuristic-mode generation; external grounding intentionally disabled."
+                }
+            ]
+        },
+        {
+            "task_id": "_6-190",
+            "resources": [
+                {
+                    "resource_id": "Software_development_1",
+                    "distribution_name": "norm",
+                    "distribution_params": [
+                        {
+                            "value": 900.0
+                        },
+                        {
+                            "value": 200.0
+                        },
+                        {
+                            "value": 0.0
+                        },
+                        {
+                            "value": 999999.0
+                        }
+                    ],
+                    "evidence_status": "heuristic_fallback",
+                    "source_urls": [],
+                    "evidence_rationale": "Heuristic-mode generation; external grounding intentionally disabled."
+                }
+            ]
+        },
+        {
+            "task_id": "_6-313",
+            "resources": [
+                {
+                    "resource_id": "Account_Manager_1",
+                    "distribution_name": "norm",
+                    "distribution_params": [
+                        {
+                            "value": 900.0
+                        },
+                        {
+                            "value": 200.0
+                        },
+                        {
+                            "value": 0.0
+                        },
+                        {
+                            "value": 999999.0
+                        }
+                    ],
+                    "evidence_status": "heuristic_fallback",
+                    "source_urls": [],
+                    "evidence_rationale": "Heuristic-mode generation; external grounding intentionally disabled."
+                }
+            ]
+        }
+    ],
+    "gateway_branching_probabilities": [
+        {
+            "gateway_id": "_6-196",
+            "probabilities": [
+                {
+                    "path_id": "_6-1033",
+                    "value": 0.6
+                },
+                {
+                    "path_id": "_6-1039",
+                    "value": 0.4
+                }
+            ]
+        },
+        {
+            "gateway_id": "_6-263",
+            "probabilities": [
+                {
+                    "path_id": "_6-285",
+                    "value": 0.2
+                },
+                {
+                    "path_id": "_6-415",
+                    "value": 0.8
+                }
+            ]
+        },
+        {
+            "gateway_id": "_6-289",
+            "probabilities": [
+                {
+                    "path_id": "_6-311",
+                    "value": 0.3
+                },
+                {
+                    "path_id": "_6-417",
+                    "value": 0.7
+                }
+            ]
+        }
+    ],
+    "resource_calendars": [
+        {
+            "id": "Standard_Working_Hours",
+            "name": "Standard Working Hours",
+            "time_periods": [
+                {
+                    "beginTime": "08:00:00",
+                    "endTime": "16:00:00",
+                    "from": "MONDAY",
+                    "to": "FRIDAY"
+                }
+            ]
+        },
+        {
+            "id": "24_7_Calendar",
+            "name": "24/7 System Calendar",
+            "time_periods": [
+                {
+                    "beginTime": "00:00:00",
+                    "endTime": "23:59:59",
+                    "from": "MONDAY",
+                    "to": "SUNDAY"
+                }
+            ]
+        }
+    ],
+    "arrival_time_calendar": [
+        {
+            "beginTime": "08:00:00",
+            "endTime": "16:00:00",
+            "from": "MONDAY",
+            "to": "FRIDAY"
+        }
+    ],
+    "arrival_time_distribution": {
+        "distribution_name": "expon",
+        "distribution_params": [
+            {
+                "value": 0
+            },
+            {
+                "value": 8640.0
+            },
+            {
+                "value": 0
+            },
+            {
+                "value": 9999999
+            }
+        ],
+        "frequency": {
+            "events": 10.0,
+            "per_count": 1.0,
+            "per_unit": "day",
+            "rationale": "Estimating an arrival rate of 10 customer questions/issues per day, reflecting a moderately busy support department for a B2B or B2C service. This provides a reasonable volume for simulation without overwhelming resources initially."
+        }
+    },
+    "process_model": "Incident Management.bpmn"
+}

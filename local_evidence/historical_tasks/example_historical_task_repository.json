@@ -1,0 +1,253 @@
+{
+  "format_version": 1,
+  "description": "Fully synthetic demonstration data. Do not use as operational evidence.",
+  "minimum_score": 0.7,
+  "weights": {
+    "semantic": 0.55,
+    "bpmn_context": 0.2,
+    "role": 0.15,
+    "domain": 0.1
+  },
+  "minimum_donor_observations": 30,
+  "minimum_analogue_tasks": 3,
+  "minimum_process_families": 2,
+  "minimum_combined_executions": 100,
+  "maximum_results": 5,
+  "profiles": [
+    {
+      "profile": {
+        "process_alias": "DEMO_TARGET",
+        "process_id": "demo-target-process",
+        "process_version": "1",
+        "task_id": "demo-target-verify-application",
+        "task_name": "Verify application",
+        "task_kind": "PROCESSSTEP",
+        "parameter_family": "execution_duration_seconds",
+        "unit": "seconds",
+        "predecessor_labels": [
+          "Register application"
+        ],
+        "successor_labels": [
+          "Approve application"
+        ],
+        "role_label": "Case worker",
+        "process_name": "Application handling",
+        "domain_fields": [
+          "application_id",
+          "applicant_id",
+          "amount",
+          "supporting_document"
+        ],
+        "observation_count": 0
+      },
+      "calibration_samples_seconds": []
+    },
+    {
+      "profile": {
+        "process_alias": "DEMO_LOAN",
+        "process_id": "demo-loan-process",
+        "process_version": "3",
+        "task_id": "demo-loan-verify-application",
+        "task_name": "Verify customer application",
+        "task_kind": "PROCESSSTEP",
+        "parameter_family": "execution_duration_seconds",
+        "unit": "seconds",
+        "predecessor_labels": [
+          "Register customer application"
+        ],
+        "successor_labels": [
+          "Approve customer application"
+        ],
+        "role_label": "Case worker",
+        "process_name": "Loan application handling",
+        "domain_fields": [
+          "application_id",
+          "applicant_id",
+          "amount",
+          "supporting_document"
+        ],
+        "observation_count": 40
+      },
+      "calibration_samples_seconds": [
+        245,
+        270,
+        285,
+        300,
+        315,
+        330,
+        340,
+        350,
+        360,
+        370,
+        380,
+        390,
+        400,
+        410,
+        420,
+        430,
+        440,
+        450,
+        460,
+        470,
+        480,
+        490,
+        500,
+        510,
+        520,
+        530,
+        540,
+        550,
+        560,
+        570,
+        580,
+        590,
+        600,
+        620,
+        640,
+        660,
+        690,
+        720,
+        750,
+        780
+      ]
+    },
+    {
+      "profile": {
+        "process_alias": "DEMO_BENEFIT",
+        "process_id": "demo-benefit-process",
+        "process_version": "2",
+        "task_id": "demo-benefit-verify-application",
+        "task_name": "Verify benefit application",
+        "task_kind": "PROCESSSTEP",
+        "parameter_family": "execution_duration_seconds",
+        "unit": "seconds",
+        "predecessor_labels": [
+          "Register benefit application"
+        ],
+        "successor_labels": [
+          "Approve benefit application"
+        ],
+        "role_label": "Case worker",
+        "process_name": "Benefit application handling",
+        "domain_fields": [
+          "application_id",
+          "applicant_id",
+          "amount",
+          "supporting_document"
+        ],
+        "observation_count": 40
+      },
+      "calibration_samples_seconds": [
+        210,
+        225,
+        240,
+        255,
+        270,
+        285,
+        300,
+        315,
+        330,
+        345,
+        360,
+        375,
+        390,
+        405,
+        420,
+        435,
+        450,
+        465,
+        480,
+        495,
+        510,
+        525,
+        540,
+        555,
+        570,
+        585,
+        600,
+        615,
+        630,
+        645,
+        660,
+        675,
+        690,
+        705,
+        720,
+        735,
+        750,
+        780,
+        810,
+        840
+      ]
+    },
+    {
+      "profile": {
+        "process_alias": "DEMO_BENEFIT",
+        "process_id": "demo-benefit-process",
+        "process_version": "2",
+        "task_id": "demo-benefit-verify-submitted-application",
+        "task_name": "Verify submitted application",
+        "task_kind": "PROCESSSTEP",
+        "parameter_family": "execution_duration_seconds",
+        "unit": "seconds",
+        "predecessor_labels": [
+          "Register submitted application"
+        ],
+        "successor_labels": [
+          "Approve submitted application"
+        ],
+        "role_label": "Case worker",
+        "process_name": "Benefit application handling",
+        "domain_fields": [
+          "application_id",
+          "applicant_id",
+          "amount",
+          "supporting_document"
+        ],
+        "observation_count": 40
+      },
+      "calibration_samples_seconds": [
+        230,
+        250,
+        270,
+        290,
+        310,
+        330,
+        350,
+        370,
+        390,
+        410,
+        430,
+        450,
+        470,
+        490,
+        510,
+        530,
+        550,
+        570,
+        590,
+        610,
+        630,
+        650,
+        670,
+        690,
+        710,
+        730,
+        750,
+        770,
+        790,
+        810,
+        830,
+        850,
+        870,
+        890,
+        910,
+        930,
+        950,
+        980,
+        1010,
+        1040
+      ]
+    }
+  ]
+}

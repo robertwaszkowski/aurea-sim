@@ -1,0 +1,452 @@
+{
+    "metadata": {
+        "methodology": "The simulation parameters were derived from empirical research data provided, focusing on average hourly salaries for proxy roles in Poland (converted to EUR) and standard processing time benchmarks for administrative tasks. Where direct benchmarks for specific university tasks were unavailable, conservative extrapolations were made based on general administrative process times and the hierarchical level of the role involved. Industry frameworks like APQC PCF and Lean Six Sigma principles guided the understanding of process efficiency and typical administrative cycle times.",
+        "sources": [
+            "Eurypedia \u203a Poland \u203a Conditions Service Academic Staff Working Higher Education \u2014 eurydice.eacea.ec.europa.eu",
+            "vertexaisearch.cloud.google.com",
+            "vertexaisearch.cloud.google.com",
+            "vertexaisearch.cloud.google.com",
+            "vertexaisearch.cloud.google.com",
+            "vertexaisearch.cloud.google.com",
+            "vertexaisearch.cloud.google.com",
+            "vertexaisearch.cloud.google.com",
+            "vertexaisearch.cloud.google.com",
+            "vertexaisearch.cloud.google.com",
+            "vertexaisearch.cloud.google.com",
+            "vertexaisearch.cloud.google.com",
+            "vertexaisearch.cloud.google.com",
+            "How Much Time Hr Platform Saves For Hrs And Admins \u2014 peopleforce.io",
+            "vertexaisearch.cloud.google.com",
+            "Case Study \u203a Improving Administrative Processes Using Lean Six Sigma Methods \u2014 fbeinternational.com",
+            "vertexaisearch.cloud.google.com",
+            "vertexaisearch.cloud.google.com",
+            "vertexaisearch.cloud.google.com",
+            "vertexaisearch.cloud.google.com",
+            "vertexaisearch.cloud.google.com",
+            "vertexaisearch.cloud.google.com",
+            "Iso Certification For Facilities Management And Other Office Administrative Services Companies And Iso Applicable Standards \u2014 blog.pacificcert.com",
+            "Document \u203a 971866794 \u203a Standardization Iso Standard Forms Manuals \u2014 scribd.com",
+            "Compliance \u203a Iso \u203a Iso Standards \u2014 mastercontrol.com",
+            "Main Iso Management System Standards \u2014 icexpertsacademy.com",
+            "Iso Standards In Business Management \u2014 sprintzeal.com",
+            "Lean Six Sigma In Admin Legal \u2014 benchmarksixsigma.com",
+            "Article \u2014 6sigmastudy.com",
+            "The Functions Of The Administrative And Support Industry \u2014 sixsigmaonline.org",
+            "Benchmarking \u2014 sixsigmastudyguide.com",
+            "Articles \u203a Benchmarking Secret Weapon For Smarter Decision Making \u2014 comparables.ai",
+            "vertexaisearch.cloud.google.com",
+            "Benchmarking Process \u2014 timedoctor.com"
+        ],
+        "source_urls": [
+            "https://www.sprintzeal.com/blog/iso-standards-in-business-management",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGzQ-Xjca9S4i_iVtY_Y_YW9TPH_47igW7hO3gBElRxmu1ddmRiwuAV5Y3U_4obzlbrMteTtMNHrU6_XgT53sB83nrnfxjc8jxKprmFOMTdPsAiL2qWIvgoAoRnxCBeiKtXUym8lzHFjilQbhW_9d81fgjC57T6XA==",
+            "https://hellotilt.com/blog/how-much-time-is-hr-really-spending-on-leave-and-why-does-it-matter/",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFb7TI0mBqvNNMHANHkw5Xt9Fo_-EeoRqxg0_v0awyMQ6fqA_3VH7OjcY5Oq2dJbhdIe2WUYcngUfEEUt8J8YjyKVXsffqOqV_tf7HH2FQr8fh7E0rX5gTlqN68zvKRN9P3gIr1R9Y8JwLjn1FUNo-x8-MIC0W2aviXm8JttbgKTKyezuRBnCTSFIJG5Qw_9GdjwF5Afk7kVztXLqw2z9QwTgVjwd5jXs5btHU_8xNH1LCvXw==",
+            "https://www.apqc.org/what-we-do/benchmarking/open-standards-benchmarking/measures/cycle-time-days-receipt-leave-absence",
+            "https://marssigma.com/iso/iso-certification-for-universities/",
+            "https://www.researchgate.net/publication/346508000_Quality_and_Speed_of_Administrative_Decision-Making_Proceedings_Tension_or_Balance",
+            "https://www.mastercontrol.com/compliance/iso/iso-standards/",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG30et801MpCm0olMIWx8xfAu_K_D0mEukIGV2bQnPSQTGJoErFX9BVtNUN0Wjq1vGIKK8eNEQAe2s3PZQXCZUqf_XqbcF5zhiZBSBkp4MrlyJ0y_4eh733Sh0h_YH_P18gDeLPi2nI49cBODiZfqmms1WKGouIgEeJv3xD0w==",
+            "https://sixsigmastudyguide.com/benchmarking/",
+            "https://en.ehuniversity.lt/news/vice-rector-for-academic-affairs/",
+            "https://www.apqc.org/process-frameworks",
+            "https://www.apqc.org/expertise/human-capital-management/hcm-process-improvement",
+            "https://www.apqc.org/resource-library/resource/human-capital-management-best-practices",
+            "https://www.apqc.org/process-frameworks/industry-specific-process-frameworks",
+            "https://www.apqc.org/resource-library/resource-collection/human-capital-management-best-practices",
+            "https://iae.education/blog/institutional-benchmarking-a-strategic-tool-for-academic-excellence-and-ranking-competitiveness/",
+            "https://www.apqc.org/resource-library/resource-listing/apqc-process-classification-framework-pcf-education-excel-version",
+            "https://www.benchmarksixsigma.com/lean-six-sigma-in-admin-legal/",
+            "https://www.salaryexpert.com/salary/job/director-education/poland",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEBwSSEUXd6HepObmqDhGQDhqldPkmyVe3Cch-n8ApP53er0VPw-rmZ1cxahF3Dl-KYYhPaAK-3EOB5z8_RO0n2ZCAt1Zh-6x4HfViEMig7X--EtxdEdt9ogY6uc3Xi7_EbNWvwD7kmo386Yt-l0qFUrHm4cCCBun0QC8uKW3JG-vWDItQwQC4sM_DrVPmI9d2eH-UasNLWX-5uVdIztJ3x",
+            "https://hmsuniversal.com/iso-standards-for-educational-institutions-in-bd/",
+            "https://www.6sigmastudy.com/article?title=The-Impact-of-Lean-Six-Sigma-in-Public-Sector",
+            "https://www.erieri.com/salary/job/chief-executive-officer/poland",
+            "https://peopleforce.io/blog/how-much-time-hr-platform-saves-for-hrs-and-admins",
+            "https://www.diligencecertification.com/iso-certification-for-educational/",
+            "https://blog.pacificcert.com/iso-certification-for-facilities-management-and-other-office-administrative-services-companies-and-iso-applicable-standards/",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGvLnW61LgdZkLHwrwwoHZWwJvWVsEMTe6N6YZZM4hw4UpU_UZ0NBkZdQxopuoAXDi0KSAfM4oQpJQdRyQQR_tifttYafsLTkzRwKdHlyphtV3zq-uZpWdj59sm2QkS2eOgnZmu34qrYBFhaTXpAExyyoKBo6p9XDfBBtcdXbk=",
+            "https://www.salaryexpert.com/salary/job/unit-head/poland/warsaw",
+            "https://www.salaryexpert.com/salary/job/student-affairs-vice-president/germany/kiel",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGuDi5OiQiI29ARyM6lB7ME5y0p9zSzs5FjpJViXnI6gFQwg3P77N-LLFWHptWzWrp3szTJYuQKSqyqCpCi_qQG1Wx4es4-_tYDdc1BHiXGWryiOP15F00YofMgl0djPLzXchDBTyWHAD_0BVmNfvz8eJeuavbInA==",
+            "https://eurydice.eacea.ec.europa.eu/eurypedia/poland/conditions-service-academic-staff-working-higher-education",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEuwkKjHOdbIxLkQmRIlUUabONaSEiozKad71wtYcOaHCusZGXRFc9xPLUI6FFgZC4LIqgZOTlfk8mGI6e2TRdDsbFlMn_K1T-dnZWl8u84He5j19EetC33-1XrM84xH0uq4NSpSSn0aLFcO1IEUsta-823StgsmM6If06gv1b1unm66L8EH0NL-lFl4aoYR7Rnyb2Xkp_rvI18sb7x1p4=",
+            "https://www.erieri.com/salary/job/professor/poland/warsaw",
+            "https://www.myshyft.com/blog/request-to-approval-time/",
+            "https://www.timedoctor.com/blog/benchmarking-process/",
+            "https://www.erieri.com/salary/job/vice-president/poland",
+            "https://www.sixsigmaonline.org/the-functions-of-the-administrative-and-support-industry/",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGvDVR2CZ4WdTypzClE9tg5TRARU7l2byA9WaEBG54RBaGXKrQCMnZ8m7b8R_-FV3mbX6e80C2FlVVK-WNG0Ij09adnJiCCRp_6X98SGb5sg4Ac_tGpwcbqNfYrRX5S-fmef9fQ5n-Qcf-hN0J0",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHUY8_dO4Fj7jjBKm4e8H_0WHbJxxd9upC5Ud-3Zp6_13rvtnSk7mQIb4fTc-oFbp2VhuptjF-31ZpI9naVeoXmNnWWdQDn7Bg9_yt-jDgKyoVVdsD3tGl_7KeoEMGWJoa38CG0E1aAV9PfKoqisghLP_TW14MNWPOwvcutLenIbkFqTYsqoA8=",
+            "https://www.apqc.org/resource-library/resource-listing/70-develop-and-manage-human-capital-definitions-and-key-0",
+            "https://www.salaryexpert.com/salary/job/organizational-effectiveness-director/germany/wiesbaden",
+            "https://icexpertsacademy.com/main-iso-management-system-standards/",
+            "https://www.erieri.com/salary/job/academic-dean/poland/warsaw",
+            "https://universitybenchmarking.org/benchmarks",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHVaTOETFAX1xUWnW7lph7lvB40RbhlmACobYIO2NRScrjN42ofWsgH8IW560cma1xTGTtKoXTaJ6skvhWb9QCFRfjLIWtzkWKQ0injsOHdMm3pVb9gat2UEC8VWQVrv4bOYrAxFL7zU4Z4791yHM-_yaXkfsoHFJQLYd1ujg==",
+            "https://plane.com/salaries/head-of-operations/germany/for-employees",
+            "https://www.gsdcouncil.org/blogs/lean-six-sigma-in-education-a-roadmap-to-better-student-outcomes",
+            "https://leansixsigmainstitute.org/lean-six-sigma-for-education/",
+            "https://www.scribd.com/document/971866794/Standardization-ISO-Standard-Forms-Manuals",
+            "https://blog.pacificcert.com/iso-certifications-for-universities-and-colleges/",
+            "https://www.fbeinternational.com/case-study/improving-administrative-processes-using-lean-six-sigma-methods/",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHJCKHId_mkNAo85RpEyFkimhE1Ypv5_N43hpCOwT4Ar7a8_TYuRu1t4xlBSiIC62lHnOhdbBAoX-H2i98AvnR4CAHqthdrAG1OsairSFlW2rAYDV-Aoml49qYbzdOr3eEXjBVqjU-8CroBTCQY68aWqcg=",
+            "https://www.researchgate.net/publication/361941184_Lean_Six_Sigma_in_Higher_Education_Institutions_The_Need_to_Change",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFFA_2hHQyUCmUczSDyQFuChzK2sq3NA3FVl5O1915zVeenYnXqnWaIe0g5210wNt0YvuHhG6FpVDxaHSnBgYLFg_29TrMAk4zGtiwd_NTcM4X8muLt_e_adwiItQe5uzBme5RhpyEBe7WF-N4Z8Uo-fx_VhdZulOAZVMIICJ9X_ui0m9uPcKq_YJGdmglcBpu-Aquf6F4e_DJUEp2k3MY=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFvyVHeBTrYzMykugjKD43krepzM2vh79T8W7GPdDqLjq-aSZ-HF0lq9gLcWXqRMsEA_E70ptAH1ltCz5VxNhb0ui0Eq5XkoKiRBSW9m1nPfVMEDwcl3tOgslxaIkGubUCifgiUsqD5aP7QExCN9I2dpyUTS_uAssaCRXwe_Rg2eZdpeBM9xeJNkJcBVnvd7WutYA==",
+            "https://www.comparables.ai/articles/benchmarking-secret-weapon-for-smarter-decision-making",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGMFh5Qeucx8GG5MgTUJPjx-2T8teQj4dR41G12qTBP_ywsyUd_88qr9DzpXibejks25ea1XtK-fTfwJD2G2u24PmqsYxiArzf8K-yQje2XV1bNfELo-q1hr2unMrTw-E9KjLLw6WjpKSpD4V_bGWZM2us=",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGndHRZhMuV05hASUQ-Y3KB9vSxzBCSXMsq2lsLsOirjarXurpG2Li4f-VGREWbNKFZX-MTgITrKPwZu6-D2Hl2gWoEyayEAJ0srUyREbY6aw1IAT9SVny_5gubv3y4gXOp8wAn1MXumkmAcxKhaVht2vFrBee9itoc_7-Ad-6uLSOS",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHVnLnm-fU2I99W-z2fHd9Zr4lu63jXxXYsLj03w3-92IwTRBcEzyLgS8XxudYDWOMrnz4yoPDzpePfreoIL2SXDqgmAIYtdFvy5xEzMLYq3xLrmg7QjM5UXWwfbuPPTp8G6gX2DnNl1c8UlXGz0s2Kgc1DhY9ujL9d-dI_Ijph-RSbdhhwazST"
+        ],
+        "rationale": "Cost estimates are directly based on the provided average hourly salaries for the closest proxy roles in Poland, converted to EUR using the specified exchange rate (1 EUR = 4.27 PLN). Task durations are estimated using the provided benchmarks, with conservative extrapolations for highly specific university tasks where direct data was absent. For instance, high-level decision-making tasks (Chancellor, Rector) are assigned shorter durations for the 'decision' itself, assuming prior information gathering. Review tasks by Pro-Deans and Vice-Rectors are given moderate durations reflecting a thorough but not excessively long review. Communication and simple registration tasks are assigned short durations reflecting modern digital capabilities. The arrival rate is estimated based on a typical volume of leave requests in a medium-to-large university setting. Gateway probabilities are a reasonable split between academic and non-academic staff within a university.",
+        "generated_at": "2026-04-27T10:12:58.554279"
+    },
+    "arrival_time": {
+        "frequency": {
+            "events": 12.0,
+            "per_count": 1.0,
+            "per_unit": "week",
+            "rationale": "Based on the typical volume of administrative requests in a medium-to-large university with a significant number of employees (both academic and non-academic staff). An average of 12 leave requests per week is a reasonable estimate for ongoing HR operations."
+        }
+    },
+    "resource_profiles": [
+        {
+            "id": "Lane_Chancellor",
+            "name": "Lane_Chancellor",
+            "resource_list": [
+                {
+                    "id": "Lane_Chancellor_1",
+                    "name": "Lane_Chancellor_1",
+                    "cost_per_hour": 89.46,
+                    "amount": 1,
+                    "calendar": "Standard_Working_Hours"
+                }
+            ]
+        },
+        {
+            "id": "Lane_PD",
+            "name": "Lane_PD",
+            "resource_list": [
+                {
+                    "id": "Lane_PD_1",
+                    "name": "Lane_PD_1",
+                    "cost_per_hour": 41.09,
+                    "amount": 1,
+                    "calendar": "Standard_Working_Hours"
+                }
+            ]
+        },
+        {
+            "id": "Lane_VRSA",
+            "name": "Lane_VRSA",
+            "resource_list": [
+                {
+                    "id": "Lane_VRSA_1",
+                    "name": "Lane_VRSA_1",
+                    "cost_per_hour": 47.19,
+                    "amount": 1,
+                    "calendar": "Standard_Working_Hours"
+                }
+            ]
+        },
+        {
+            "id": "Lane_VRE",
+            "name": "Lane_VRE",
+            "resource_list": [
+                {
+                    "id": "Lane_VRE_1",
+                    "name": "Lane_VRE_1",
+                    "cost_per_hour": 47.19,
+                    "amount": 1,
+                    "calendar": "Standard_Working_Hours"
+                }
+            ]
+        },
+        {
+            "id": "Lane_HeadOU",
+            "name": "Lane_HeadOU",
+            "resource_list": [
+                {
+                    "id": "Lane_HeadOU_1",
+                    "name": "Lane_HeadOU_1",
+                    "cost_per_hour": 14.99,
+                    "amount": 1,
+                    "calendar": "Standard_Working_Hours"
+                }
+            ]
+        },
+        {
+            "id": "Lane_Rector",
+            "name": "Lane_Rector",
+            "resource_list": [
+                {
+                    "id": "Lane_Rector_1",
+                    "name": "Lane_Rector_1",
+                    "cost_per_hour": 89.46,
+                    "amount": 1,
+                    "calendar": "Standard_Working_Hours"
+                }
+            ]
+        }
+    ],
+    "task_resource_distribution": [
+        {
+            "task_id": "Task_ReviewAndForward_HeadOU",
+            "resources": [
+                {
+                    "resource_id": "Lane_HeadOU_1",
+                    "distribution_name": "norm",
+                    "distribution_params": [
+                        {
+                            "value": 3600.0
+                        },
+                        {
+                            "value": 1800.0
+                        },
+                        {
+                            "value": 0
+                        },
+                        {
+                            "value": 999999
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "task_id": "Task_ReviewApplication_PD",
+            "resources": [
+                {
+                    "resource_id": "Lane_PD_1",
+                    "distribution_name": "norm",
+                    "distribution_params": [
+                        {
+                            "value": 7200.0
+                        },
+                        {
+                            "value": 3600.0
+                        },
+                        {
+                            "value": 0
+                        },
+                        {
+                            "value": 999999
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "task_id": "Task_InformHeadOU",
+            "resources": [
+                {
+                    "resource_id": "Lane_PD_1",
+                    "distribution_name": "norm",
+                    "distribution_params": [
+                        {
+                            "value": 300.0
+                        },
+                        {
+                            "value": 120.0
+                        },
+                        {
+                            "value": 0
+                        },
+                        {
+                            "value": 999999
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "task_id": "Task_ImplementChanges",
+            "resources": [
+                {
+                    "resource_id": "Lane_PD_1",
+                    "distribution_name": "norm",
+                    "distribution_params": [
+                        {
+                            "value": 600.0
+                        },
+                        {
+                            "value": 180.0
+                        },
+                        {
+                            "value": 0
+                        },
+                        {
+                            "value": 999999
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "task_id": "Task_MakeDecision_Chancellor",
+            "resources": [
+                {
+                    "resource_id": "Lane_Chancellor_1",
+                    "distribution_name": "norm",
+                    "distribution_params": [
+                        {
+                            "value": 1800.0
+                        },
+                        {
+                            "value": 900.0
+                        },
+                        {
+                            "value": 0
+                        },
+                        {
+                            "value": 999999
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "task_id": "Task_Review_PRN",
+            "resources": [
+                {
+                    "resource_id": "Lane_VRSA_1",
+                    "distribution_name": "norm",
+                    "distribution_params": [
+                        {
+                            "value": 5400.0
+                        },
+                        {
+                            "value": 2700.0
+                        },
+                        {
+                            "value": 0
+                        },
+                        {
+                            "value": 999999
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "task_id": "Task_MakeDecision_RKR",
+            "resources": [
+                {
+                    "resource_id": "Lane_Rector_1",
+                    "distribution_name": "norm",
+                    "distribution_params": [
+                        {
+                            "value": 1800.0
+                        },
+                        {
+                            "value": 900.0
+                        },
+                        {
+                            "value": 0
+                        },
+                        {
+                            "value": 999999
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "task_id": "Task_Review_PRK",
+            "resources": [
+                {
+                    "resource_id": "Lane_VRE_1",
+                    "distribution_name": "norm",
+                    "distribution_params": [
+                        {
+                            "value": 5400.0
+                        },
+                        {
+                            "value": 2700.0
+                        },
+                        {
+                            "value": 0
+                        },
+                        {
+                            "value": 999999
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "gateway_branching_probabilities": [
+        {
+            "gateway_id": "Gateway_IsAcademicTeacher",
+            "probabilities": [
+                {
+                    "path_id": "Flow_Yes_ToPRK",
+                    "value": 0.6
+                },
+                {
+                    "path_id": "Flow_No_ToKAN",
+                    "value": 0.4
+                }
+            ]
+        }
+    ],
+    "resource_calendars": [
+        {
+            "id": "Standard_Working_Hours",
+            "name": "Standard Working Hours",
+            "time_periods": [
+                {
+                    "beginTime": "08:00:00",
+                    "endTime": "16:00:00",
+                    "from": "MONDAY",
+                    "to": "FRIDAY"
+                }
+            ]
+        },
+        {
+            "id": "24_7_Calendar",
+            "name": "24/7 System Calendar",
+            "time_periods": [
+                {
+                    "beginTime": "00:00:00",
+                    "endTime": "23:59:59",
+                    "from": "MONDAY",
+                    "to": "SUNDAY"
+                }
+            ]
+        }
+    ],
+    "arrival_time_calendar": [
+        {
+            "beginTime": "08:00:00",
+            "endTime": "16:00:00",
+            "from": "MONDAY",
+            "to": "FRIDAY"
+        }
+    ],
+    "arrival_time_distribution": {
+        "distribution_name": "expon",
+        "distribution_params": [
+            {
+                "value": 0
+            },
+            {
+                "value": 50400.0
+            },
+            {
+                "value": 0
+            },
+            {
+                "value": 9999999
+            }
+        ],
+        "frequency": {
+            "events": 12.0,
+            "per_count": 1.0,
+            "per_unit": "week",
+            "rationale": "Based on the typical volume of administrative requests in a medium-to-large university with a significant number of employees (both academic and non-academic staff). An average of 12 leave requests per week is a reasonable estimate for ongoing HR operations."
+        }
+    },
+    "process_model": "Leave Request.bpmn"
+}

@@ -1,0 +1,493 @@
+{
+    "metadata": {
+        "methodology": "All values for resource costs, task durations, arrival rates, and gateway probabilities are heuristic estimates. External grounding was intentionally disabled for this simulation run. Estimates are based on general domain knowledge of typical organizational processes and roles, aiming for conservative and plausible ranges suitable for exploratory simulation.",
+        "sources": [
+            "Grounding intentionally disabled. Values are heuristic estimates based on BPMN semantic analysis, role labels, task labels, and process context only."
+        ],
+        "source_urls": [
+            "https://lean6sigmahub.com/bottleneck-identification-how-to-find-process-constraints-and-chokepoints-that-slow-your-business/",
+            "https://hyperdriveagile.com/articles/what-are-bottlenecks-in-business-how-business-agility-solves-them-92",
+            "https://wiki.wfmlabs.org/wiki/Erlang_C",
+            "https://www.aihr.com/blog/absenteeism-rate/",
+            "https://www.teamsense.com/blog/absenteeism-workplace-statistics",
+            "https://www.radview.com/glossary/stress-testing/",
+            "https://www.pipefy.com/blog/bottleneck/",
+            "https://www.kmco.com/insights/6-steps-to-stress-test-your-business/",
+            "https://softwaresim.com/blog/queueing-theory-for-simulation/",
+            "https://www.datastudios.org/post/how-stress-testing-improves-corporate-financial-risk-management-scenarios-resilience-and-strategi",
+            "https://www.softguide.com/function/what-if-scenarios",
+            "https://qflowbpm.com/bottleneck-in-business/",
+            "https://6sigma.com/queueing-theory-part-3/",
+            "https://www.sprinklr.com/help/articles/forecast-scenarios/capacity-planning-algorithms-supported-by-sprinklr-wfm/6686763b7bc6fc3c8d396a15",
+            "https://processmind.com/product/simulate",
+            "https://scheduleleave.com/blog/absenteeism-benchmarks-by-industry-whats-a-normal-rate/",
+            "https://www.abrigo.com/blog/4-methods-of-stress-testing/",
+            "https://www.assembled.com/blog/how-to-use-erlang-c-to-plan-staffing",
+            "https://databox.com/common-business-bottlenecks",
+            "https://www.nice.com/glossary/erlang-c-formula",
+            "https://club.ministryoftesting.com/t/performance-stress-testing-exit-criteria-and-what-contingency-is-allowed-between-peak-load-and-stress-numbers/59243",
+            "https://www.ibm.com/think/topics/what-if-analysis",
+            "https://controllerscouncil.org/best-practices-for-conducting-financial-stress-testing/",
+            "https://www.youtube.com/watch?v=SXWSrxqOrkQ",
+            "https://onpay.com/insights/absenteeism-rate/",
+            "https://www.shrm.org/content/dam/en/shrm/topics-tools/news/hr-magazine/kronos_us_executive_summary_final.pdf"
+        ],
+        "rationale": "Given the explicit instruction to operate in HEURISTIC GENERATION MODE with external grounding disabled, all parameter values are estimated based on the provided BPMN task labels, role labels, process context (leave request process in an organization), and general business knowledge. The goal is to provide a baseline for simulation without relying on specific external data.",
+        "grounding_mode": "heuristic",
+        "grounding_status": "disabled_by_experiment",
+        "generated_at": "2026-06-27T15:19:36.032351",
+        "resource_assignment_policy": {
+            "mode": "deterministic_bpmn_role_binding",
+            "priority_order": [
+                "aurea_responsibleRef",
+                "bpmn_lane",
+                "task_label_suffix",
+                "task_id_fallback"
+            ],
+            "enforced": true
+        },
+        "parameter_provenance_policy": {
+            "enabled": true,
+            "evidence_statuses": [
+                "grounded_confirmed",
+                "grounded_proxy",
+                "grounded_extrapolated",
+                "heuristic_fallback",
+                "structural_value"
+            ],
+            "scope": "resource_costs_and_task_duration_means"
+        },
+        "task_name_map": {
+            "Task_ReviewAndForward_HeadOU": {
+                "task_name": "Review and approve leave request",
+                "clean_task_name": "Review and approve leave request",
+                "resolved_role": "Lane_HeadOU"
+            },
+            "Task_ReviewApplication_PD": {
+                "task_name": "Review leave request (check entitlement)",
+                "clean_task_name": "Review leave request",
+                "resolved_role": "Lane_PD"
+            },
+            "Task_InformHeadOU": {
+                "task_name": "Inform Head of O.U. about the decision",
+                "clean_task_name": "Inform Head of O.U. about the decision",
+                "resolved_role": "Lane_PD"
+            },
+            "Task_ImplementChanges": {
+                "task_name": "Register leave in HR system",
+                "clean_task_name": "Register leave in HR system",
+                "resolved_role": "Lane_PD"
+            },
+            "Task_MakeDecision_Chancellor": {
+                "task_name": "Make decision (KAN) and return to PD",
+                "clean_task_name": "Make decision (KAN) and return to PD",
+                "resolved_role": "Lane_Chancellor"
+            },
+            "Task_Review_PRN": {
+                "task_name": "Review application (PRN) and forward to Rector",
+                "clean_task_name": "Review application (PRN) and forward to Rector",
+                "resolved_role": "Lane_VRSA"
+            },
+            "Task_MakeDecision_RKR": {
+                "task_name": "Make decision (RKR) and return to PD",
+                "clean_task_name": "Make decision (RKR) and return to PD",
+                "resolved_role": "Lane_Rector"
+            },
+            "Task_Review_PRK": {
+                "task_name": "Review application (PRK) and forward to PRN",
+                "clean_task_name": "Review application (PRK) and forward to PRN",
+                "resolved_role": "Lane_VRE"
+            }
+        },
+        "generation_time_seconds": 21.59161877632141
+    },
+    "arrival_time": {
+        "frequency": {
+            "events": 12.0,
+            "per_count": 1.0,
+            "per_unit": "week",
+            "rationale": "In a typical medium-to-large organization, it is plausible to expect approximately 10-15 leave requests per week. An estimate of 12 cases per week is chosen as a conservative yet realistic baseline for simulation."
+        }
+    },
+    "resource_profiles": [
+        {
+            "id": "Lane_HeadOU",
+            "name": "Lane_HeadOU",
+            "resource_list": [
+                {
+                    "id": "Lane_HeadOU_1",
+                    "name": "Lane_HeadOU_1",
+                    "cost_per_hour": 50.0,
+                    "amount": 1,
+                    "calendar": "Standard_Working_Hours",
+                    "evidence_status": "heuristic_fallback",
+                    "source_urls": [],
+                    "evidence_rationale": "Heuristic-mode generation; external grounding intentionally disabled."
+                }
+            ]
+        },
+        {
+            "id": "Lane_PD",
+            "name": "Lane_PD",
+            "resource_list": [
+                {
+                    "id": "Lane_PD_1",
+                    "name": "Lane_PD_1",
+                    "cost_per_hour": 30.0,
+                    "amount": 1,
+                    "calendar": "Standard_Working_Hours",
+                    "evidence_status": "heuristic_fallback",
+                    "source_urls": [],
+                    "evidence_rationale": "Heuristic-mode generation; external grounding intentionally disabled."
+                }
+            ]
+        },
+        {
+            "id": "Lane_Chancellor",
+            "name": "Lane_Chancellor",
+            "resource_list": [
+                {
+                    "id": "Lane_Chancellor_1",
+                    "name": "Lane_Chancellor_1",
+                    "cost_per_hour": 100.0,
+                    "amount": 1,
+                    "calendar": "Standard_Working_Hours",
+                    "evidence_status": "heuristic_fallback",
+                    "source_urls": [],
+                    "evidence_rationale": "Heuristic-mode generation; external grounding intentionally disabled."
+                }
+            ]
+        },
+        {
+            "id": "Lane_VRSA",
+            "name": "Lane_VRSA",
+            "resource_list": [
+                {
+                    "id": "Lane_VRSA_1",
+                    "name": "Lane_VRSA_1",
+                    "cost_per_hour": 80.0,
+                    "amount": 1,
+                    "calendar": "Standard_Working_Hours",
+                    "evidence_status": "heuristic_fallback",
+                    "source_urls": [],
+                    "evidence_rationale": "Heuristic-mode generation; external grounding intentionally disabled."
+                }
+            ]
+        },
+        {
+            "id": "Lane_Rector",
+            "name": "Lane_Rector",
+            "resource_list": [
+                {
+                    "id": "Lane_Rector_1",
+                    "name": "Lane_Rector_1",
+                    "cost_per_hour": 120.0,
+                    "amount": 1,
+                    "calendar": "Standard_Working_Hours",
+                    "evidence_status": "heuristic_fallback",
+                    "source_urls": [],
+                    "evidence_rationale": "Heuristic-mode generation; external grounding intentionally disabled."
+                }
+            ]
+        },
+        {
+            "id": "Lane_VRE",
+            "name": "Lane_VRE",
+            "resource_list": [
+                {
+                    "id": "Lane_VRE_1",
+                    "name": "Lane_VRE_1",
+                    "cost_per_hour": 80.0,
+                    "amount": 1,
+                    "calendar": "Standard_Working_Hours",
+                    "evidence_status": "heuristic_fallback",
+                    "source_urls": [],
+                    "evidence_rationale": "Heuristic-mode generation; external grounding intentionally disabled."
+                }
+            ]
+        }
+    ],
+    "task_resource_distribution": [
+        {
+            "task_id": "Task_ReviewAndForward_HeadOU",
+            "resources": [
+                {
+                    "resource_id": "Lane_HeadOU_1",
+                    "distribution_name": "norm",
+                    "distribution_params": [
+                        {
+                            "value": 1200.0
+                        },
+                        {
+                            "value": 300.0
+                        },
+                        {
+                            "value": 0.0
+                        },
+                        {
+                            "value": 999999.0
+                        }
+                    ],
+                    "evidence_status": "heuristic_fallback",
+                    "source_urls": [],
+                    "evidence_rationale": "Heuristic-mode generation; external grounding intentionally disabled."
+                }
+            ]
+        },
+        {
+            "task_id": "Task_ReviewApplication_PD",
+            "resources": [
+                {
+                    "resource_id": "Lane_PD_1",
+                    "distribution_name": "norm",
+                    "distribution_params": [
+                        {
+                            "value": 900.0
+                        },
+                        {
+                            "value": 200.0
+                        },
+                        {
+                            "value": 0.0
+                        },
+                        {
+                            "value": 999999.0
+                        }
+                    ],
+                    "evidence_status": "heuristic_fallback",
+                    "source_urls": [],
+                    "evidence_rationale": "Heuristic-mode generation; external grounding intentionally disabled."
+                }
+            ]
+        },
+        {
+            "task_id": "Task_InformHeadOU",
+            "resources": [
+                {
+                    "resource_id": "Lane_PD_1",
+                    "distribution_name": "norm",
+                    "distribution_params": [
+                        {
+                            "value": 450.0
+                        },
+                        {
+                            "value": 100.0
+                        },
+                        {
+                            "value": 0.0
+                        },
+                        {
+                            "value": 999999.0
+                        }
+                    ],
+                    "evidence_status": "heuristic_fallback",
+                    "source_urls": [],
+                    "evidence_rationale": "Heuristic-mode generation; external grounding intentionally disabled."
+                }
+            ]
+        },
+        {
+            "task_id": "Task_ImplementChanges",
+            "resources": [
+                {
+                    "resource_id": "Lane_PD_1",
+                    "distribution_name": "norm",
+                    "distribution_params": [
+                        {
+                            "value": 900.0
+                        },
+                        {
+                            "value": 200.0
+                        },
+                        {
+                            "value": 0.0
+                        },
+                        {
+                            "value": 999999.0
+                        }
+                    ],
+                    "evidence_status": "heuristic_fallback",
+                    "source_urls": [],
+                    "evidence_rationale": "Heuristic-mode generation; external grounding intentionally disabled."
+                }
+            ]
+        },
+        {
+            "task_id": "Task_MakeDecision_Chancellor",
+            "resources": [
+                {
+                    "resource_id": "Lane_Chancellor_1",
+                    "distribution_name": "norm",
+                    "distribution_params": [
+                        {
+                            "value": 2700.0
+                        },
+                        {
+                            "value": 600.0
+                        },
+                        {
+                            "value": 0.0
+                        },
+                        {
+                            "value": 999999.0
+                        }
+                    ],
+                    "evidence_status": "heuristic_fallback",
+                    "source_urls": [],
+                    "evidence_rationale": "Heuristic-mode generation; external grounding intentionally disabled."
+                }
+            ]
+        },
+        {
+            "task_id": "Task_Review_PRN",
+            "resources": [
+                {
+                    "resource_id": "Lane_VRSA_1",
+                    "distribution_name": "norm",
+                    "distribution_params": [
+                        {
+                            "value": 1800.0
+                        },
+                        {
+                            "value": 400.0
+                        },
+                        {
+                            "value": 0.0
+                        },
+                        {
+                            "value": 999999.0
+                        }
+                    ],
+                    "evidence_status": "heuristic_fallback",
+                    "source_urls": [],
+                    "evidence_rationale": "Heuristic-mode generation; external grounding intentionally disabled."
+                }
+            ]
+        },
+        {
+            "task_id": "Task_MakeDecision_RKR",
+            "resources": [
+                {
+                    "resource_id": "Lane_Rector_1",
+                    "distribution_name": "norm",
+                    "distribution_params": [
+                        {
+                            "value": 4000.0
+                        },
+                        {
+                            "value": 800.0
+                        },
+                        {
+                            "value": 0.0
+                        },
+                        {
+                            "value": 999999.0
+                        }
+                    ],
+                    "evidence_status": "heuristic_fallback",
+                    "source_urls": [],
+                    "evidence_rationale": "Heuristic-mode generation; external grounding intentionally disabled."
+                }
+            ]
+        },
+        {
+            "task_id": "Task_Review_PRK",
+            "resources": [
+                {
+                    "resource_id": "Lane_VRE_1",
+                    "distribution_name": "norm",
+                    "distribution_params": [
+                        {
+                            "value": 1800.0
+                        },
+                        {
+                            "value": 400.0
+                        },
+                        {
+                            "value": 0.0
+                        },
+                        {
+                            "value": 999999.0
+                        }
+                    ],
+                    "evidence_status": "heuristic_fallback",
+                    "source_urls": [],
+                    "evidence_rationale": "Heuristic-mode generation; external grounding intentionally disabled."
+                }
+            ]
+        }
+    ],
+    "gateway_branching_probabilities": [
+        {
+            "gateway_id": "Gateway_IsAcademicTeacher",
+            "probabilities": [
+                {
+                    "path_id": "Flow_Yes_ToPRK",
+                    "value": 0.6
+                },
+                {
+                    "path_id": "Flow_No_ToKAN",
+                    "value": 0.4
+                }
+            ]
+        }
+    ],
+    "resource_calendars": [
+        {
+            "id": "Standard_Working_Hours",
+            "name": "Standard Working Hours",
+            "time_periods": [
+                {
+                    "beginTime": "08:00:00",
+                    "endTime": "16:00:00",
+                    "from": "MONDAY",
+                    "to": "FRIDAY"
+                }
+            ]
+        },
+        {
+            "id": "24_7_Calendar",
+            "name": "24/7 System Calendar",
+            "time_periods": [
+                {
+                    "beginTime": "00:00:00",
+                    "endTime": "23:59:59",
+                    "from": "MONDAY",
+                    "to": "SUNDAY"
+                }
+            ]
+        }
+    ],
+    "arrival_time_calendar": [
+        {
+            "beginTime": "08:00:00",
+            "endTime": "16:00:00",
+            "from": "MONDAY",
+            "to": "FRIDAY"
+        }
+    ],
+    "arrival_time_distribution": {
+        "distribution_name": "expon",
+        "distribution_params": [
+            {
+                "value": 0
+            },
+            {
+                "value": 50400.0
+            },
+            {
+                "value": 0
+            },
+            {
+                "value": 9999999
+            }
+        ],
+        "frequency": {
+            "events": 12.0,
+            "per_count": 1.0,
+            "per_unit": "week",
+            "rationale": "In a typical medium-to-large organization, it is plausible to expect approximately 10-15 leave requests per week. An estimate of 12 cases per week is chosen as a conservative yet realistic baseline for simulation."
+        }
+    },
+    "process_model": "Leave Request.bpmn"
+}

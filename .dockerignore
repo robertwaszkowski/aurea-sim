@@ -1,0 +1,35 @@
+.git
+.gitignore
+.env
+.venv
+node_modules
+frontend/node_modules
+frontend/dist
+__pycache__
+.pytest_cache
+.pytest*
+.tmp*
+_paper
+archived_evaluation
+research_evaluation
+experiments
+processmining_data
+processmining_extractor
+code_ocean_capsule
+code_ocean_*_capsule
+conference_presentation
+tools
+results
+scratch
+tmp
+_temp
+projects/*
+!projects/Incident Management
+!projects/Incident Management/**
+!projects/Leave Request
+!projects/Leave Request/**
+!projects/RES_Sales_Process
+!projects/RES_Sales_Process/**
+*.zip
+*.wav
+*.m4a

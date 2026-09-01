@@ -1,0 +1,96 @@
+{
+    "metadata": {
+        "methodology": "Scenario Analysis and Stress Testing with Queueing Theory principles",
+        "sources": [
+            "Scenario Modeling And Stress Testing The Art Of Navigating Uncertainty - dataforest.ai",
+            "Risk Intelligence \u203a Credit \u203a Stress Testing A Practical Guide - garp.org",
+            "Bcbs \u203a Publ \u203a D427 - bis.org",
+            "3 Levels Of Stress Testing Your 2023 Financial Plan - centage.com",
+            "Bcbs \u203a Publ \u203a D450 - bis.org",
+            "Capacity Planning Strategies - screendragon.com",
+            "Workforce Solutions \u203a Capacity Planning What If Scenarios - decide4ai.com",
+            "Career Advice \u203a Career Development \u203a Capacity Planning Best Practices - in.indeed.com",
+            "Research Starters \u203a Business And Management \u203a Queueing Theory - ebsco.com",
+            "Wiki \u203a Erlang C - wiki.wfmlabs.org",
+            "Docs \u203a Erlang C - metricgate.com",
+            "How To Use Erlang C To Plan Staffing - assembled.com",
+            "Bottleneck - pipefy.com",
+            "vertexaisearch.cloud.google.com",
+            "vertexaisearch.cloud.google.com",
+            "Common Business Bottlenecks - databox.com",
+            "Daily Peak Demand Understanding And Managing Your Businesss Highest Energy Use - eletric.net",
+            "Reducing Your Small Business Peak Demand Charges - blog.constellation.com",
+            "Peak Demand Charges Explained The Biggest Line Item Nobodys Managing - sanalifeenergy.com",
+            "2023 \u203a White Paper - kammac.com",
+            "vertexaisearch.cloud.google.com",
+            "En Us \u203a Organizational Development \u203a Calculate Employee Absenteeism Rate - wellhub.com",
+            "Benefits \u203a Absenteeism Rate - care.com",
+            "Absenteeism Rate - leapsome.com",
+            "Absenteeism Benchmarks By Industry Whats A Normal Rate - scheduleleave.com"
+        ],
+        "source_urls": [
+            "https://dataforest.ai/blog/scenario-modeling-and-stress-testing---the-art-of-navigating-uncertainty",
+            "https://www.garp.org/risk-intelligence/credit/stress-testing-a-practical-guide",
+            "https://www.bis.org/bcbs/publ/d427.pdf",
+            "https://www.centage.com/blog/3-levels-of-stress-testing-your-2023-financial-plan",
+            "https://www.bis.org/bcbs/publ/d450.pdf",
+            "https://www.screendragon.com/blog/capacity-planning-strategies/",
+            "https://decide4ai.com/workforce-solutions/capacity-planning-what-if-scenarios/",
+            "https://in.indeed.com/career-advice/career-development/capacity-planning-best-practices",
+            "https://www.ebsco.com/research-starters/business-and-management/queueing-theory",
+            "https://wiki.wfmlabs.org/wiki/Erlang_C",
+            "https://metricgate.com/docs/erlang-c/",
+            "https://www.assembled.com/blog/how-to-use-erlang-c-to-plan-staffing",
+            "https://www.pipefy.com/blog/bottleneck/",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGptfwHeQF7dwzxTM4xI0kFuOaaJNQrWpAE9I22aW7IfMQH-KpQUnTVyAwj9PuSLW9MMlo3BYROInzKsMq-t3LEbTCryNr0LFL44aRlHQhwwRzUZruHUx82NirGy4xQJIe1_Fcv8lzB",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF2h2joQHJHpOX8qMNueoO3d1FitRfPs2Fk5Iu4ZhMm8ieUBupVyUPW1KSbWh8JY9wusKmOB3-drLvx6j1jTXONzqVe0wO42mJKlswvM6-tmtcQXI9L7AjE4B9bUR1YMGkjolWrX1aL-Nqa5axnOr_XJsPfMiOfu9bXQoPduWuLx3O6SYv7t4I8FsMHWOlgqOpWjfFvanBP7b2I7_AxCKM4SkOANg==",
+            "https://databox.com/common-business-bottlenecks",
+            "https://eletric.net/daily-peak-demand-understanding-and-managing-your-businesss-highest-energy-use/",
+            "https://blog.constellation.com/2021/06/14/reducing-your-small-business-peak-demand-charges/",
+            "https://www.sanalifeenergy.com/blog/peak-demand-charges-explained-the-biggest-line-item-nobodys-managing",
+            "https://www.kammac.com/wp-content/uploads/2023/05/white-paper.pdf",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFdZ-TbVQ3QqaJ-MbSKU2Nr5K9yFkTimG0ofsrVlYCATaLLma-DyjlpzNxg9TSvP2_HHzVLev2olen8qnnLruV3-ps6QTU_5lFeNHBl9XpFrmIxtANoNgWiRsEBQ3cRN_q5jX3Xl9mI",
+            "https://wellhub.com/en-us/blog/organizational-development/calculate-employee-absenteeism-rate/",
+            "https://www.care.com/benefits/absenteeism-rate/",
+            "https://www.leapsome.com/blog/absenteeism-rate",
+            "https://scheduleleave.com/blog/absenteeism-benchmarks-by-industry-whats-a-normal-rate/"
+        ],
+        "rationale": "This experiment aims to assess the resilience and performance of the Incident Management process under varying conditions of demand and resource availability. By simulating a baseline, a peak load event, and a severe resource constraint, we can identify potential bottlenecks, evaluate service level impacts, and inform capacity planning decisions to ensure effective incident resolution.",
+        "grounding_mode": "web_grounded",
+        "grounding_status": "success",
+        "generated_at": "2026-06-27T15:10:54.979179"
+    },
+    "base_parameters": "AutoGenerated_Base_params.json",
+    "report_settings": {
+        "title": "Incident Management Process Simulation Experiment",
+        "description": "Simulating the Incident Management process under baseline, peak load, and resource constrained conditions to assess performance.",
+        "kpis": {
+            "wait_times": [
+                "Account_Manager",
+                "Role_1st_level_support",
+                "Role_2nd_level_support",
+                "Software_development"
+            ]
+        }
+    },
+    "scenarios": [
+        {
+            "name": "A_Baseline",
+            "description": "Represents the normal operating conditions of the Incident Management process.",
+            "arrival_rate": 144000
+        },
+        {
+            "name": "B_Peak_Load",
+            "description": "Tests the system under a significant increase in incident demand, simulating a major outage or incident surge.",
+            "arrival_rate": 72000
+        },
+        {
+            "name": "C_Resource_Constraint",
+            "description": "Evaluates the process performance when a critical support role experiences a severe reduction in available personnel due to absenteeism.",
+            "arrival_rate": 144000,
+            "resource_allocations": {
+                "Role_1st_level_support": 0
+            }
+        }
+    ]
+}

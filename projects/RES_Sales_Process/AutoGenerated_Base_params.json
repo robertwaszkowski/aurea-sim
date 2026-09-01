@@ -1,0 +1,555 @@
+{
+    "resource_profiles": [
+        {
+            "id": "System",
+            "name": "System",
+            "resource_list": [
+                {
+                    "id": "System_1",
+                    "name": "Automated System",
+                    "cost_per_hour": 10,
+                    "amount": 1,
+                    "calendar": "24_7_Calendar"
+                }
+            ]
+        },
+        {
+            "id": "Customer",
+            "name": "Customer",
+            "resource_list": [
+                {
+                    "id": "Customer_1",
+                    "name": "Customer",
+                    "cost_per_hour": 0,
+                    "amount": 1,
+                    "calendar": "Standard_Working_Hours"
+                }
+            ]
+        },
+        {
+            "id": "KeyAccountManager",
+            "name": "Key Account Manager",
+            "resource_list": [
+                {
+                    "id": "KAM_1",
+                    "name": "Key Account Manager",
+                    "cost_per_hour": 75,
+                    "amount": 1,
+                    "calendar": "Standard_Working_Hours"
+                }
+            ]
+        },
+        {
+            "id": "EcoAdvisor",
+            "name": "eco-Advisor",
+            "resource_list": [
+                {
+                    "id": "EcoAdvisor_1",
+                    "name": "eco-Advisor",
+                    "cost_per_hour": 60,
+                    "amount": 1,
+                    "calendar": "Standard_Working_Hours"
+                }
+            ]
+        },
+        {
+            "id": "Reviewer",
+            "name": "Reviewer",
+            "resource_list": [
+                {
+                    "id": "Reviewer_1",
+                    "name": "Reviewer",
+                    "cost_per_hour": 55,
+                    "amount": 1,
+                    "calendar": "Standard_Working_Hours"
+                }
+            ]
+        },
+        {
+            "id": "Coordinator",
+            "name": "Coordinator",
+            "resource_list": [
+                {
+                    "id": "Coordinator_1",
+                    "name": "Coordinator",
+                    "cost_per_hour": 50,
+                    "amount": 1,
+                    "calendar": "Standard_Working_Hours"
+                }
+            ]
+        },
+        {
+            "id": "Auditor",
+            "name": "Auditor",
+            "resource_list": [
+                {
+                    "id": "Auditor_1",
+                    "name": "Auditor",
+                    "cost_per_hour": 80,
+                    "amount": 1,
+                    "calendar": "Standard_Working_Hours"
+                }
+            ]
+        },
+        {
+            "id": "Accountant",
+            "name": "Accountant",
+            "resource_list": [
+                {
+                    "id": "Accountant_1",
+                    "name": "Accountant",
+                    "cost_per_hour": 50,
+                    "amount": 1,
+                    "calendar": "Standard_Working_Hours"
+                }
+            ]
+        }
+    ],
+    "task_resource_distribution": [
+        {
+            "task_id": "Task_AddProspect",
+            "resources": [
+                {
+                    "resource_id": "System_1",
+                    "distribution_name": "norm",
+                    "distribution_params": [
+                        {
+                            "value": 30
+                        },
+                        {
+                            "value": 5
+                        },
+                        {
+                            "value": 0
+                        },
+                        {
+                            "value": 9999999
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "task_id": "Task_AddContact",
+            "resources": [
+                {
+                    "resource_id": "Customer_1",
+                    "distribution_name": "norm",
+                    "distribution_params": [
+                        {
+                            "value": 600
+                        },
+                        {
+                            "value": 120
+                        },
+                        {
+                            "value": 0
+                        },
+                        {
+                            "value": 9999999
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "task_id": "Task_FirstAppt",
+            "resources": [
+                {
+                    "resource_id": "KAM_1",
+                    "distribution_name": "norm",
+                    "distribution_params": [
+                        {
+                            "value": 3600
+                        },
+                        {
+                            "value": 600
+                        },
+                        {
+                            "value": 0
+                        },
+                        {
+                            "value": 9999999
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "task_id": "Task_PrepareOffer",
+            "resources": [
+                {
+                    "resource_id": "EcoAdvisor_1",
+                    "distribution_name": "norm",
+                    "distribution_params": [
+                        {
+                            "value": 1800
+                        },
+                        {
+                            "value": 300
+                        },
+                        {
+                            "value": 0
+                        },
+                        {
+                            "value": 9999999
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "task_id": "Task_ReviewOffer",
+            "resources": [
+                {
+                    "resource_id": "Reviewer_1",
+                    "distribution_name": "norm",
+                    "distribution_params": [
+                        {
+                            "value": 900
+                        },
+                        {
+                            "value": 180
+                        },
+                        {
+                            "value": 0
+                        },
+                        {
+                            "value": 9999999
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "task_id": "Task_ConfirmInterest",
+            "resources": [
+                {
+                    "resource_id": "EcoAdvisor_1",
+                    "distribution_name": "norm",
+                    "distribution_params": [
+                        {
+                            "value": 600
+                        },
+                        {
+                            "value": 120
+                        },
+                        {
+                            "value": 0
+                        },
+                        {
+                            "value": 9999999
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "task_id": "Task_Payment",
+            "resources": [
+                {
+                    "resource_id": "Customer_1",
+                    "distribution_name": "norm",
+                    "distribution_params": [
+                        {
+                            "value": 300
+                        },
+                        {
+                            "value": 60
+                        },
+                        {
+                            "value": 0
+                        },
+                        {
+                            "value": 9999999
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "task_id": "Task_ChooseInstaller",
+            "resources": [
+                {
+                    "resource_id": "Reviewer_1",
+                    "distribution_name": "norm",
+                    "distribution_params": [
+                        {
+                            "value": 1200
+                        },
+                        {
+                            "value": 240
+                        },
+                        {
+                            "value": 0
+                        },
+                        {
+                            "value": 9999999
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "task_id": "Task_ChooseAuditor",
+            "resources": [
+                {
+                    "resource_id": "Coordinator_1",
+                    "distribution_name": "norm",
+                    "distribution_params": [
+                        {
+                            "value": 1500
+                        },
+                        {
+                            "value": 300
+                        },
+                        {
+                            "value": 0
+                        },
+                        {
+                            "value": 9999999
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "task_id": "Task_PerformAudit",
+            "resources": [
+                {
+                    "resource_id": "Auditor_1",
+                    "distribution_name": "norm",
+                    "distribution_params": [
+                        {
+                            "value": 7200
+                        },
+                        {
+                            "value": 900
+                        },
+                        {
+                            "value": 0
+                        },
+                        {
+                            "value": 9999999
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "task_id": "Task_SignAgreement",
+            "resources": [
+                {
+                    "resource_id": "Auditor_1",
+                    "distribution_name": "norm",
+                    "distribution_params": [
+                        {
+                            "value": 900
+                        },
+                        {
+                            "value": 180
+                        },
+                        {
+                            "value": 0
+                        },
+                        {
+                            "value": 9999999
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "task_id": "Task_CreditCheck",
+            "resources": [
+                {
+                    "resource_id": "Reviewer_1",
+                    "distribution_name": "norm",
+                    "distribution_params": [
+                        {
+                            "value": 600
+                        },
+                        {
+                            "value": 120
+                        },
+                        {
+                            "value": 0
+                        },
+                        {
+                            "value": 9999999
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "task_id": "Task_AdvancePayment",
+            "resources": [
+                {
+                    "resource_id": "Accountant_1",
+                    "distribution_name": "norm",
+                    "distribution_params": [
+                        {
+                            "value": 480
+                        },
+                        {
+                            "value": 90
+                        },
+                        {
+                            "value": 0
+                        },
+                        {
+                            "value": 9999999
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "task_id": "Task_StartLogistics",
+            "resources": [
+                {
+                    "resource_id": "System_1",
+                    "distribution_name": "norm",
+                    "distribution_params": [
+                        {
+                            "value": 60
+                        },
+                        {
+                            "value": 10
+                        },
+                        {
+                            "value": 0
+                        },
+                        {
+                            "value": 9999999
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "gateway_branching_probabilities": [
+        {
+            "gateway_id": "Gateway_ManualStart",
+            "probabilities": [
+                {
+                    "path_id": "Flow_3",
+                    "value": 0.2
+                },
+                {
+                    "path_id": "Flow_4",
+                    "value": 0.8
+                }
+            ]
+        },
+        {
+            "gateway_id": "Gateway_CustomerInterest",
+            "probabilities": [
+                {
+                    "path_id": "Flow_9",
+                    "value": 0.15
+                },
+                {
+                    "path_id": "Flow_10",
+                    "value": 0.15
+                },
+                {
+                    "path_id": "Flow_12",
+                    "value": 0.7
+                }
+            ]
+        },
+        {
+            "gateway_id": "Gateway_OfferChanges",
+            "probabilities": [
+                {
+                    "path_id": "Flow_17",
+                    "value": 0.75
+                },
+                {
+                    "path_id": "Flow_0hk08wz",
+                    "value": 0.25
+                }
+            ]
+        },
+        {
+            "gateway_id": "Gateway_Financing",
+            "probabilities": [
+                {
+                    "path_id": "Flow_19",
+                    "value": 0.4
+                },
+                {
+                    "path_id": "Flow_20",
+                    "value": 0.6
+                }
+            ]
+        },
+        {
+            "gateway_id": "Gateway_LoanDecision",
+            "probabilities": [
+                {
+                    "path_id": "Flow_22",
+                    "value": 0.85
+                },
+                {
+                    "path_id": "Flow_23",
+                    "value": 0.15
+                }
+            ]
+        }
+    ],
+    "resource_calendars": [
+        {
+            "id": "Standard_Working_Hours",
+            "name": "Standard Working Hours",
+            "time_periods": [
+                {
+                    "beginTime": "08:00:00",
+                    "endTime": "16:00:00",
+                    "from": "MONDAY",
+                    "to": "FRIDAY"
+                }
+            ]
+        },
+        {
+            "id": "24_7_Calendar",
+            "name": "24/7 System Calendar",
+            "time_periods": [
+                {
+                    "beginTime": "00:00:00",
+                    "endTime": "23:59:59",
+                    "from": "MONDAY",
+                    "to": "SUNDAY"
+                }
+            ]
+        }
+    ],
+    "arrival_time_calendar": [
+        {
+            "beginTime": "08:00:00",
+            "endTime": "16:00:00",
+            "from": "MONDAY",
+            "to": "FRIDAY"
+        }
+    ],
+    "arrival_time_distribution": {
+        "distribution_name": "expon",
+        "distribution_params": [
+            {
+                "value": 0
+            },
+            {
+                "value": 144000
+            },
+            {
+                "value": 0
+            },
+            {
+                "value": 9999999
+            }
+        ]
+    },
+    "process_model": "RES_Sales_Process.bpmn"
+}

@@ -1,0 +1,117 @@
+{
+    "metadata": {
+        "methodology": "Discrete-Event Simulation (DES) and What-If Scenario Modeling",
+        "sources": [
+            "Product \u203a Simulate - processmind.com",
+            "Function \u203a What If Scenarios - softguide.com",
+            "Think \u203a Topics \u203a What If Analysis - ibm.com",
+            "vertexaisearch.cloud.google.com",
+            "Queueing Theory For Simulation - softwaresim.com",
+            "Queueing Theory Part 3 - 6sigma.com",
+            "Forecast Scenarios \u203a Capacity Planning Algorithms Supported By Sprinklr Wfm \u203a 6686763b7bc6fc3c8d396a15 - sprinklr.com",
+            "How To Use Erlang C To Plan Staffing - assembled.com",
+            "Watch - youtube.com",
+            "Glossary \u203a Erlang C Formula - nice.com",
+            "Wiki \u203a Erlang C - wiki.wfmlabs.org",
+            "Post \u203a How Stress Testing Improves Corporate Financial Risk Management Scenarios Resilience And Strategi - datastudios.org",
+            "Insights \u203a 6 Steps To Stress Test Your Business - kmco.com",
+            "Glossary \u203a Stress Testing - radview.com",
+            "vertexaisearch.cloud.google.com",
+            "Bottleneck - pipefy.com",
+            "vertexaisearch.cloud.google.com",
+            "Bottleneck Identification How To Find Process Constraints And Chokepoints That Slow Your Business - lean6sigmahub.com",
+            "Common Business Bottlenecks - databox.com",
+            "vertexaisearch.cloud.google.com",
+            "Performance Stress Testing Exit Criteria And What Contingency Is Allowed Between Peak Load And Stress Numbers \u203a 59243 - club.ministryoftesting.com",
+            "Absenteeism Benchmarks By Industry Whats A Normal Rate - scheduleleave.com",
+            "vertexaisearch.cloud.google.com",
+            "Absenteeism Workplace Statistics - teamsense.com",
+            "Absenteeism Rate - aihr.com",
+            "News \u203a Hr Magazine \u203a Kronos Us Executive Summary Final - shrm.org"
+        ],
+        "source_urls": [
+            "https://processmind.com/product/simulate",
+            "https://www.softguide.com/function/what-if-scenarios",
+            "https://www.ibm.com/think/topics/what-if-analysis",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGUwxBcdFOBMk2rEq7U1KIe5rUzRmpjLLIZan_Gz5BxdOVAk2ahawLWP4BUyIs33PEUiq4aI3syOZVKQS03_sv9wPLhCdV4kNFuKpOfd0JZ45qEGLK4F9K687GrRFiWZQvdcPXFbMDNWklaZj2DTs0xQdrc6464oq4SuVBR-xsfcVe6AMWhTCY5D7sbSFjzGB2O",
+            "https://softwaresim.com/blog/queueing-theory-for-simulation/",
+            "https://6sigma.com/queueing-theory-part-3/",
+            "https://www.sprinklr.com/help/articles/forecast-scenarios/capacity-planning-algorithms-supported-by-sprinklr-wfm/6686763b7bc6fc3c8d396a15",
+            "https://www.assembled.com/blog/how-to-use-erlang-c-to-plan-staffing",
+            "https://www.youtube.com/watch?v=SXWSrxqOrkQ",
+            "https://www.nice.com/glossary/erlang-c-formula",
+            "https://wiki.wfmlabs.org/wiki/Erlang_C",
+            "https://www.datastudios.org/post/how-stress-testing-improves-corporate-financial-risk-management-scenarios-resilience-and-strategi",
+            "https://www.kmco.com/insights/6-steps-to-stress-test-your-business/",
+            "https://www.radview.com/glossary/stress-testing/",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE_w8ItqVqGaRwwM0DKX91Y6J1SnKvkjHie2wp8JD_PSmm4Zp_0MlovWDAbkXvDoOs1Valp9aVTzsVnaOqslS2xsOsLqCZxUzpPuNDa4y7SimOp6y3B7XGzdEuSDbE53y2dFoHMSwD5uHX-pSp8k1Qg5r2-",
+            "https://www.pipefy.com/blog/bottleneck/",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFQbpqO8qV7Ldh6ZEnYQ7UUUPkZBdKnXUtOQmr2dwFlXH9uTnlPG1qOLoIzRLUO96Q2inqd9QNkmo7pQR5d4BP83Pi-ZCacE9ArlB_Acr96Nk_5kO67lsaNT6ilnV3Pfhx_WAm2L1dzwRqUotEHGny_Gi3Ogv1oaOp6r0cYGdEYXnwy5x_rnTtOgotzYT58KeCoc7h8eaQiBbzQqU320U8rWe25Ow==",
+            "https://lean6sigmahub.com/bottleneck-identification-how-to-find-process-constraints-and-chokepoints-that-slow-your-business/",
+            "https://databox.com/common-business-bottlenecks",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF0PpBRXrVm3pUa2_8Gf9ioAG1cdSXlxmdVup_m3pjYHNXktZoH8HYUVLV0S6YGsrH_twRoudnvC-AnaKN_6xDG60su18jyDxS3Xi9mXzr8r7XQDeOjUlRRzDyFn0vqEb2CmX83ARhO",
+            "https://club.ministryoftesting.com/t/performance-stress-testing-exit-criteria-and-what-contingency-is-allowed-between-peak-load-and-stress-numbers/59243",
+            "https://scheduleleave.com/blog/absenteeism-benchmarks-by-industry-whats-a-normal-rate/",
+            "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHn-drMSTZhal01BcqQt4AlE3KcFkS0F66akyKVk8p8FEMsyt5okFWcfcAc9FVw74GgpuUvVOb1Rk2S45mXUU2kYfhnDFKniJu2vYX6FSb2cLPl86-KjFtur2euPRhUQlPR_gZcMId-",
+            "https://www.teamsense.com/blog/absenteeism-workplace-statistics",
+            "https://www.aihr.com/blog/absenteeism-rate/",
+            "https://www.shrm.org/content/dam/en/shrm/topics-tools/news/hr-magazine/kronos_us_executive_summary_final.pdf"
+        ],
+        "rationale": "These scenarios are designed to evaluate the 'Leave Request' process under varying conditions of demand and resource availability. The A_Baseline scenario establishes a reference point for current operations. B_Peak_Load stress tests the system's capacity under a 5x surge in demand, identifying potential bottlenecks. C_Resource_Boost explores the effectiveness of increasing key personnel to improve process efficiency and reduce wait times, informing capacity planning decisions.",
+        "grounding_mode": "web_grounded",
+        "grounding_status": "success",
+        "generated_at": "2026-06-27T15:20:32.792218"
+    },
+    "base_parameters": "AutoGenerated_Base_params.json",
+    "report_settings": {
+        "title": "Leave Request Process Capacity Planning Experiment",
+        "description": "Simulates various demand and resource allocation scenarios to assess the capacity and resilience of the Leave Request process.",
+        "kpis": {
+            "wait_times": [
+                "Lane_HeadOU",
+                "Lane_PD",
+                "Lane_Chancellor",
+                "Lane_VRSA",
+                "Lane_Rector",
+                "Lane_VRE"
+            ]
+        }
+    },
+    "scenarios": [
+        {
+            "name": "A_Baseline",
+            "description": "Represents the current operational state of the Leave Request process under normal demand and resource allocation.",
+            "arrival_rate": 144000,
+            "resource_allocations": {
+                "Lane_HeadOU": 1,
+                "Lane_PD": 1,
+                "Lane_Chancellor": 1,
+                "Lane_VRSA": 1,
+                "Lane_Rector": 1,
+                "Lane_VRE": 1
+            },
+            "cost_overrides": {
+                "Lane_HeadOU": 30,
+                "Lane_PD": 30,
+                "Lane_Chancellor": 30,
+                "Lane_VRSA": 30,
+                "Lane_Rector": 30,
+                "Lane_VRE": 30
+            }
+        },
+        {
+            "name": "B_Peak_Load",
+            "description": "Tests the system's resilience under a significant surge in leave requests, simulating a 5x peak demand spike.",
+            "arrival_rate": 28800
+        },
+        {
+            "name": "C_Resource_Boost",
+            "description": "Examines the impact of increasing key resource allocations to improve throughput and reduce wait times under baseline demand.",
+            "arrival_rate": 144000,
+            "resource_allocations": {
+                "Lane_HeadOU": 2,
+                "Lane_PD": 2
+            }
+        }
+    ]
+}
