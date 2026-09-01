@@ -171,10 +171,8 @@ See [the parameter workflow guide](docs/PARAMETER_WORKFLOW.md) for candidate
 selection, expert review, confidence/fidelity interpretation, baseline
 validation, and hybrid export.
 
-The software-only replay procedure is documented in
-[docs/REPRODUCIBILITY.md](docs/REPRODUCIBILITY.md). The empirical research data
-and scripts accompanying the SoftwareX evaluation are published separately as
-an immutable reproducibility capsule.
+The software replay procedure is documented in
+[docs/REPRODUCIBILITY.md](docs/REPRODUCIBILITY.md).
 
 ## Documentation
 
