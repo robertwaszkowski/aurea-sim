@@ -5,7 +5,7 @@ analyzing BPMN process simulations with the Prosimos engine. It combines a
 Python/FastAPI backend, a Vue web interface, a terminal workflow, and a
 headless runner.
 
-- Version: **1.2.0**
+- Version: **1.2.1**
 - License: **GNU GPL v3.0**
 - Python: **3.9-3.11**
 Node.js: **20 or newer**
@@ -188,7 +188,7 @@ The software replay procedure is documented in
 Release metadata is provided in `CITATION.cff`. The software source snapshot
 for this version is:
 
-<https://github.com/robertwaszkowski/aurea-sim/releases/tag/v1.2.0>
+<https://github.com/robertwaszkowski/aurea-sim/releases/tag/v1.2.1>
 
 
 ## Support
