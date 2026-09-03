@@ -84,7 +84,7 @@ CURATED_DIAGRAM_TITLES = {
     "Registry_Entry_Application.bpmn": "Registry Entry Application",
 }
 
-app = FastAPI(title="AureaSim API", version="1.2.0")
+app = FastAPI(title="AureaSim API", version="1.3.0")
 
 
 def _configured_local_path(environment_name: str, default: Path) -> Path:

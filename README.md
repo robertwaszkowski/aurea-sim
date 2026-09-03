@@ -5,7 +5,7 @@ analyzing BPMN process simulations with the Prosimos engine. It combines a
 Python/FastAPI backend, a Vue web interface, a terminal workflow, and a
 headless runner.
 
-- Version: **1.2.1**
+- Version: **1.3.0**
 - License: **GNU GPL v3.0**
 - Python: **3.9-3.11**
 Node.js: **20 or newer**
@@ -26,13 +26,12 @@ Node.js: **20 or newer**
   DOCX/PDF/LaTeX reports.
 - Web, interactive terminal, and headless interfaces.
 
-Generated task durations are protected by a deterministic service-time
-guardrail. Values above one working day are treated as likely queue, waiting,
-or end-to-end cycle times and replaced by an auditable ten-minute human-task
-prior. BPMN service/script tasks and tasks assigned to an authoritative System
-role use a near-zero machine-service prior. Every correction is recorded in
-`metadata.task_duration_stabilization_policy`; the original value is not
-silently presented as grounded active execution time.
+Generated task durations are protected by a semantic service-time policy.
+The software identifies automated, external-wait, short-transaction, and
+active-human task classes from BPMN semantics and role information. It keeps
+LLM proposals within the class-appropriate duration scale, records every
+intervention in `metadata.task_duration_stabilization_policy`, and leaves the
+result visible for review rather than presenting it as calibrated ground truth.
 
 ## Interface
 
@@ -171,8 +170,26 @@ See [the parameter workflow guide](docs/PARAMETER_WORKFLOW.md) for candidate
 selection, expert review, confidence/fidelity interpretation, baseline
 validation, and hybrid export.
 
-The software replay procedure is documented in
-[docs/REPRODUCIBILITY.md](docs/REPRODUCIBILITY.md).
+## Testing
+
+Python tests:
+
+```bash
+python -m pytest
+```
+
+Frontend validation:
+
+```bash
+cd frontend
+npm ci
+npm run build
+```
+
+The software-only replay procedure is documented in
+[docs/REPRODUCIBILITY.md](docs/REPRODUCIBILITY.md). The empirical research data
+and scripts accompanying the SoftwareX evaluation are published separately as
+an immutable reproducibility capsule.
 
 ## Documentation
 
@@ -185,11 +202,13 @@ The software replay procedure is documented in
 
 ## Citation
 
-Release metadata is provided in `CITATION.cff`. The software source snapshot
+Release metadata is provided in `CITATION.cff`. The permanent source snapshot
 for this version is:
 
-<https://github.com/robertwaszkowski/aurea-sim/releases/tag/v1.2.1>
+<https://github.com/robertwaszkowski/aurea-sim/releases/tag/v1.3.0>
 
+The dedicated SoftwareX article citation will replace the provisional citation
+metadata after publication.
 
 ## Support
 

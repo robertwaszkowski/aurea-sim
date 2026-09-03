@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AuGraph xmlns="http://xmlns.tecna.pl/xml/ns/diagram" version="4.0">
+  <AuConnections>
+    <Connection type="SEQ_FLOW" event="NONE">
+      <start>start-1</start><end>task-1</end>
+      <Point left="18" top="18"/><Point left="90" top="18"/><Point left="120" top="60"/>
+      <linkedWidgets startWidgetId="flow-label-1"/>
+    </Connection>
+    <Connection type="SEQ_FLOW" event="NONE">
+      <start>task-1</start><end>gateway-1</end>
+      <Point left="220" top="60"/><Point left="260" top="60"/><Point left="280" top="65"/>
+    </Connection>
+    <Connection type="SEQ_FLOW" event="NONE">
+      <start>gateway-1</start><end>end-1</end>
+      <conditions type="default" expressionType="SIMPLE"/>
+      <Point left="330" top="65"/><Point left="370" top="65"/><Point left="400" top="68"/>
+    </Connection>
+  </AuConnections>
+  <AuConnectors>
+    <Connector><hashCode>start-1</hashCode><elementType>300</elementType><elementSubType>301</elementSubType><name>Start</name><left>0</left><top>0</top></Connector>
+    <Connector>
+      <hashCode>task-1</hashCode><elementType>600</elementType><elementSubType>600</elementSubType>
+      <name>Review request</name><descriptionText>Sanitized task</descriptionText><owner>1</owner><left>120</left><top>20</top>
+      <params><param name="subject" path="request.subject" access="m" forTask="true" multiApprove="false"/></params>
+      <Procedures><Proc name="prepare" type="pre" param="context" source="script"/></Procedures>
+    </Connector>
+    <Connector><hashCode>gateway-1</hashCode><elementType>400</elementType><elementSubType>401</elementSubType><name>Accepted?</name><left>280</left><top>40</top></Connector>
+    <Connector><hashCode>end-1</hashCode><elementType>300</elementType><elementSubType>302</elementSubType><name>Done</name><left>400</left><top>50</top></Connector>
+    <Connector><hashCode>flow-label-1</hashCode><elementType>100</elementType><elementSubType>102</elementSubType><descriptionText>Submit</descriptionText><left>55</left><top>2</top></Connector>
+  </AuConnectors>
+  <Info><Model name="Sanitized process" shortName="SANITIZED" version="1.0" package="SANITIZED"/></Info>
+  <Procedures><Proc name="cleanup" type="post" source="script"/></Procedures>
+  <ProcessData name="ProcessData">
+    <Layout name="request" label="Request" type="rows">
+      <Row>
+        <Field name="subject" label="Subject" type="text" access="EDIT"><Value class="java.lang.String"/></Field>
+        <Field name="priority" label="Priority" type="combobox"><Option label="Normal">NORMAL</Option><Option label="Urgent">URGENT</Option></Field>
+        <Field name="approved" label="Approved" type="checkbox"/>
+      </Row>
+      <Tab name="details" label="Details">
+        <Field name="comment" label="Comment" type="textarea"/>
+      </Tab>
+    </Layout>
+  </ProcessData>
+  <Roles><Role><name>REVIEWER</name><label>Reviewer</label><desc>Sanitized role</desc><index>1</index><exactlyOne>true</exactlyOne><slHeight>120</slHeight></Role></Roles>
+  <Swimlanes/>
+</AuGraph>

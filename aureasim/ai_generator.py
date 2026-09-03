@@ -3,6 +3,9 @@ import xml.etree.ElementTree as ET
 import re
 import json
 import math
+from copy import deepcopy
+import random
+import secrets
 from pathlib import Path
 from typing import List, Optional, Dict
 from datetime import datetime
@@ -200,6 +203,10 @@ EVIDENCE_STATUSES = {
 # accidentally copied from web research than continuous hands-on work.
 MAX_ACTIVE_TASK_SECONDS = 8 * 60 * 60
 DEFAULT_HUMAN_TASK_SECONDS = 10 * 60
+SHORT_TRANSACTION_MIN_SECONDS = 1
+SHORT_TRANSACTION_DEFAULT_SECONDS = 15
+SHORT_TRANSACTION_MAX_SECONDS = 60
+SHORT_TRANSACTION_STD_SECONDS = 7.5
 DEFAULT_SYSTEM_TASK_SECONDS = 0.02
 SYSTEM_TASK_STD_SECONDS = 0.01
 SYSTEM_TASK_MIN_SECONDS = 0.001
@@ -511,10 +518,21 @@ def is_structural_system_task(task: dict) -> bool:
     task_type = str(task.get("bpmn_task_type", "")).casefold()
     if task_type in {"servicetask", "scripttask"}:
         return True
+    if str(task.get("task_class", "")).casefold() == "external_wait":
+        return True
     return is_structural_system_role(str(task.get("role_id", "")))
 
 
-def stabilize_task_durations(ai_data: dict, semantics: dict) -> dict:
+def _sample_duration_policy_fallback(policy: dict, rng: random.Random) -> float:
+    """Sample a bounded semantic prior instead of injecting a fixed value."""
+    return round(rng.triangular(
+        float(policy["minimum_seconds"]),
+        float(policy["maximum_seconds"]),
+        float(policy["fallback_seconds"]),
+    ), 3)
+
+
+def stabilize_task_durations(ai_data: dict, semantics: dict, fallback_seed=None) -> dict:
     """Reject implausible cycle-time-as-service-time estimates deterministically.
 
     Web benchmarks commonly report elapsed approval or resolution time, while
@@ -526,12 +544,23 @@ def stabilize_task_durations(ai_data: dict, semantics: dict) -> dict:
     task_semantics = {
         task.get("task_id"): task for task in semantics.get("tasks", [])
     }
+    sampled_fallback_seed = secrets.randbits(64) if fallback_seed is None else fallback_seed
+    fallback_rng = random.Random(sampled_fallback_seed)
     corrections = []
 
     for task_entry in ai_data.get("task_resource_distribution", []):
         task_id = task_entry.get("task_id")
         semantic = task_semantics.get(task_id, {})
+        task_class = str(semantic.get("task_class", "")).casefold()
         is_system_task = is_structural_system_task(semantic)
+        is_short_transaction = task_class == "short_transaction"
+        duration_policy = semantic.get("duration_policy") or {
+            "id": "rapid_transaction",
+            "minimum_seconds": SHORT_TRANSACTION_MIN_SECONDS,
+            "fallback_seconds": SHORT_TRANSACTION_DEFAULT_SECONDS,
+            "maximum_seconds": SHORT_TRANSACTION_MAX_SECONDS,
+            "std_seconds": SHORT_TRANSACTION_STD_SECONDS,
+        }
         fallback_mean = (
             DEFAULT_SYSTEM_TASK_SECONDS if is_system_task
             else DEFAULT_HUMAN_TASK_SECONDS
@@ -548,13 +577,27 @@ def stabilize_task_durations(ai_data: dict, semantics: dict) -> dict:
                 original_mean = math.nan
 
             reason = None
-            if is_system_task:
+            if task_class == "external_wait":
+                reason = (
+                    "BPMN annotation identifies an external-wait lifecycle state; "
+                    "it has no active resource service time"
+                )
+            elif is_system_task:
                 reason = (
                     "BPMN structure identifies an automated performer; active machine "
                     "service time uses the deterministic near-zero structural prior"
                 )
             elif not math.isfinite(original_mean) or original_mean <= 0:
                 reason = "non-positive or non-finite service-time mean"
+            elif is_short_transaction and not (
+                float(duration_policy["minimum_seconds"])
+                <= original_mean
+                <= float(duration_policy["maximum_seconds"])
+            ):
+                reason = (
+                    "BPMN annotation identifies a short human transaction; active service "
+                    "time must remain within its semantic seconds-scale duration policy"
+                )
             elif original_mean > MAX_ACTIVE_TASK_SECONDS:
                 reason = (
                     "mean exceeds the one-working-day active-service limit; "
@@ -566,7 +609,11 @@ def stabilize_task_durations(ai_data: dict, semantics: dict) -> dict:
 
             original_rationale = resource_entry.get("evidence_rationale", "")
             resource_entry["distribution_name"] = "norm"
-            replacement_mean = DEFAULT_SYSTEM_TASK_SECONDS if is_system_task else fallback_mean
+            replacement_mean = (
+                DEFAULT_SYSTEM_TASK_SECONDS if is_system_task
+                else _sample_duration_policy_fallback(duration_policy, fallback_rng) if is_short_transaction
+                else fallback_mean
+            )
             resource_entry["distribution_params"] = (
                 [
                     {"value": DEFAULT_SYSTEM_TASK_SECONDS},
@@ -575,6 +622,11 @@ def stabilize_task_durations(ai_data: dict, semantics: dict) -> dict:
                     {"value": SYSTEM_TASK_MAX_SECONDS},
                 ]
                 if is_system_task else [
+                    {"value": replacement_mean},
+                    {"value": float(duration_policy["std_seconds"])},
+                    {"value": float(duration_policy["minimum_seconds"])},
+                    {"value": float(duration_policy["maximum_seconds"])},
+                ] if is_short_transaction else [
                     {"value": fallback_mean},
                     {"value": fallback_mean * 0.2},
                     {"value": 0},
@@ -612,7 +664,21 @@ def stabilize_task_durations(ai_data: dict, semantics: dict) -> dict:
         ],
         "maximum_active_task_seconds": MAX_ACTIVE_TASK_SECONDS,
         "human_fallback_seconds": DEFAULT_HUMAN_TASK_SECONDS,
+        "short_transaction_policy": {
+            "task_class": "short_transaction",
+            "meaning": "brief human interaction, such as confirming, routing, recording, or approving without substantive review",
+            "task_specific": True,
+            "fallback_sampling_policy": {
+                "id": "rapid_transaction",
+                "minimum_seconds": SHORT_TRANSACTION_MIN_SECONDS,
+                "fallback_seconds": SHORT_TRANSACTION_DEFAULT_SECONDS,
+                "maximum_seconds": SHORT_TRANSACTION_MAX_SECONDS,
+                "std_seconds": SHORT_TRANSACTION_STD_SECONDS,
+                "sampling": "bounded triangular draw with fallback_seconds as the mode",
+            },
+        },
         "system_fallback_seconds": DEFAULT_SYSTEM_TASK_SECONDS,
+        "fallback_sampling_seed": str(sampled_fallback_seed),
         "system_task_policy": {
             "detection": "BPMN service/script task or authoritative System role",
             "mean_seconds": DEFAULT_SYSTEM_TASK_SECONDS,
@@ -743,6 +809,9 @@ def extract_semantic_context(bpmn_path):
             "resource_instance_id": info["resource_instance_id"],
             "role_source": info["role_source"],
             "bpmn_task_type": info["bpmn_task_type"],
+            "task_class": info["task_class"],
+            "task_class_source": info["task_class_source"],
+            "duration_policy": info["duration_policy"],
         })
 
     # 2. Extract Gateways and outgoing paths
@@ -1040,6 +1109,21 @@ def validate_parameter_provenance(ai_data: dict) -> None:
                 source_urls=resource_entry.get("source_urls", []),
             )
 
+def semantic_context_for_prompt(semantics):
+    """Keep recovery fallbacks internal rather than encouraging their repetition."""
+    prompt_semantics = deepcopy(semantics)
+    for task in prompt_semantics.get("tasks", []):
+        policy = task.get("duration_policy")
+        if policy:
+            policy.pop("fallback_seconds", None)
+            policy.pop("std_seconds", None)
+            policy["selection_instruction"] = (
+                "Infer a task-specific active-service mean inside these bounds; "
+                "do not use a universal default."
+            )
+    return prompt_semantics
+
+
 def generate_base_prosimos_json(
     bpmn_path,
     api_key,
@@ -1135,7 +1219,11 @@ def generate_base_prosimos_json(
     task_mappings = []
     role_mappings = {}
     for t in semantics.get("tasks", []):
-        task_mappings.append(f"Task '{prompt_task_name(t)}' ({t['task_id']}) -> '{t['resource_instance_id']}'")
+        task_mappings.append(
+            f"Task '{prompt_task_name(t)}' ({t['task_id']}; class={t.get('task_class', 'active_human')}; "
+            f"class_source={t.get('task_class_source', 'default')}) "
+            f"-> '{t['resource_instance_id']}'"
+        )
         role_mappings[t['role_id']] = t['resource_instance_id']
         
     role_mapping_str = "\n    ".join([f"Role '{r_id}' -> '{r_inst}'" for r_id, r_inst in role_mappings.items()])
@@ -1165,7 +1253,7 @@ def generate_base_prosimos_json(
     I have a BPMN process mapped below.
     {research_section}
     BPMN SEMANTICS:
-    {json.dumps(semantics, indent=2)}
+    {json.dumps(semantic_context_for_prompt(semantics), indent=2)}
 
     INSTRUCTIONS:
     1. {parameter_instruction}
@@ -1202,6 +1290,14 @@ def generate_base_prosimos_json(
        Exclude all queueing, waiting for another person, handoff, batching, SLA/resolution,
        and end-to-end cycle/lead/turnaround time. A benchmark stated in days is normally elapsed
        time and MUST NOT be used unless it explicitly says a resource works continuously for that duration.
+       A task with `task_class` equal to `external_wait` is not human service work; assign it a
+       near-zero structural duration. The deterministic guardrail will enforce that classification.
+       A task with `task_class` equal to `short_transaction` is a brief human interaction (for
+       example, confirming, routing, recording, or approving without substantive review). Its
+       active service-time mean must obey its task-level `duration_policy` bounds, which are in
+       seconds. Infer a task-specific value inside those bounds; no universal default is supplied.
+       Do not assign it a generic multi-minute office-work duration. A task called
+       "review" or "verify" is not a short transaction unless its BPMN class explicitly says so.
     3. Create `gateway_branching_probabilities` summing to 1.0 per gateway.
     4. arrival_time: Estimate the realistic case arrival rate for this process.
        - Express as a frequency: how many cases arrive per unit of time (e.g. 3 per week, 10 per day).
@@ -1221,7 +1317,7 @@ def generate_base_prosimos_json(
         config=types.GenerateContentConfig(
             response_mime_type="application/json",
             response_schema=ProsimosPredictedBase,
-            temperature=0.2
+            temperature=0.4
         ),
         return_model=True,
     )
@@ -1343,7 +1439,7 @@ def generate_base_prosimos_json(
     ai_data["metadata"]["grounding_status"] = research.get("grounding_status", "unknown")
     ai_data["metadata"]["generation_model"] = generation_model
     ai_data["metadata"]["research_model"] = research.get("research_model")
-    ai_data["metadata"]["generation_temperature"] = 0.2
+    ai_data["metadata"]["generation_temperature"] = 0.4
     ai_data["metadata"]["resource_assignment_policy"] = {
         "mode": "deterministic_bpmn_role_binding",
         "priority_order": [

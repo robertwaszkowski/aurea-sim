@@ -13,6 +13,8 @@ from aureasim.historical_analogues import (
     HistoricalTaskProfile,
     find_similar_tasks,
     find_temporal_semantic_analogues,
+    find_temporal_semantic_analogues_v2,
+    select_consistent_donor_cluster,
 )
 from aureasim.parameter_candidates import (
     ApplicationStatus,
@@ -36,6 +38,7 @@ def _profile(data: dict[str, Any]) -> HistoricalTaskProfile:
             "predecessor_labels": tuple(data.get("predecessor_labels", ())),
             "successor_labels": tuple(data.get("successor_labels", ())),
             "domain_fields": frozenset(data.get("domain_fields", ())),
+            "form_access_signature": frozenset(data.get("form_access_signature", ())),
         }
     )
 
@@ -125,27 +128,53 @@ def search_repository(
         "historical_semantic_analogue": find_temporal_semantic_analogues,
         # Compatibility name used before the method was renamed HSAR.
         "temporal_semantic_analogue": find_temporal_semantic_analogues,
+        "historical_semantic_analogue_v2": find_temporal_semantic_analogues_v2,
     }.get(retrieval_strategy)
     if retrieval is None:
         raise ValueError(f"Unsupported historical retrieval strategy: {retrieval_strategy!r}")
-    matches = retrieval(
-        target,
-        profiles,
-        weights=settings["weights"],
-        minimum_score=float(settings["minimum_score"]),
-        maximum_results=int(settings["maximum_results"]),
-        minimum_observations=int(settings["minimum_donor_observations"]),
-    )
+    retrieval_kwargs = {
+        "weights": settings["weights"],
+        "minimum_score": float(settings["minimum_score"]),
+        "maximum_results": int(settings["maximum_results"]),
+        "minimum_observations": int(settings["minimum_donor_observations"]),
+    }
+    if retrieval_strategy == "historical_semantic_analogue_v2":
+        retrieval_kwargs["minimum_form_access_similarity"] = float(
+            settings.get("minimum_form_access_similarity", 0.35)
+        )
+    matches = retrieval(target, profiles, **retrieval_kwargs)
+    excluded_matches = []
+    donor_medians = {}
+    if retrieval_strategy == "historical_semantic_analogue_v2":
+        samples_by_profile = {profile: values for profile, values in records}
+        matches, excluded_matches, donor_medians = select_consistent_donor_cluster(
+            matches,
+            samples_by_profile,
+            maximum_median_ratio=float(settings.get("maximum_median_ratio_within_cluster", 2.0)),
+            minimum_donors=int(settings.get("minimum_cluster_donors", 2)),
+        )
     families = {match.profile.process_alias for match in matches}
     combined = sum(match.profile.observation_count for match in matches)
-    sufficient = (
-        len(matches) >= int(settings["minimum_analogue_tasks"])
-        and len(families) >= int(settings["minimum_process_families"])
-        and combined >= int(settings["minimum_combined_executions"])
-    )
+    if retrieval_strategy == "historical_semantic_analogue_v2":
+        has_prior_version = any(match.donor_scope == "prior_version" for match in matches)
+        enough_prior = has_prior_version and combined >= int(settings.get("minimum_prior_version_observations", 100))
+        enough_cross_process = (
+            len(matches) >= int(settings.get("minimum_analogue_tasks", 2))
+            and len(families) >= int(settings.get("minimum_process_families", 2))
+            and combined >= int(settings["minimum_combined_executions"])
+        )
+        sufficient = enough_prior or enough_cross_process
+    else:
+        sufficient = (
+            len(matches) >= int(settings["minimum_analogue_tasks"])
+            and len(families) >= int(settings["minimum_process_families"])
+            and combined >= int(settings["minimum_combined_executions"])
+        )
     return {
         "target": target,
         "matches": matches,
+        "excluded_matches": excluded_matches,
+        "donor_medians": donor_medians,
         "sufficient": sufficient,
         "process_families": len(families),
         "combined_executions": combined,
@@ -198,6 +227,10 @@ def candidate_from_search(search: dict[str, Any], repository_path: Path) -> Para
         f"{item.profile.process_alias}:{item.profile.process_version}:{item.profile.task_id}"
         for item in search["matches"]
     ]
+    excluded_donors = [
+        f"{item.profile.process_alias}:{item.profile.process_version}:{item.profile.task_id}"
+        for item in search.get("excluded_matches", [])
+    ]
     digest = hashlib.sha256(repository_path.read_bytes()).hexdigest()
     return ParameterCandidate(
         candidate_id=deterministic_candidate_id(
@@ -225,13 +258,16 @@ def candidate_from_search(search: dict[str, Any], repository_path: Path) -> Para
             sample_size=search["combined_executions"],
             notes=(
                 "HSAR: all donor evidence predates the target evidence window. "
-                if search["retrieval_strategy"] in {"historical_semantic_analogue", "temporal_semantic_analogue"}
+                if search["retrieval_strategy"] in {
+                    "historical_semantic_analogue", "temporal_semantic_analogue", "historical_semantic_analogue_v2"
+                }
                 else "Target process excluded. "
-            ) + "Donors: " + ", ".join(donor_ids),
+            ) + "Selected donors: " + ", ".join(donor_ids)
+            + (". Excluded inconsistent donors: " + ", ".join(excluded_donors) if excluded_donors else ""),
         )],
         confidence_grade=ConfidenceGrade.MEDIUM,
         confidence_basis=(
-            f"{len(search['matches'])} analogous tasks from {search['process_families']} "
+            f"{len(search['matches'])} selected analogue tasks from {search['process_families']} "
             f"process families and {search['combined_executions']} calibration observations."
         ),
         application_status=ApplicationStatus.ALTERNATIVE,
@@ -264,5 +300,13 @@ def public_search_result(search: dict[str, Any]) -> dict[str, Any]:
             "domain": item.domain,
             "score": item.score,
             "donor_scope": item.donor_scope,
+            "form_access": item.form_access,
+            "donor_median_seconds": search.get("donor_medians", {}).get(item.profile),
         } for item in search["matches"]],
+        "excluded_matches": [{
+            "process_alias": item.profile.process_alias,
+            "task_id": item.profile.task_id,
+            "task_name": item.profile.task_name,
+            "donor_median_seconds": search.get("donor_medians", {}).get(item.profile),
+        } for item in search.get("excluded_matches", [])],
     }

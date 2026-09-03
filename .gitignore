@@ -1,23 +1,5 @@
 # Credentials and local configuration
 .env
-
-# Keep this public software repository free of research and generated artifacts.
-/publication/
-/research/
-/manuscript/
-/tests/
-/**/tests/
-/**/test_*.py
-/projects/*/results/
-/projects/*/results_sanitized/
-/results/
-/experiments/
-*.pdf
-*.docx
-*.tex
-*.log
-.pytest_cache/
-__pycache__/
 .env.*
 !.env.example
 

@@ -3,8 +3,9 @@ import os
 import shutil
 import re
 
-# Define root path
-ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# The script lives in software/tools/maintenance/.  A release archive must be
+# assembled from the software root, not from the intermediate tools directory.
+ROOT_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 def get_version():
     pyproject_path = os.path.join(ROOT_DIR, "pyproject.toml")
@@ -19,7 +20,11 @@ def get_version():
 def ignore_patterns(path, names):
     ignored = []
     for name in names:
-        if name in ("__pycache__", "node_modules", "dist", ".nuxt", ".vscode", ".DS_Store", ".git", ".gitignore"):
+        if name in (
+            "__pycache__", "node_modules", "dist", ".nuxt", ".vscode",
+            ".DS_Store", ".git", ".gitignore", ".venv", ".pytest_cache",
+            "aureasim.egg-info",
+        ) or name.startswith(".pytest"):
             ignored.append(name)
         elif name.endswith((".pyc", ".pyo", ".log", ".pdf", ".docx", ".xlsx", ".csv")):
             ignored.append(name)
@@ -57,7 +62,8 @@ def main():
         "pyproject.toml",
         "LICENSE",
         "README.md",
-        "CITATION.cff"
+        "CITATION.cff",
+        "CHANGELOG.md",
     ]
 
     for f in core_files:
@@ -71,6 +77,7 @@ def main():
     # 3. Directories to copy
     core_dirs = [
         "aureasim",
+        "docs",
         "examples",
         "frontend",
         "projects",

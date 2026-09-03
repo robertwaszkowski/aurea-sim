@@ -1,11 +1,49 @@
 import re
 import json
+import unicodedata
 from pathlib import Path
 import xml.etree.ElementTree as ET
 
 LEGACY_AUREA_NAMESPACE = "http://www.tecna.com/bpmn/aurea"
 CONVERTED_AUREA_NAMESPACE = "http://aurea.software/schema/2024/bpmn"
 AUREA_NAMESPACES = {LEGACY_AUREA_NAMESPACE, CONVERTED_AUREA_NAMESPACE}
+
+# These are intentionally conservative action stems, not a broad attempt to
+# infer effort from every task label.  A matching substantive-work stem always
+# wins: "verify and approve" remains active_human, while "approve decision"
+# becomes a rapid short transaction.
+SHORT_TRANSACTION_STEMS = (
+    "approve", "approval", "authorize", "authorise", "authorization", "authorisation",
+    "confirm", "confirmation", "acknowledge", "assign", "assignment", "route", "routing",
+    "forward", "record", "register", "log", "dispatch", "send", "reject", "rejection",
+    "decline", "akcept", "zatwierdz", "potwierdz", "przypis", "przekaz", "odesl",
+    "odeśl", "zarejestr", "zapisz", "wyslij", "wyślij", "odrzuc", "odmow",
+)
+SUBSTANTIVE_WORK_STEMS = (
+    "review", "verify", "validation", "validate", "check", "analyse", "analyze", "assess",
+    "calculate", "prepare", "generate", "create", "complete", "correct", "enter", "describe",
+    "investigate", "add", "upload", "attach", "weryfik", "sprawdz", "sprawdź", "uzupeln", "uzupełn", "popraw",
+    "wprowadz", "wprowadź", "wylicz", "gener", "przygot", "utworz", "utwórz", "opis", "dod", "załad", "zalad",
+)
+EXTERNAL_WAIT_STEMS = (
+    "wait", "await", "pending", "oczekiw", "czekaj",
+)
+FINANCIAL_APPROVAL_STEMS = (
+    "finance", "accounting", "financial", "księg", "ksieg", "finans",
+)
+
+
+def _semantic_label_key(value: str) -> str:
+    """Return a case- and diacritic-insensitive label key for semantic rules.
+
+    BPMN labels may use either Polish noun forms (``Zatwierdzenie``) or an
+    imperative form introduced by semantic enrichment (``Zatwierdź``).  Both
+    denote the same approval action.  Unicode decomposition prevents the
+    classifier from treating the latter as an unrelated label solely because
+    of the final accented character.
+    """
+    decomposed = unicodedata.normalize("NFKD", str(value).casefold())
+    return "".join(char for char in decomposed if not unicodedata.combining(char))
 
 def get_elements_by_local_name(root, local_names):
     if isinstance(local_names, str):
@@ -56,6 +94,62 @@ def extract_suffix_role(task_name: str) -> tuple[str, str | None]:
     if m:
         return m.group(1).strip(), m.group(2).strip()
     return task_name, None
+
+
+def infer_task_class(
+    task_name: str,
+    task_type: str,
+    explicit_task_class: str | None = None,
+    role_name: str | None = None,
+) -> tuple[str, str]:
+    """Classify a BPMN task for duration generation from explicit semantics.
+
+    A BPMN ``aurea:taskClass`` annotation is authoritative.  Otherwise, only
+    unambiguous lifecycle states and short transactional action labels receive
+    a special class.  All other tasks remain ``active_human`` rather than
+    receiving an unsupported low-duration assumption.
+    """
+    if explicit_task_class and explicit_task_class.strip():
+        return explicit_task_class.strip(), "bpmn_annotation"
+
+    normalized_type = task_type.casefold()
+    if normalized_type in {"servicetask", "scripttask"}:
+        return "automated", "bpmn_structure"
+
+    normalized_role = re.sub(r"[\s-]+", "_", str(role_name or "").casefold()).strip("_")
+    if normalized_role in {"system", "system_role", "automation", "automated", "robot", "bot", "api"}:
+        return "automated", "role_semantics"
+
+    label = _semantic_label_key(task_name)
+    if any(stem in label for stem in EXTERNAL_WAIT_STEMS):
+        return "external_wait", "semantic_rule"
+    if any(stem in label for stem in SUBSTANTIVE_WORK_STEMS):
+        return "active_human", "semantic_rule"
+    if any(stem in label for stem in SHORT_TRANSACTION_STEMS):
+        return "short_transaction", "semantic_rule"
+    return "active_human", "default"
+
+
+def infer_duration_policy(task_name: str, task_class: str) -> dict[str, float | str] | None:
+    """Return automatic, auditable duration bounds for rapid human work."""
+    if task_class != "short_transaction":
+        return None
+    label = _semantic_label_key(task_name)
+    if any(stem in label for stem in FINANCIAL_APPROVAL_STEMS):
+        return {
+            "id": "financial_approval",
+            "minimum_seconds": 30.0,
+            "fallback_seconds": 90.0,
+            "maximum_seconds": 180.0,
+            "std_seconds": 30.0,
+        }
+    return {
+        "id": "rapid_transaction",
+        "minimum_seconds": 1.0,
+        "fallback_seconds": 15.0,
+        "maximum_seconds": 60.0,
+        "std_seconds": 7.5,
+    }
 
 def extract_aurea_roles(root) -> dict[str, str]:
     """
@@ -185,6 +279,18 @@ def resolve_task_roles(bpmn_path: str | Path) -> dict[str, dict]:
         resource_instance_id = normalize_resource_instance_id(role_id)
         
         task_type = task_elem.tag.split('}', 1)[-1]
+        explicit_task_class = next(
+            (
+                value.strip()
+                for key, value in task_elem.attrib.items()
+                if key.rsplit('}', 1)[-1] == 'taskClass' and value.strip()
+            ),
+            None,
+        )
+        task_class, task_class_source = infer_task_class(
+            clean_task_name, task_type, explicit_task_class, role_name
+        )
+        duration_policy = infer_duration_policy(clean_task_name, task_class)
         resolved_tasks[task_id] = {
             "task_id": task_id,
             "original_task_name": original_task_name or task_id,
@@ -194,6 +300,9 @@ def resolve_task_roles(bpmn_path: str | Path) -> dict[str, dict]:
             "resource_instance_id": resource_instance_id,
             "role_source": role_source,
             "bpmn_task_type": task_type,
+            "task_class": task_class,
+            "task_class_source": task_class_source,
+            "duration_policy": duration_policy,
         }
         
     return resolved_tasks

@@ -52,10 +52,10 @@ most tests do not require an API key.
 ## Docker
 
 ```bash
-docker build -t aureasim:1.2.0 .
+docker build -t aureasim:1.3.0 .
 docker run --rm -p 8000:8000 \
   -e GEMINI_API_KEY="your-key" \
-  aureasim:1.2.0
+  aureasim:1.3.0
 ```
 
 Omit the environment variable when using offline examples.

@@ -4,10 +4,12 @@ from __future__ import annotations
 
 import math
 import re
+import statistics
 import unicodedata
 from collections import Counter
 from dataclasses import dataclass, field
 from datetime import datetime
+from itertools import combinations
 from typing import Iterable, Mapping, Sequence
 
 
@@ -86,6 +88,10 @@ class HistoricalTaskProfile:
     role_label: str = ""
     process_name: str = ""
     domain_fields: frozenset[str] = field(default_factory=frozenset)
+    # Exact (field-path, access-class) tokens for the task's form contract.
+    # It is deliberately task-specific: a process-wide field set cannot
+    # distinguish reused task labels with different permitted interactions.
+    form_access_signature: frozenset[str] = field(default_factory=frozenset)
     observation_count: int = 0
     # ISO-8601 bounds of the evidence used to derive this profile.  They are
     # deliberately profile metadata rather than a version-number heuristic:
@@ -103,6 +109,29 @@ class AnalogueMatch:
     domain: float
     score: float
     donor_scope: str = "cross_process"
+    form_access: float = 0.0
+
+
+def form_access_similarity(target: HistoricalTaskProfile, donor: HistoricalTaskProfile) -> float:
+    """Exact Jaccard similarity of task form-path/access signatures.
+
+    Missing signatures mean that compatibility is unverified, not perfect.
+    This avoids treating two unavailable form descriptions as evidence of a
+    common task contract.
+    """
+    left = {item.casefold() for item in target.form_access_signature if item}
+    right = {item.casefold() for item in donor.form_access_signature if item}
+    if not left or not right:
+        return 0.0
+    return len(left & right) / len(left | right)
+
+
+def _has_required_context(profile: HistoricalTaskProfile) -> bool:
+    return bool(profile.role_label and profile.predecessor_labels and profile.successor_labels)
+
+
+def _same_normalized_role(left: HistoricalTaskProfile, right: HistoricalTaskProfile) -> bool:
+    return bool(normalize_text(left.role_label)) and normalize_text(left.role_label) == normalize_text(right.role_label)
 
 
 def similarity_components(
@@ -230,3 +259,95 @@ def find_temporal_semantic_analogues(
             matches.append(AnalogueMatch(donor, score=score, donor_scope=scope, **components))
     matches.sort(key=lambda match: (-match.score, match.profile.process_alias, match.profile.task_id))
     return matches[:maximum_results]
+
+
+def find_temporal_semantic_analogues_v2(
+    target: HistoricalTaskProfile,
+    candidates: Iterable[HistoricalTaskProfile],
+    *,
+    weights: Mapping[str, float] | None = None,
+    minimum_score: float = 0.70,
+    minimum_form_access_similarity: float = 0.35,
+    maximum_results: int = 5,
+    minimum_observations: int = 30,
+) -> list[AnalogueMatch]:
+    """Retrieve HSAR-v2 donors with contract-aware cross-process screening.
+
+    Prior versions of the same logical process retain their own evidence route.
+    Cross-process donors must additionally have equal normalized roles,
+    populated predecessor/successor context, and an adequate exact form-access
+    signature.  The function does *not* pool donors; pooling is a separate,
+    auditable clustered step.
+    """
+    selected_weights = dict(
+        weights
+        or {"semantic": 0.55, "bpmn_context": 0.20, "role": 0.15, "domain": 0.10}
+    )
+    if not math.isclose(sum(selected_weights.values()), 1.0, abs_tol=1e-9):
+        raise ValueError("similarity weights must sum to one")
+    if not 0.0 <= minimum_form_access_similarity <= 1.0:
+        raise ValueError("minimum_form_access_similarity must be between zero and one")
+    if not _has_required_context(target):
+        return []
+    matches: list[AnalogueMatch] = []
+    for donor in candidates:
+        if donor.process_id == target.process_id and donor.process_version == target.process_version:
+            continue
+        if not is_strictly_prior(donor, target):
+            continue
+        if donor.task_kind != target.task_kind:
+            continue
+        if donor.parameter_family != target.parameter_family or donor.unit != target.unit:
+            continue
+        if donor.observation_count < minimum_observations or not _has_required_context(donor):
+            continue
+        if not _same_normalized_role(target, donor):
+            continue
+        scope = "prior_version" if donor.process_id == target.process_id else "cross_process"
+        form_access = form_access_similarity(target, donor)
+        if scope == "cross_process" and form_access < minimum_form_access_similarity:
+            continue
+        components = similarity_components(target, donor)
+        score = sum(selected_weights[name] * components[name] for name in selected_weights)
+        if score >= minimum_score:
+            matches.append(AnalogueMatch(
+                donor, score=score, donor_scope=scope, form_access=form_access, **components
+            ))
+    matches.sort(key=lambda match: (-match.score, match.profile.process_alias, match.profile.task_id))
+    return matches[:maximum_results]
+
+
+def select_consistent_donor_cluster(
+    matches: Sequence[AnalogueMatch],
+    samples_by_profile: Mapping[HistoricalTaskProfile, Sequence[float]],
+    *,
+    maximum_median_ratio: float = 2.0,
+    minimum_donors: int = 2,
+) -> tuple[list[AnalogueMatch], list[AnalogueMatch], dict[HistoricalTaskProfile, float]]:
+    """Select the largest internally consistent set of donor task medians.
+
+    The deterministic tie-breaker is total retrieval score then tighter median
+    ratio.  Values outside the selected cluster are returned explicitly rather
+    than silently blended into the candidate distribution.
+    """
+    if maximum_median_ratio < 1.0:
+        raise ValueError("maximum_median_ratio must be at least one")
+    medians: dict[HistoricalTaskProfile, float] = {}
+    usable: list[AnalogueMatch] = []
+    for match in matches:
+        values = [float(value) for value in samples_by_profile.get(match.profile, ()) if float(value) > 0]
+        if values:
+            medians[match.profile] = statistics.median(values)
+            usable.append(match)
+    candidates: list[tuple[int, float, float, tuple[AnalogueMatch, ...]]] = []
+    for size in range(minimum_donors, len(usable) + 1):
+        for subset in combinations(usable, size):
+            subset_medians = [medians[item.profile] for item in subset]
+            ratio = max(subset_medians) / min(subset_medians)
+            if ratio <= maximum_median_ratio:
+                candidates.append((len(subset), sum(item.score for item in subset), -ratio, subset))
+    if not candidates:
+        return [], list(matches), medians
+    chosen = list(max(candidates, key=lambda item: item[:3])[-1])
+    chosen_profiles = {item.profile for item in chosen}
+    return chosen, [item for item in matches if item.profile not in chosen_profiles], medians

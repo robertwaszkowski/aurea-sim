@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "aureasim"
-version = "1.2.1"
+version = "1.3.0"
 description = "AI-assisted preparation, review, and execution of BPMN process simulations"
 authors = [
     { name="Robert Waszkowski", email="robert.waszkowski@wat.edu.pl" }
