@@ -99,6 +99,12 @@ and task durations should be assessed jointly through simulation.
 - Operational cost fidelity is not reported because the source systems do not
   store resource costs.
 - Calendars remain declared assumptions unless independently established.
+- Resource allocation is a deliberate scenario intervention; it is not inferred
+  as an initial-value candidate. Waiting time and throughput are simulation
+  outputs, not Prosimos input parameters. Exclusive-gateway path probabilities
+  can be derived from calibration traces only when BPMN alignment identifies a
+  unique predecessor/path/successor transition; ambiguous routes are retained
+  as uncovered rather than imputed.
 
 ## Files written to a project
 
@@ -112,12 +118,14 @@ and task durations should be assessed jointly through simulation.
 | `baseline_validation.json` | Validation result tied to exact baseline and BPMN hashes. |
 | `.validation/<hash>/` | Sanitized smoke-test inputs and the one-case event log. |
 | `hybrid_configurations/<id>/` | Frozen selection manifest and executable snapshot. |
+| `gateway_probability_estimates` | Calibration-split exclusive-gateway estimates emitted by the process-miner connector when `--bpmn-root` is supplied. |
 
 ## Current scope
 
 Candidate substitution supports task execution-duration and process
-interarrival distributions, resource costs and capacities, and gateway-path
-probabilities. Other mined measures remain diagnostic until a semantically
-correct Prosimos mapping is implemented. Multi-expert consensus, continuous
+interarrival distributions, resource costs, and gateway-path probabilities.
+Resource capacity is managed as a baseline assumption and a scenario control.
+Other mined measures remain diagnostic until a semantically correct Prosimos
+mapping is implemented. Multi-expert consensus, continuous
 drift monitoring, automatic online recalibration, learned similarity weights,
 and organization-wide repository administration are future work.

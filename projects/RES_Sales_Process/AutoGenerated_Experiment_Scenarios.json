@@ -68,18 +68,9 @@
             }
         },
         {
-            "name": "D_Cost_Cutting",
+            "name": "D_Cost_Optimisation",
+            "description": "Tests cost sensitivity under unchanged staffing, using lower hourly-rate assumptions for selected roles.",
             "arrival_rate": 150000,
-            "resource_allocations": {
-                "System": 1,
-                "Customer": 1,
-                "KeyAccountManager": 1,
-                "EcoAdvisor": 0,
-                "Reviewer": 1,
-                "Coordinator": 0,
-                "Auditor": 0,
-                "Accountant": 1
-            },
             "cost_overrides": {
                 "KeyAccountManager": 40,
                 "Reviewer": 40,

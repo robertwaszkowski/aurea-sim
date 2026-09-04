@@ -474,7 +474,9 @@ def generate_pdf_report(report_settings, results_df, charts_path, output_pdf_pat
                     pdf.multi_cell(w, 10, line.replace('# ', ''))
                     pdf.set_font("helvetica", "", 10)
                 elif line.startswith('- ') or line.startswith('* '):
-                    pdf.multi_cell(w, 6, chr(149) + " " + line[2:])
+                    # Use the Unicode bullet supported by the embedded DejaVu font.
+                    # chr(149) is a Windows-1252 control character, not a Unicode bullet.
+                    pdf.multi_cell(w, 6, "\u2022 " + line[2:])
                 else:
                     pdf.multi_cell(w, 6, line)
             except Exception as e:

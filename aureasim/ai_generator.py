@@ -1330,7 +1330,10 @@ def generate_base_prosimos_json(
         reported_model = getattr(response, "model_version", None)
         generation_model = reported_model if isinstance(reported_model, str) else "unrecorded_legacy_response"
     
-    ai_data = json.loads(response.text)
+    # Provider-side JSON schemas are helpful but not a substitute for local
+    # validation. Re-validate before persisting so impossible scenarios (such
+    # as a task role assigned zero resources) never reach the UI or executor.
+    ai_data = ExperimentScenarioSchema.model_validate_json(response.text).model_dump()
     
     # --- Phase 2b: Strict Missing Task Validation ---
     expected_task_ids = {t["task_id"] for t in semantics.get("tasks", [])}

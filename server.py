@@ -363,6 +363,18 @@ def get_project(name: str):
         try:
             info["exp_params"] = json.loads(exp_params_file.read_text())
         except: pass
+    # Offline projects created before v1.3.0 stored the fixed experiment
+    # configuration in project_config.json. Keep those projects viewable while
+    # newly created projects store branding and experiment data separately.
+    if info["exp_params"] is None:
+        legacy_config_file = project_path / "project_config.json"
+        if legacy_config_file.exists():
+            try:
+                legacy_config = json.loads(legacy_config_file.read_text())
+                if isinstance(legacy_config.get("scenarios"), list):
+                    info["exp_params"] = legacy_config
+            except (OSError, json.JSONDecodeError):
+                pass
 
     # Aggregate, task-level process-mining references are optional local
     # evidence.  They are intentionally separate from the executable baseline.

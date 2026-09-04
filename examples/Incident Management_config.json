@@ -85,11 +85,11 @@
             "arrival_rate": 72000
         },
         {
-            "name": "C_Resource_Constraint",
-            "description": "Evaluates the process performance when a critical support role experiences a severe reduction in available personnel due to absenteeism.",
+            "name": "C_Increased_Capacity",
+            "description": "Evaluates whether an additional first-level support resource relieves the bottleneck created by elevated incident demand.",
             "arrival_rate": 144000,
             "resource_allocations": {
-                "Role_1st_level_support": 0
+                "Role_1st_level_support": 2
             }
         }
     ]
